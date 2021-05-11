@@ -14,6 +14,25 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::group(['prefix' => 'conductor'],function(){
+    Route::post("agregar", "App\Http\Controllers\ConductorController@agregar");
+});
+
+Route::group(['prefix' => 'propietario'],function(){
+    Route::post("agregar", "App\Http\Controllers\PropietarioController@agregar");
+});
+
+Route::group(['prefix' => 'vehiculo'],function(){
+    Route::post("agregar", "App\Http\Controllers\VehiculoController@agregar");
+});
+
+Route::get("color_vehiculo", "App\Http\Controllers\ColorVehiculoController@index");
+Route::get("marca_vehiculo", "App\Http\Controllers\MarcaVehiculoController@index");
+Route::get("dimension_vehiculo", "App\Http\Controllers\DimensionVehiculoController@index");
+Route::get("tipo_vehiculo", "App\Http\Controllers\TipoVehiculoController@index");
+
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
