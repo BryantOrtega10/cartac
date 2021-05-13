@@ -21,8 +21,9 @@ class CreateCliente extends Migration
             $table->string("cli_foto",255);
 
             $table->bigInteger('cli_fk_usr')->unsigned()->nullable();
-            $table->foreign('cli_fk_usr')->references('usr_id')->on('usuario')->onDelete('cascade');
+            $table->foreign('cli_fk_usr')->references('id')->on('users')->onDelete('cascade');
             $table->index('cli_fk_usr');
+            $table->engine = "InnoDB";
         });
 
         Schema::create('bono', function (Blueprint $table) {
@@ -32,6 +33,7 @@ class CreateCliente extends Migration
             $table->timestamp('bon_fecha_fin')->nullable()->useCurrent();
             $table->integer("bon_valor")->nullable();
             $table->float("bon_porcentaje")->nullable();
+            $table->engine = "InnoDB";
         });
 
         Schema::create('cliente_bono', function (Blueprint $table) {
@@ -50,6 +52,7 @@ class CreateCliente extends Migration
             $table->bigInteger('clb_fk_est')->unsigned();
             $table->foreign('clb_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
             $table->index('clb_fk_est');
+            $table->engine = "InnoDB";
 
         });
 
@@ -61,6 +64,7 @@ class CreateCliente extends Migration
             $table->bigInteger('tpg_fk_cli')->unsigned()->nullable();
             $table->foreign('tpg_fk_cli')->references('cli_id')->on('cliente')->onDelete('cascade');
             $table->index('tpg_fk_cli');
+            $table->engine = "InnoDB";
         });
 
         

@@ -21,6 +21,7 @@ class CreateServicio extends Migration
             $table->point("pea_ini")->nullable();
             $table->point("pea_fin")->nullable();
             $table->float("pea_radio");
+            $table->engine = "InnoDB";
 
         });
 
@@ -34,6 +35,7 @@ class CreateServicio extends Migration
             $table->bigInteger('ptv_fk_pea')->unsigned()->nullable();
             $table->foreign('ptv_fk_pea')->references('pea_id')->on('peaje')->onDelete('cascade');
             $table->index('ptv_fk_pea');
+            $table->engine = "InnoDB";
         });
 
         Schema::create('configuracion', function (Blueprint $table) {
@@ -41,7 +43,8 @@ class CreateServicio extends Migration
             $table->float("cfg_distancia");
             $table->float("cfg_tiempo");
             $table->float("cfg_peso");
-            $table->float("cfg_porcentaje_seguro");        
+            $table->float("cfg_porcentaje_seguro");  
+            $table->engine = "InnoDB";      
         });
 
         Schema::create('config_multiplicador', function (Blueprint $table) {
@@ -53,6 +56,7 @@ class CreateServicio extends Migration
             $table->bigInteger('cfm_fk_cfg')->unsigned()->nullable();
             $table->foreign('cfm_fk_cfg')->references('cfg_id')->on('configuracion')->onDelete('cascade');
             $table->index('cfm_fk_cfg');
+            $table->engine = "InnoDB";
             
         });
 
@@ -99,6 +103,7 @@ class CreateServicio extends Migration
             $table->bigInteger('ser_fk_est')->unsigned();
             $table->foreign('ser_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
             $table->index('ser_fk_est');
+            $table->engine = "InnoDB";
         });
 
         Schema::create('ruta', function (Blueprint $table) {
@@ -108,6 +113,7 @@ class CreateServicio extends Migration
             $table->bigInteger('rut_fk_ser')->unsigned()->nullable();
             $table->foreign('rut_fk_ser')->references('ser_id')->on('servicio')->onDelete('cascade');
             $table->index('rut_fk_ser');
+            $table->engine = "InnoDB";
         });
 
 
@@ -122,6 +128,7 @@ class CreateServicio extends Migration
             $table->bigInteger('pjs_fk_ser_id')->unsigned()->nullable();
             $table->foreign('pjs_fk_ser_id')->references('ser_id')->on('servicio')->onDelete('cascade');
             $table->index('pjs_fk_ser_id');
+            $table->engine = "InnoDB";
         });
 
 

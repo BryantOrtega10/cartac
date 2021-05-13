@@ -24,11 +24,11 @@ class AgregarPropietarioRequest extends FormRequest
     public function rules()
     {
         return [
-            'documento' => 'required',
-            'nombres' => 'required',
-            'apellidos' => 'required',
+            'cedula' => 'required',
+            'name' => 'required',
+            //'apellidos' => 'required',
             'email' => 'required',
-            'veh_con' => 'required',
+            'fk_user_conductor' => 'required',
             'cedula_f' => 'required',
             'cedula_r' => 'required',
             'carta_auto' => 'required',

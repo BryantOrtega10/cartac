@@ -24,17 +24,17 @@ class AgregarConductorRequest extends FormRequest
     public function rules()
     {
         return [
-            'documento' => 'required',
-            'nombres' => 'required',
-            'apellidos' => 'required',
+            'cedula' => 'required',
+            'name' => 'required',
+            //'apellidos' => 'required',
             'email' => 'required|unique:usuario,usr_email',
-            'direccion' => 'required',
-            'foto' => 'required',
-            'password' => 'required',
+            'address' => 'required',
+            'photo' => 'required',
+            'pass' => 'required',
             'cedula_f' => 'required',
             'cedula_r' => 'required',
             'licencia_c' => 'required',
-            'esPropietario' => 'required'            
+            //'esPropietario' => 'required'            
         ];
     }
    

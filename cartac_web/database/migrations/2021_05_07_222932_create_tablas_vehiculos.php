@@ -17,32 +17,47 @@ class CreateTablasVehiculos extends Migration
             $table->id("est_id");
             $table->string("est_name",100);
             $table->string("est_clase",100);
+            $table->engine = "InnoDB";
         });
 
         Schema::create('color_veh', function (Blueprint $table) {
             $table->id("col_id");
             $table->string("col_name",100);
+            $table->engine = "InnoDB";
         });
 
         Schema::create('marca_veh', function (Blueprint $table) {
             $table->id("mar_id");
             $table->string("mar_name",100);
+            $table->engine = "InnoDB";
         });
 
         Schema::create('tipo_documento', function (Blueprint $table) {
             $table->id("tpd_id");
             $table->string("tpd_nombre",100);
+            $table->engine = "InnoDB";
         });
 
         Schema::create('dimension_veh', function (Blueprint $table) {
             $table->id("dim_id");
             $table->string("dim_name",45);
+            $table->engine = "InnoDB";
+        });
+
+        Schema::create('categoria_peaje', function (Blueprint $table) {
+            $table->id("ctp_id");
+            $table->string("ctp_name",45);
+            $table->engine = "InnoDB";
+
         });
 
         Schema::create('tipo_veh', function (Blueprint $table) {
             $table->id("tip_id");
-            $table->string("tip_name",45);
-            $table->string("tip_alias",100);
+            $table->string("tip_name",100);
+            $table->bigInteger('tip_fk_ctp')->unsigned();
+            $table->foreign('tip_fk_ctp')->references('ctp_id')->on('categoria_peaje')->onDelete('cascade');
+            $table->index('tip_fk_ctp');
+            $table->engine = "InnoDB";
         });
 
         Schema::create('dimension_tipo_veh', function (Blueprint $table) {
@@ -53,6 +68,7 @@ class CreateTablasVehiculos extends Migration
             $table->bigInteger('fk_tip')->unsigned();
             $table->foreign('fk_tip')->references('tip_id')->on('tipo_veh')->onDelete('cascade');
             $table->index('fk_tip');
+            $table->engine = "InnoDB";
         });
 
         Schema::create('propietario', function (Blueprint $table) {
@@ -64,6 +80,7 @@ class CreateTablasVehiculos extends Migration
             $table->bigInteger('pro_fk_tpd')->unsigned();
             $table->foreign('pro_fk_tpd')->references('tpd_id')->on('tipo_documento')->onDelete('cascade');
             $table->index('pro_fk_tpd');
+            $table->engine = "InnoDB";
         });
 
         
@@ -94,6 +111,7 @@ class CreateTablasVehiculos extends Migration
             $table->bigInteger('veh_fk_est')->unsigned();
             $table->foreign('veh_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
             $table->index('veh_fk_est');
+            $table->engine = "InnoDB";
         });
 
 
@@ -106,6 +124,7 @@ class CreateTablasVehiculos extends Migration
             $table->bigInteger('cat_fk_cat')->unsigned()->nullable();
             $table->foreign('cat_fk_cat')->references('cat_id')->on('categoria')->onDelete('cascade');
             $table->index('cat_fk_cat');
+            $table->engine = "InnoDB";
         });
 
         Schema::create('vehiculo_categoria', function (Blueprint $table) {
@@ -117,6 +136,7 @@ class CreateTablasVehiculos extends Migration
             $table->bigInteger('fk_cat_id')->unsigned();
             $table->foreign('fk_cat_id')->references('cat_id')->on('categoria')->onDelete('cascade');
             $table->index('fk_cat_id');
+            $table->engine = "InnoDB";
         });
 
     }
@@ -144,6 +164,9 @@ class CreateTablasVehiculos extends Migration
 
             $table->dropForeign('vehiculo_veh_fk_pro_foreign');
             $table->dropIndex('vehiculo_veh_fk_pro_index');
+
+            $table->dropForeign('vehiculo_veh_fk_est_foreign');
+            $table->dropIndex('vehiculo_veh_fk_est_index');
             
         });
 
@@ -153,6 +176,11 @@ class CreateTablasVehiculos extends Migration
             $table->dropIndex('propietario_pro_fk_tpd_index');
             
             
+        });
+        Schema::table('tipo_veh', function(Blueprint $table)
+        {            
+            $table->dropForeign('tipo_veh_tip_fk_ctp_foreign');
+            $table->dropIndex('tipo_veh_tip_fk_ctp_index');
         });
 
         Schema::table('dimension_tipo_veh', function(Blueprint $table)
@@ -167,8 +195,19 @@ class CreateTablasVehiculos extends Migration
 
             
         });
-        
 
+        Schema::table('vehiculo_categoria', function(Blueprint $table)
+        {
+            $table->dropForeign('vehiculo_categoria_fk_veh_id_foreign');
+            $table->dropIndex('vehiculo_categoria_fk_veh_id_index');
+            
+            
+            $table->dropForeign('vehiculo_categoria_fk_cat_id_foreign');
+            $table->dropIndex('vehiculo_categoria_fk_cat_id_index');
+            
+
+            
+        });
 
         Schema::dropIfExists('vehiculo');
         Schema::dropIfExists('propietario');
@@ -179,5 +218,10 @@ class CreateTablasVehiculos extends Migration
         Schema::dropIfExists('tipo_documento');
         Schema::dropIfExists('marca_veh');
         Schema::dropIfExists('color_veh');
+        Schema::dropIfExists('vehiculo_categoria');
+        Schema::dropIfExists('categoria');
+        Schema::dropIfExists('categoria_peaje');
+        Schema::dropIfExists('estado');
+        
     }
 }

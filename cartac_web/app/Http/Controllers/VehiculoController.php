@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\AgregarVehiculoRequest;
+use App\Models\ConductorModel;
 use App\Models\VehiculoModel;
 use App\Models\DimensionTipoVehiculoModel;
 use App\Models\DocumentacionModel;
+use App\Models\PropietarioModel;
 use App\Models\VehiculoCategoriaModel;
 use App\Models\VehiculoConductorModel;
 use Illuminate\Http\Request;
@@ -15,27 +17,42 @@ class VehiculoController extends Controller
     //Agrega vehiculos
     public function agregar(AgregarVehiculoRequest $request){  
 
-        $dim_tip = DimensionTipoVehiculoModel::where("fk_dim",$request->dimension)->where("fk_tip", $request->tipo)->first();
+        $request->dimension = 1;
+        $dim_tip = DimensionTipoVehiculoModel::where("fk_dim",$request->dimension)->where("fk_tip", $request->typeFk)->first();
 
         if(!isset($dim_tip)){
             $dim_tip = new DimensionTipoVehiculoModel();
             $dim_tip->fk_dim = $request->dimension;
-            $dim_tip->fk_tip = $request->tipo;
+            $dim_tip->fk_tip = $request->typeFk;
             $dim_tip->save();
         }
 
+        
         $vehiculo = new VehiculoModel();
-        $foto = Funciones::imagenBase64($request->foto, "imgs/vehiculos/".time()."_vehiculo_".$request->documento.".png");
+        $foto = Funciones::imagenBase64($request->image, "imgs/vehiculos/".time()."_vehiculo_".$request->documento.".png");
         $vehiculo->veh_foto = $foto;
         $vehiculo->veh_placa = $request->placa;
-        $vehiculo->veh_fk_col = $request->color;
-        $vehiculo->veh_fk_mar = $request->marca;
+        $vehiculo->veh_fk_col = $request->fkCarColor;
+        $vehiculo->veh_fk_mar = $request->fkCarBrand;
         $vehiculo->veh_fk_dim_tip = $dim_tip->id;
         $vehiculo->veh_fk_est = 2;
+        if($request->has("id_owner")){
+            $vehiculo->veh_fk_pro = $request->id_owner;
+        }
+        else{
+            $conductor = ConductorModel::where("con_id", "=", $request->fkUserConductor)->first();
+            $propietario = PropietarioModel::where("pro_documento","=",$conductor->documento)->first();
+            if(isset($propietario)){
+                $vehiculo->veh_fk_pro = $propietario->pro_id;
+            }
+        }
         $vehiculo->save();
 
+        
+
+
         //Agregar categorias
-        $categorias = explode(",",$request->categorias);
+        $categorias = explode(",",$request->subCategoryFk);
         foreach($categorias as $categoria){
             VehiculoCategoriaModel::insert([
                 "fk_veh_id" => $vehiculo->veh_id,
@@ -43,11 +60,16 @@ class VehiculoController extends Controller
             ]);
         }
 
-        $vehiculo_conductor = new VehiculoConductorModel();
-        $vehiculo_conductor->fk_veh_id = $vehiculo->veh_id;
-        $vehiculo_conductor->fk_con_id = $request->con_id;
-        $vehiculo_conductor->fk_est_id = 2;
-        $vehiculo_conductor->save();
+        $vehiculo_conductor = VehiculoConductorModel::where("fk_con_id","=",$request->fkUserConductor)
+                                                     ->whereIsNull("fk_veh_id")->first();
+        if(!isset($vehiculo_conductor)){
+            $vehiculo_conductor = new VehiculoConductorModel();
+            $vehiculo_conductor->fk_con_id = $request->fkUserConductor;
+            $vehiculo_conductor->fk_veh_id = null;
+            $vehiculo_conductor->fk_est_id = 2;
+            $vehiculo_conductor->save();
+        }
+
 
         $tarjeta_prop = Funciones::imagenBase64($request->tarjeta_prop, "imgs/documentacion/".time()."_tarjeta_prop.png");
         $documentacion_tarjeta_prop = new DocumentacionModel();
@@ -72,17 +94,15 @@ class VehiculoController extends Controller
         $documentacion_tecno->doc_fk_veh = $vehiculo->veh_id;
         $documentacion_tecno->doc_fk_est = 2;
         $documentacion_tecno->save();
-
+        
         return response()->json([
             "success" => true,
             "data" => [
-                "veh_id" => $vehiculo->veh_id,
-                "veh_con" => $vehiculo_conductor->veh_con_id
+                "sesionUsr" => [
+                    "id_car" => $vehiculo->veh_id
+                ]                
             ]
         ]);
-        
-
-        //$grupoConcepto = GrupoConcepto::findOrFail($id);
-        
+        //$grupoConcepto = GrupoConcepto::findOrFail($id);        
     }
 }

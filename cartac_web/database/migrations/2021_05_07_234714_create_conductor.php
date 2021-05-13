@@ -13,26 +13,7 @@ class CreateConductor extends Migration
      */
     public function up()
     {
-        Schema::create('rol', function (Blueprint $table) {
-            $table->id("rol_id");
-            $table->string("rol_name",100);
-        });
-
-        Schema::create('usuario', function (Blueprint $table) {
-            $table->id("usr_id");
-            $table->string('usr_email')->unique();
-            $table->string('usr_password');
-            $table->string('usr_remember_token', 100)->nullable();
-            $table->string('usr_token', 100)->nullable();
-            $table->timestamp('usr_created_at')->nullable()->useCurrent();
-            $table->timestamp('usr_updated_at')->nullable()->useCurrent();
-
-            $table->bigInteger('usr_fk_rol')->unsigned();
-            $table->foreign('usr_fk_rol')->references('rol_id')->on('rol')->onDelete('cascade');
-            $table->index('usr_fk_rol');
-            
-        });
-
+        
         Schema::create('conductor', function (Blueprint $table) {
             $table->id("con_id");
             $table->string("con_documento",45);
@@ -50,7 +31,7 @@ class CreateConductor extends Migration
             $table->index('con_fk_tpd');
 
             $table->bigInteger('con_fk_usr')->unsigned();
-            $table->foreign('con_fk_usr')->references('usr_id')->on('usuario')->onDelete('cascade');
+            $table->foreign('con_fk_usr')->references('id')->on('users')->onDelete('cascade');
             $table->index('con_fk_usr');
 
             $table->bigInteger('con_fk_est')->unsigned();
@@ -59,27 +40,30 @@ class CreateConductor extends Migration
 
             $table->integer("con_billetera")->nullable();
             $table->string("con_numero_billetera",10)->nullable();
+            $table->engine = "InnoDB";
         });
         Schema::create('vehiculo_conductor', function (Blueprint $table) {
             
             $table->id("veh_con_id");
             
-            $table->bigInteger('fk_veh_id')->unsigned();
+            $table->bigInteger('fk_veh_id')->unsigned()->nullable();
             $table->foreign('fk_veh_id')->references('veh_id')->on('vehiculo')->onDelete('cascade');
             $table->index('fk_veh_id');
             
-            $table->bigInteger('fk_con_id')->unsigned();
+            $table->bigInteger('fk_con_id')->unsigned()->nullable();
             $table->foreign('fk_con_id')->references('con_id')->on('conductor')->onDelete('cascade');
             $table->index('fk_con_id');
 
             $table->bigInteger('fk_est_id')->unsigned();
             $table->foreign('fk_est_id')->references('est_id')->on('estado')->onDelete('cascade');
             $table->index('fk_est_id');
+            $table->engine = "InnoDB";
         });
 
         Schema::create('tipo_documentacion', function (Blueprint $table) {
             $table->id("tdo_id");
-            $table->string('tdo_name',100);            
+            $table->string('tdo_name',100);      
+            $table->engine = "InnoDB";      
         });
         
         Schema::create('documentacion', function (Blueprint $table) {
@@ -106,7 +90,7 @@ class CreateConductor extends Migration
             $table->foreign('doc_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
             $table->index('doc_fk_est');
 
-
+            $table->engine = "InnoDB";
 
         });
     }
@@ -151,18 +135,11 @@ class CreateConductor extends Migration
             $table->dropIndex('conductor_con_fk_tpd_index');
         });
 
-        Schema::table('usuario', function(Blueprint $table)
-        {
-            $table->dropForeign('usuario_usr_fk_rol_foreign');
-            $table->dropIndex('usuario_usr_fk_rol_index');
-
-        });
+  
 
         Schema::dropIfExists('tipo_documentacion');
         Schema::dropIfExists('documentacion');
         Schema::dropIfExists('conductor');
-        Schema::dropIfExists('usuario');
-        Schema::dropIfExists('rol');
         Schema::dropIfExists('vehiculo_conductor');
 
     }

@@ -15,8 +15,13 @@ class TipoVehiculoModel extends Model
 
     protected $fillable = [
         'tip_name',
-        'tip_alias'
+        'tip_fk_ctp'
     ];
 
     public $timestamps = false;
+
+    public function categoria_peaje()
+    {
+        return $this->belongsTo(CategoriaPeajeModel::class, 'tip_fk_ctp', 'ctp_id');
+    }
 }

@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\CategoriaModel;
+use App\Models\CategoriaPeajeModel;
 use App\Models\ColorVehiculoModel;
 use App\Models\DimensionTipoVehiculoModel;
 use App\Models\EstadoModel;
@@ -23,38 +24,112 @@ class BaseTablasSeeder extends Seeder
      */
     public function run()
     {
-        TipoVehiculoModel::insert([
+        CategoriaPeajeModel::insert([
             [
-            'tip_name' => "CATEGORÍA 1",
-            'tip_alias' => "Automóviles, camperos y camionetas"
-            ],[
-            'tip_name' => "CATEGORÍA 2",
-            'tip_alias' => "Buses"
-            ],[
-            'tip_name' => "CATEGORÍA 3 y 4",
-            'tip_alias' => "Camiones de dos ejes"
-            ],[
-            'tip_name' => "CATEGORÍA 5",
-            'tip_alias' => "Camiones de tres y cuatro ejes"
-            ],[
-            'tip_name' => "CATEGORÍA 6",
-            'tip_alias' => "Camiones de cinco ejes"
+                'ctp_name' => "No aplica"
+            ],
+            [
+                'ctp_name' => "CATEGORÍA 1"
+            ],
+            [
+                'ctp_name' => "CATEGORÍA 2"
+            ],
+            [
+                'ctp_name' => "CATEGORÍA 3"
+            ],
+            [
+                'ctp_name' => "CATEGORÍA 4"
+            ],
+            [
+                'ctp_name' => "CATEGORÍA 5"
+            ],
+            [
+                'ctp_name' => "CATEGORÍA 6"
+            ],
+            [
+                'ctp_name' => "CATEGORÍA 7"
             ]
         ]);
+
+        TipoVehiculoModel::insert([
+            [
+                "tip_name" => "MOTOCARRO",
+                "tip_fk_ctp" => "1"
+            ], [
+                "tip_name" => "CAMIONETA PLATON",
+                "tip_fk_ctp" => "2"
+            ], [
+                "tip_name" => "VANS DE CARGA",
+                "tip_fk_ctp" => "4"
+            ], [
+                "tip_name" => "REMOLQUE ABIERTO",
+                "tip_fk_ctp" => "4"
+            ], [
+                "tip_name" => "FURGON",
+                "tip_fk_ctp" => "5"
+            ], [
+                "tip_name" => "FURGON GRANDE TURBO",
+                "tip_fk_ctp" => "5"
+            ], [
+                "tip_name" => "TRACTOCAMION 4 EJES",
+                "tip_fk_ctp" => "6"
+            ], [
+                "tip_name" => "TRACTOCAMION 6 EJES",
+                "tip_fk_ctp" => "8"
+            ], [
+                "tip_name" => "VOLQUETA",
+                "tip_fk_ctp" => "6"
+            ], [
+                "tip_name" => "CAMION TRANS CONTAINER (PLANCHON CON UÑAS)",
+                "tip_fk_ctp" => "8"
+            ], [
+                "tip_name" => "CAMION CISTERNA",
+                "tip_fk_ctp" => "6"
+            ], [
+                "tip_name" => "CAMION FRIGORIFICO",
+                "tip_fk_ctp" => "5"
+            ], [
+                "tip_name" => "CAMION PLANCHA",
+                "tip_fk_ctp" => "5"
+            ], [
+                "tip_name" => "CAMION NINERA",
+                "tip_fk_ctp" => "8"
+            ], [
+                "tip_name" => "CAMION GRUA",
+                "tip_fk_ctp" => "6"
+            ], [
+                "tip_name" => "CAMION CAMA BAJA",
+                "tip_fk_ctp" => "6"
+            ], [
+                "tip_name" => "CAMION CON ESTACAS",
+                "tip_fk_ctp" => "6"
+            ], [
+                "tip_name" => "CAMION CON CARPA",
+                "tip_fk_ctp" => "6"
+            ], [
+                "tip_name" => "GRUA PARA VEHICULO",
+                "tip_fk_ctp" => "5"
+            ], [
+                "tip_name" => "GRUA PARA MOTO",
+                "tip_fk_ctp" => "5"
+            ]
+        ]);
+
+
 
         EstadoModel::insert([
             [
                 'est_name' => 'ACTIVO',
                 'est_clase' => 'activo',
-            ],[
+            ], [
                 'est_name' => 'POR APROBAR',
                 'est_clase' => 'por_aprobar',
-            ],[
+            ], [
                 'est_name' => 'RECHAZADO',
                 'est_clase' => 'rechazado',
             ]
         ]);
-        
+
         TipoDocumentoModel::insert([
             [
                 'tpd_nombre' => "Cédula de ciudadania"
@@ -70,23 +145,23 @@ class BaseTablasSeeder extends Seeder
         TipoDocumentacionModel::insert([
             [
                 "tdo_name" => "Cedula frente conductor"
-            ],[
+            ], [
                 "tdo_name" => "Cedula respaldo conductor"
-            ],[
+            ], [
                 "tdo_name" => "Licencia de conducción"
-            ],[
+            ], [
                 "tdo_name" => "Certificación bancaria"
-            ],[
+            ], [
                 "tdo_name" => "Cedula frente propietario"
-            ],[
+            ], [
                 "tdo_name" => "Cedula respaldo propietario"
-            ],[
+            ], [
                 "tdo_name" => "Carta autorización propietario"
-            ],[
+            ], [
                 "tdo_name" => "Tarjeta propiedad vehiculo"
-            ],[
+            ], [
                 "tdo_name" => "SOAT vehiculo"
-            ],[
+            ], [
                 "tdo_name" => "Tecnomecanica vehiculo"
             ]
         ]);
@@ -94,18 +169,18 @@ class BaseTablasSeeder extends Seeder
         DimensionVehiculoModel::insert([
             [
                 "dim_name" => "Grande"
-            ],[
+            ], [
                 "dim_name" => "Mediano"
-            ],[            
+            ], [
                 "dim_name" => "Pequeño"
-            ]            
+            ]
         ]);
 
         DimensionTipoVehiculoModel::insert([
             [
                 "fk_dim" => "1",
                 "fk_tip" => "1"
-            ],[
+            ], [
                 "fk_dim" => "1",
                 "fk_tip" => "2"
             ],
@@ -123,9 +198,9 @@ class BaseTablasSeeder extends Seeder
             ],
             [
                 "cat_name" => "Carga especial"
-            ]            
+            ]
         ]);
-        
+
         CategoriaModel::insert([
             [
                 "cat_name" => "Refrigerados",
@@ -145,22 +220,34 @@ class BaseTablasSeeder extends Seeder
             ]
         ]);
 
+        
         ColorVehiculoModel::insert([
-            [
-                "col_name" => "NEGRO"
-            ],
-            [
-                "col_name" => "Azul"
-            ]
+            ["col_name" => "Negro"],
+            ["col_name" => "Rojo"],
+            ["col_name" => "Verde"],
+            ["col_name" => "Morado"],
+            ["col_name" => "Gris"],
+            ["col_name" => "Gris plateado"],
+            ["col_name" => "Plateado"],
+            ["col_name" => "Azul"],
+            ["col_name" => "Azul plateado"],
+            ["col_name" => "Cafe"],
+            ["col_name" => "Marron"],
+            ["col_name" => "Lila"],
+            ["col_name" => "amarillo"],
+            ["col_name" => "Blanco"],
+            ["col_name" => "Blanco abano"],
+            ["col_name" => "Blanco Perla"],
+            ["col_name" => "Dorado"],
+            ["col_name" => "Naranja"]
         ]);
 
         MarcaVehiculoModel::insert([
             [
                 "mar_name" => "Renault"
-            ],[
+            ], [
                 "mar_name" => "Mazda"
             ]
         ]);
-
     }
 }

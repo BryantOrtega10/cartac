@@ -25,16 +25,16 @@ class AgregarVehiculoRequest extends FormRequest
     {
         return [
             'placa' => 'required',
-            'color' => 'required',
-            'marca' => 'required',
-            'dimension' => 'required',
-            'tipo' => 'required',
-            'foto' => 'required',
-            'con_id' => 'required',
+            'fkCarColor' => 'required',
+            'fkCarBrand' => 'required',
+            //'dimension' => 'required',
+            'typeFk' => 'required',
+            'image' => 'required',
+            'fkUserConductor' => 'required',
             'tarjeta_prop' => 'required',
             'soat' => 'required',
             'tecno' => 'required',
-            'categorias' => 'required'
+            'subCategoryFk' => 'required'
         ];
     }
 }

@@ -28,34 +28,35 @@ class ConductorController extends Controller
     {   
         $usuario = new UsuarioModel();
         $usuario->usr_email = $request->email;
-        $usuario->setPasswordAttribute($request->password);
+        $usuario->setPasswordAttribute($request->pass);
         $usuario->usr_fk_rol = 1;
         $save_usuario = $usuario->save();
 
         $conductor = new ConductorModel();
-        $conductor->con_documento = $request->documento;
-        $conductor->con_nombres = $request->nombres;
-        $conductor->con_apellidos = $request->apellidos;
+        $conductor->con_documento = $request->cedula;
+        $conductor->con_nombres = $request->name;
+        //$conductor->con_apellidos = $request->apellidos;
+        $conductor->con_apellidos = "";
         $conductor->con_email = $request->email;
-        if($request->has("celular")){
-            $conductor->con_celular = $request->telefono;
+        if($request->has("phone")){
+            $conductor->con_celular = $request->phone;
         }
-        $conductor->con_direccion = $request->direccion;
-        $foto = Funciones::imagenBase64($request->foto, "imgs/users/".time()."_usuario_".$request->documento.".png");
+        $conductor->con_direccion = $request->address;
+        $foto = Funciones::imagenBase64($request->photo, "imgs/users/".time()."_usuario_".$request->cedula.".png");
         $conductor->con_foto = $foto;
         $conductor->con_fk_tpd = 1;
         $conductor->con_fk_usr = $usuario->usr_id;
         $conductor->con_fk_est = 2;
        
 
-        if($request->has("billetera") && $request->has("numero_billetera")){
-            $conductor->con_billetera = $request->billetera;
-            $conductor->con_numero_billetera = $request->numero_billetera;
+        if($request->has("wallet_type") && $request->has("wallet_number")){
+            $conductor->con_billetera = $request->wallet_type;
+            $conductor->con_numero_billetera = $request->wallet_number;
         }
         
         $save_conductor = $conductor->save();
 
-        $cedula_f = Funciones::imagenBase64($request->cedula_f, "imgs/documentacion/".time()."_cedula_f_".$request->documento.".png");
+        $cedula_f = Funciones::imagenBase64($request->cedula_f, "imgs/documentacion/".time()."_cedula_f_".$request->cedula.".png");
         $documentacion_cedula_f = new DocumentacionModel();
         $documentacion_cedula_f->doc_ruta = $cedula_f;
         $documentacion_cedula_f->doc_fk_tdo = 1;
@@ -63,7 +64,7 @@ class ConductorController extends Controller
         $documentacion_cedula_f->doc_fk_est = 2;
         $documentacion_cedula_f->save();
 
-        $cedula_r = Funciones::imagenBase64($request->cedula_r, "imgs/documentacion/".time()."_cedula_r_".$request->documento.".png");
+        $cedula_r = Funciones::imagenBase64($request->cedula_r, "imgs/documentacion/".time()."_cedula_r_".$request->cedula.".png");
         $documentacion_cedula_r = new DocumentacionModel();
         $documentacion_cedula_r->doc_ruta = $cedula_r;
         $documentacion_cedula_r->doc_fk_tdo = 2;
@@ -71,7 +72,7 @@ class ConductorController extends Controller
         $documentacion_cedula_r->doc_fk_est = 2;
         $documentacion_cedula_r->save();
 
-        $licencia_c = Funciones::imagenBase64($request->licencia_c, "imgs/documentacion/".time()."_licencia_c_".$request->documento.".png");
+        $licencia_c = Funciones::imagenBase64($request->licencia_c, "imgs/documentacion/".time()."_licencia_c_".$request->cedula.".png");
         $documentacion_licencia_c = new DocumentacionModel();
         $documentacion_licencia_c->doc_ruta = $licencia_c;
         $documentacion_licencia_c->doc_fk_tdo = 3;
@@ -80,7 +81,7 @@ class ConductorController extends Controller
         $documentacion_licencia_c->save();
 
         if($request->has("cert_banc")){
-            $cert_banc = Funciones::imagenBase64($request->cert_banc, "imgs/documentacion/".time()."_cert_banc_".$request->documento.".png");
+            $cert_banc = Funciones::imagenBase64($request->cert_banc, "imgs/documentacion/".time()."_cert_banc_".$request->cedula.".png");
             $documentacion_cert_banc = new DocumentacionModel();
             $documentacion_cert_banc->doc_ruta = $cert_banc;
             $documentacion_cert_banc->doc_fk_tdo = 4;
@@ -89,9 +90,9 @@ class ConductorController extends Controller
             $documentacion_cert_banc->save();
         }
 
-        if($request->esPropietario == "1"){
+        if(isset($request->esPropietario) && $request->esPropietario == "1"){
             $propietario = new PropietarioModel();
-            $propietario->pro_documento = $request->documento;
+            $propietario->pro_documento = $request->cedula;
             $propietario->pro_nombres = $request->nombres;
             $propietario->pro_apellidos = $request->apellidos;
             $propietario->pro_email = $request->email;
@@ -104,7 +105,9 @@ class ConductorController extends Controller
             return response()->json([
                 "success" => true,
                 "data" => [
-                    "conductor" => $conductor   
+                    "sesionUsr" => [
+                        "id" => $conductor->con_id
+                    ]   
                 ]
             ]);
         }
