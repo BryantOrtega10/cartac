@@ -38,7 +38,7 @@ class ConductorModel extends Model
     
     public function usuario()
     {
-        return $this->belongsTo(UsuarioModel::class, 'con_fk_usr', 'usr_id');
+        return $this->belongsTo(User::class, 'con_fk_usr', 'id');
     }
 
     public function estado()
