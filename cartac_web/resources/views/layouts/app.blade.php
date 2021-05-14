@@ -89,6 +89,7 @@
         </nav>
         @endif
         <div class="row mx-0">
+            @if (Auth::check())
             <div class="col-2 px-0 contenedor-menu-horizontal activo">
                 <div class="menu-horizontal">
                     <ul class="menu">
@@ -114,6 +115,7 @@
                 </div>
                 
             </div>
+            @endif
             <div class="col">
                 <main class="py-4">
                     @yield('content')

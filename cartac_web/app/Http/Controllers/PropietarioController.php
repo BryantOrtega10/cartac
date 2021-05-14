@@ -28,12 +28,12 @@ class PropietarioController extends Controller
         }
         //$vehiculo_conductor = VehiculoConductorModel::where("veh_con_id","=",$request->veh_con)->first();        
         $vehiculo_conductor = VehiculoConductorModel::where("fk_con_id","=",$request->fk_user_conductor)
-                                                     ->whereIsNull("fk_veh_id")->first();
+                                                     ->whereNull("fk_veh_id")->first();
 
         if(!isset($vehiculo_conductor)){
             $vehiculo_conductor = new VehiculoConductorModel();
-            $vehiculo_conductor->fk_con_id = $request->fk_user_conductor;
             $vehiculo_conductor->fk_veh_id = null;
+            $vehiculo_conductor->fk_con_id = $request->fk_user_conductor;            
             $vehiculo_conductor->fk_est_id = 2;
             $vehiculo_conductor->save();
         }        

@@ -27,16 +27,21 @@ class VehiculoController extends Controller
             $dim_tip->save();
         }
 
-        
+        $request->placa = str_replace('-',"",$request->placa);
+        $request->placa = str_replace('_',"",$request->placa);
+        $request->placa = str_replace(' ',"",$request->placa);
+
+
         $vehiculo = new VehiculoModel();
-        $foto = Funciones::imagenBase64($request->image, "imgs/vehiculos/".time()."_vehiculo_".$request->documento.".png");
+        $foto = Funciones::imagenBase64($request->image, "imgs/vehiculos/".time()."_vehiculo_".$request->placa.".png");
         $vehiculo->veh_foto = $foto;
         $vehiculo->veh_placa = $request->placa;
         $vehiculo->veh_fk_col = $request->fkCarColor;
         $vehiculo->veh_fk_mar = $request->fkCarBrand;
         $vehiculo->veh_fk_dim_tip = $dim_tip->id;
         $vehiculo->veh_fk_est = 2;
-        if($request->has("id_owner")){
+        if($request->has("id_owner") && !empty($request->id_owner)){
+            
             $vehiculo->veh_fk_pro = $request->id_owner;
         }
         else{
@@ -61,7 +66,7 @@ class VehiculoController extends Controller
         }
 
         $vehiculo_conductor = VehiculoConductorModel::where("fk_con_id","=",$request->fkUserConductor)
-                                                     ->whereIsNull("fk_veh_id")->first();
+                                                     ->whereNull("fk_veh_id")->first();
         if(!isset($vehiculo_conductor)){
             $vehiculo_conductor = new VehiculoConductorModel();
             $vehiculo_conductor->fk_con_id = $request->fkUserConductor;

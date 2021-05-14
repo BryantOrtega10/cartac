@@ -26,7 +26,7 @@ class AgregarConductorRequest extends FormRequest
         return [
             'cedula' => 'required',
             'name' => 'required',
-            //'apellidos' => 'required',
+            'apellidos' => 'required',
             'email' => 'required|unique:usuario,usr_email',
             'address' => 'required',
             'photo' => 'required',

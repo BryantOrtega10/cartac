@@ -6,8 +6,9 @@ use App\Http\Requests\AgregarConductorRequest;
 use App\Models\ConductorModel;
 use App\Models\DocumentacionModel;
 use App\Models\PropietarioModel;
-use App\Models\UsuarioModel;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class ConductorController extends Controller
 {
@@ -26,17 +27,16 @@ class ConductorController extends Controller
     //Agrega conductores
     public function agregar(AgregarConductorRequest $request)
     {   
-        $usuario = new UsuarioModel();
-        $usuario->usr_email = $request->email;
-        $usuario->setPasswordAttribute($request->pass);
-        $usuario->usr_fk_rol = 1;
+        $usuario = new User();
+        $usuario->email = $request->email;
+        $usuario->password = Hash::make($request->pass);
+        $usuario->fk_rol = 1;
         $save_usuario = $usuario->save();
 
         $conductor = new ConductorModel();
         $conductor->con_documento = $request->cedula;
         $conductor->con_nombres = $request->name;
-        //$conductor->con_apellidos = $request->apellidos;
-        $conductor->con_apellidos = "";
+        $conductor->con_apellidos = $request->apellidos;
         $conductor->con_email = $request->email;
         if($request->has("phone")){
             $conductor->con_celular = $request->phone;
@@ -45,7 +45,7 @@ class ConductorController extends Controller
         $foto = Funciones::imagenBase64($request->photo, "imgs/users/".time()."_usuario_".$request->cedula.".png");
         $conductor->con_foto = $foto;
         $conductor->con_fk_tpd = 1;
-        $conductor->con_fk_usr = $usuario->usr_id;
+        $conductor->con_fk_usr = $usuario->id;
         $conductor->con_fk_est = 2;
        
 
@@ -93,7 +93,7 @@ class ConductorController extends Controller
         if(isset($request->esPropietario) && $request->esPropietario == "1"){
             $propietario = new PropietarioModel();
             $propietario->pro_documento = $request->cedula;
-            $propietario->pro_nombres = $request->nombres;
+            $propietario->pro_nombres = $request->name;
             $propietario->pro_apellidos = $request->apellidos;
             $propietario->pro_email = $request->email;
             $propietario->pro_fk_tpd = 1;

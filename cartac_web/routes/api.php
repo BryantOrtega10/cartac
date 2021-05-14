@@ -30,7 +30,8 @@ Route::get("color_vehiculo", "App\Http\Controllers\ColorVehiculoController@index
 Route::get("marca_vehiculo", "App\Http\Controllers\MarcaVehiculoController@index");
 Route::get("dimension_vehiculo", "App\Http\Controllers\DimensionVehiculoController@index");
 Route::get("tipo_vehiculo", "App\Http\Controllers\TipoVehiculoController@index");
-
+Route::get("categoria", "App\Http\Controllers\CategoriaController@index");
+Route::get("sub_categoria", "App\Http\Controllers\CategoriaController@indexSubCategoria");
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {

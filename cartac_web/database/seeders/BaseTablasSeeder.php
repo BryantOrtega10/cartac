@@ -243,11 +243,23 @@ class BaseTablasSeeder extends Seeder
         ]);
 
         MarcaVehiculoModel::insert([
-            [
-                "mar_name" => "Renault"
-            ], [
-                "mar_name" => "Mazda"
-            ]
+            ["mar_name" => "Renault"],
+            ["mar_name" => "Chevrolet"],
+            ["mar_name" => "Mazda"],
+            ["mar_name" => "Nissan"],
+            ["mar_name" => "Kia"],
+            ["mar_name" => "Toyota"],
+            ["mar_name" => "Volkswagen"],
+            ["mar_name" => "Suzuki"],
+            ["mar_name" => "Toyota"],
+            ["mar_name" => "Mercedes-Benz"],
+            ["mar_name" => "Fiat"],
+            ["mar_name" => "Dodge"],
+            ["mar_name" => "Honda"],
+            ["mar_name" => "Jeep"],
+            ["mar_name" => "Mini"],
+            ["mar_name" => "Peugeot"],
+            ["mar_name" => "Skoda"]
         ]);
     }
 }
