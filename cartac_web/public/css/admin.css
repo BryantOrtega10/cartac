@@ -1,0 +1,209 @@
+:root {
+    --BtnPrimary: #1a2b5d;
+    --colorprimarioapptr: rgb(26 43 93 / 43%);
+    --BtnSecondary: #00afef;
+    --BtnSecondaryHover: #065c9c;
+    --colorPrimario: #00E676;
+    --colorSecundario: #065c9c;
+    --colorTableCell1: #F1F1F1;
+    --colorTableCell2: #FFFFFF;
+    --colorLetraTable: #808080;
+    --imgFondoDashboard: url(/imgs/theme/fondoDashboard_act.png);
+}
+
+
+/*Login*/
+
+.body-login {
+    background-color: black;
+    background-image: var(--imgFondoDashboard);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.login .card-header {
+    text-align: center;
+    background: var(--BtnPrimary);
+}
+
+.login .card-header img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.card.login {
+    border: 0;
+}
+
+
+/*Nav bar admin*/
+
+:root {
+    --BtnPrimary: #1a2b5d;
+    --colorprimarioapptr: rgb(26 43 93 / 43%);
+    --BtnSecondary: #00afef;
+    --colorPrimario: #00E676;
+    --colorSecundario: #1B0640;
+    --colorTableCell1: #F1F1F1;
+    --colorTableCell2: #FFFFFF;
+    --colorLetraTable: #808080;
+    --imgFondoDashboard: url(/imgs/theme/fondoDashboard_act.png);
+}
+
+
+/*Login*/
+
+.body-login {
+    background-color: black;
+    background-image: var(--imgFondoDashboard);
+    background-size: 100% auto;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100vh;
+    background-attachment: fixed;
+}
+
+.login .card-header {
+    text-align: center;
+    background: var(--BtnPrimary);
+}
+
+.login .card-header img {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.card.login {
+    border: 0;
+}
+
+
+/*Nav bar admin*/
+
+.cont-user-image {
+    display: inline-flex;
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+img.user-image {
+    max-width: 100%;
+}
+
+.navbar-dark,
+.bg-dark {
+    background-color: #18191b !important;
+}
+
+.dropdown-menu-dark {
+    color: #dee2e6;
+    background-color: #18191b;
+    border-color: rgba(0, 0, 0, .15);
+}
+
+.dropdown-menu-dark .dropdown-item {
+    color: #dee2e6;
+}
+
+.dropdown-menu-dark .dropdown-item:focus,
+.dropdown-menu-dark .dropdown-item:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .15);
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+.brand-header {
+    width: 60px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.brand-header img {
+    max-width: 100%;
+}
+
+
+/*Menu*/
+
+.menu-horizontal {
+    min-height: calc(100vh - 91px);
+    background: #18191b;
+    padding-top: 20px;
+    border-top: var(--BtnSecondary) solid 1px;
+    box-sizing: border-box;
+}
+
+.menu-horizontal ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    margin: auto;
+}
+
+.menu-horizontal a {
+    color: #FFF;
+    display: block;
+    padding: 5px 0px;
+    padding-left: 25px;
+    transition: all 0.5s;
+}
+
+.menu-horizontal a:hover {
+    text-decoration: none;
+    background: var(--BtnSecondary);
+}
+
+.menu-horizontal ul.sub-menu {
+    background: var(--BtnSecondary);
+}
+
+.menu-horizontal a[aria-expanded="true"] {
+    background: var(--BtnSecondary);
+}
+
+.menu-horizontal .sub-menu a {
+    padding-left: 50px;
+}
+
+.menu-horizontal .sub-menu a:hover {
+    background: var(--BtnSecondaryHover);
+}
+
+.close-menu-horizontal {
+    width: 50px;
+    height: 50px;
+    margin-right: 15px;
+    font-size: 35px;
+    color: #FFF;
+    cursor: pointer;
+    text-align: center;
+}
+
+.contenedor-menu-horizontal {
+    transition: all 0.5s;
+    margin-left: -16.6666666667% !important;
+}
+
+.contenedor-menu-horizontal.activo {
+    margin-left: 0 !important;
+}
+
+.menu-horizontal a i {
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
+    margin-left: 5px;
+}

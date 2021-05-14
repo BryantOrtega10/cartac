@@ -24,6 +24,7 @@ class AdminSeeder extends Seeder
         $usuario->password = Hash::make('1900');
         $usuario->name = "Administrador CARTAC";
         $usuario->email = "bryant@mdccolombia.com";
+        
         $usuario->fk_rol = $rol->rol_id;
         $usuario->save();
 
