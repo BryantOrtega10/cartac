@@ -7,22 +7,30 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'CARTAC') }}</title>
+    <title>@yield('title','') | {{ config('app.name', 'CARTAC') }}</title>
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
+    <script src="{{ asset('js/app.js') }}" ></script>
+    <script src="{{ asset('js/constantes.js') }}" ></script>
+    <script src = "https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+    <script src = "https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+    
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/fontawesome-all.css') }}" rel="stylesheet">
     <link href="{{ asset('css/admin.css') }}" rel="stylesheet">
 
-    <link href="{{ asset('css/fontawesome-all.css') }}" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
+
+    
+    
+    
+    
 </head>
 <body @isset($class_body) class='{{$class_body}}' @endisset>
     <div id="app">
@@ -93,6 +101,12 @@
             <div class="col-2 px-0 contenedor-menu-horizontal activo">
                 <div class="menu-horizontal">
                     <ul class="menu">
+                        <li><a href="{{ route('peajes.index')}}" @if (str_contains(Route::current()->getName(),'peajes'))
+                            class="activo"
+                        @endif>Peajes</a></li>
+                        <li><a href="{{ route('categorias.index')}}" @if (str_contains(Route::current()->getName(),'categorias'))
+                            class="activo"
+                        @endif>Categorias</a></li>
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#sub-menu1" aria-expanded="false">CATEGORIA <i class="fas fa-sort-down"></i></a> 
                             <ul class="sub-menu collapse" id="sub-menu1">
@@ -117,7 +131,7 @@
             </div>
             @endif
             <div class="col">
-                <main class="py-4">
+                <main>
                     @yield('content')
                 </main>
             </div>            

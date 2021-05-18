@@ -25,16 +25,16 @@ class CreateServicio extends Migration
 
         });
 
-        Schema::create('peaje_tipo_veh', function (Blueprint $table) {
-            $table->id("ptv_id");
-            $table->integer("ptv_valor");
-            $table->bigInteger('ptv_fk_tip')->unsigned()->nullable();
-            $table->foreign('ptv_fk_tip')->references('tip_id')->on('tipo_veh')->onDelete('cascade');
-            $table->index('ptv_fk_tip');
+        Schema::create('peaje_categoria_peaje', function (Blueprint $table) {
+            $table->id("pcp_id");
+            $table->integer("pcp_valor");
+            $table->bigInteger('pcp_fk_ctp')->unsigned()->nullable();
+            $table->foreign('pcp_fk_ctp')->references('ctp_id')->on('categoria_peaje')->onDelete('cascade');
+            $table->index('pcp_fk_ctp');
 
-            $table->bigInteger('ptv_fk_pea')->unsigned()->nullable();
-            $table->foreign('ptv_fk_pea')->references('pea_id')->on('peaje')->onDelete('cascade');
-            $table->index('ptv_fk_pea');
+            $table->bigInteger('pcp_fk_pea')->unsigned()->nullable();
+            $table->foreign('pcp_fk_pea')->references('pea_id')->on('peaje')->onDelete('cascade');
+            $table->index('pcp_fk_pea');
             $table->engine = "InnoDB";
         });
 
@@ -186,13 +186,13 @@ class CreateServicio extends Migration
             $table->dropIndex('config_multiplicador_cfm_fk_cfg_index');     
         });
 
-        Schema::table('peaje_tipo_veh', function(Blueprint $table)
+        Schema::table('peaje_categoria_peaje', function(Blueprint $table)
         {
-            $table->dropForeign('peaje_tipo_veh_ptv_fk_tip_foreign');
-            $table->dropIndex('peaje_tipo_veh_ptv_fk_tip_index');     
+            $table->dropForeign('peaje_categoria_peaje_ptv_fk_ctp_foreign');
+            $table->dropIndex('peaje_categoria_peaje_ptv_fk_ctp_index');     
 
-            $table->dropForeign('peaje_tipo_veh_ptv_fk_pea_foreign');
-            $table->dropIndex('peaje_tipo_veh_ptv_fk_pea_index');     
+            $table->dropForeign('peaje_categoria_peaje_ptv_fk_pea_foreign');
+            $table->dropIndex('peaje_categoria_peaje_ptv_fk_pea_index');     
         });
 
         
@@ -203,7 +203,7 @@ class CreateServicio extends Migration
         Schema::dropIfExists('servicio');
         Schema::dropIfExists('config_multiplicador');
         Schema::dropIfExists('configuracion');
-        Schema::dropIfExists('peaje_tipo_veh');
+        Schema::dropIfExists('peaje_categoria_peaje');
         Schema::dropIfExists('peaje');
         
     }

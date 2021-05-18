@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Funciones;
 use App\Http\Requests\AgregarConductorRequest;
 use App\Models\ConductorModel;
 use App\Models\DocumentacionModel;

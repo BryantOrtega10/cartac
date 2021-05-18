@@ -1,7 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Controller;
+use App\Http\Controllers\Funciones;
 use App\Http\Requests\AgregarPropietarioRequest;
 use App\Models\DocumentacionModel;
 use App\Models\PropietarioModel;

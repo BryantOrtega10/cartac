@@ -15,23 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::group(['prefix' => 'conductor'],function(){
-    Route::post("agregar", "App\Http\Controllers\ConductorController@agregar");
+    Route::post("agregar", "App\Http\Controllers\Api\ConductorController@agregar");
 });
 
 Route::group(['prefix' => 'propietario'],function(){
-    Route::post("agregar", "App\Http\Controllers\PropietarioController@agregar");
+    Route::post("agregar", "App\Http\Controllers\Api\PropietarioController@agregar");
 });
 
 Route::group(['prefix' => 'vehiculo'],function(){
-    Route::post("agregar", "App\Http\Controllers\VehiculoController@agregar");
+    Route::post("agregar", "App\Http\Controllers\Api\VehiculoController@agregar");
 });
 
-Route::get("color_vehiculo", "App\Http\Controllers\ColorVehiculoController@index");
-Route::get("marca_vehiculo", "App\Http\Controllers\MarcaVehiculoController@index");
-Route::get("dimension_vehiculo", "App\Http\Controllers\DimensionVehiculoController@index");
-Route::get("tipo_vehiculo", "App\Http\Controllers\TipoVehiculoController@index");
-Route::get("categoria", "App\Http\Controllers\CategoriaController@index");
-Route::get("sub_categoria", "App\Http\Controllers\CategoriaController@indexSubCategoria");
+Route::get("color_vehiculo", "App\Http\Controllers\Api\ColorVehiculoController@index");
+Route::get("marca_vehiculo", "App\Http\Controllers\Api\MarcaVehiculoController@index");
+Route::get("dimension_vehiculo", "App\Http\Controllers\Api\DimensionVehiculoController@index");
+Route::get("tipo_vehiculo", "App\Http\Controllers\Api\TipoVehiculoController@index");
+Route::get("categoria", "App\Http\Controllers\Api\CategoriaController@index");
+Route::get("sub_categoria", "App\Http\Controllers\Api\CategoriaController@indexSubCategoria");
 
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
