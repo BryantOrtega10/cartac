@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class MarcaVehiculoController extends Controller
 {
+    /**
+     * Marcas vehiculos
+     * 
+	 * @group  v 1.0
+     * 
+     * */
     public function index(){
         $marcas = MarcaVehiculoModel::select("mar_id as id", "mar_name as name")->get();
 

@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'conductor'],function(){
     Route::post("agregar", "App\Http\Controllers\Api\ConductorController@agregar");
+    Route::post("login", "App\Http\Controllers\Api\ConductorController@login");
+    Route::middleware('auth:api')->get("/", "App\Http\Controllers\Api\ConductorController@datos_conductor");    
 });
 
 Route::group(['prefix' => 'propietario'],function(){

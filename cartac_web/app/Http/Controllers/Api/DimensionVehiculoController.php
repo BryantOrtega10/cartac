@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class DimensionVehiculoController extends Controller
 {
+    /**
+     * Dimensiones vehiculos
+     * 
+	 * @group  v 1.0
+     * 
+     * */
     public function index(){
         return response()->json([
             "success" => true,

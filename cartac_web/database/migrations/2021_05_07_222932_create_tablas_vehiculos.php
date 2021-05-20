@@ -89,6 +89,8 @@ class CreateTablasVehiculos extends Migration
             $table->id("veh_id");
             $table->string("veh_placa",6);
             $table->string("veh_foto",255);
+            $table->string("veh_rendimiento",255)->nullable();
+            
             $table->bigInteger('veh_fk_col')->unsigned();
             $table->foreign('veh_fk_col')->references('col_id')->on('color_veh')->onDelete('cascade');
             $table->index('veh_fk_col');
@@ -105,12 +107,15 @@ class CreateTablasVehiculos extends Migration
             $table->foreign('veh_fk_pro')->references('pro_id')->on('propietario')->onDelete('cascade');
             $table->index('veh_fk_pro');
 
+            
+
             $table->timestamp('veh_created_at')->nullable()->useCurrent();
             $table->timestamp('veh_updated_at')->nullable()->useCurrent();
             
             $table->bigInteger('veh_fk_est')->unsigned();
             $table->foreign('veh_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
             $table->index('veh_fk_est');
+            
             $table->engine = "InnoDB";
         });
 

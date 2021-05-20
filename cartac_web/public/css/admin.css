@@ -8,6 +8,8 @@
     --colorTableCell1: #F1F1F1;
     --colorTableCell2: #FFFFFF;
     --colorLetraTable: #808080;
+    --colorError: #920000;
+    --colorCorrecto: #00923d;
     --imgFondoDashboard: url(/imgs/theme/fondoDashboard_act.png);
 }
 
@@ -235,7 +237,8 @@ img.user-image {
 }
 
 a.modificar,
-a.eliminar {
+a.eliminar,
+a.verificar {
     font-size: 20px;
 }
 
@@ -268,4 +271,53 @@ table.dataTable.no-footer {
 
 img.categoria {
     max-width: 50px;
+}
+
+
+/*Validar conductor*/
+
+.validar .form-control[readonly] {
+    background: #FFF;
+}
+
+.form-check-label {
+    user-select: none;
+}
+
+.validar .seleccionado {
+    border-color: var(--BtnSecondary);
+    color: var(--BtnSecondary);
+    box-shadow: 0px 0px 3px var(--BtnSecondary);
+}
+
+.cont-img {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.5s;
+}
+
+.cont-img img {
+    max-width: 100%;
+}
+
+.cont-img:hover {
+    box-shadow: 0px 0px 5px #000;
+}
+
+.mensaje-adicional {
+    display: none;
+}
+
+.mensaje-adicional.activo {
+    display: block;
+}
+
+.aprobar.oculto,
+.rechazar.oculto {
+    display: none;
 }

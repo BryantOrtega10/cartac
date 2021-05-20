@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
 class AgregarConductorRequest extends FormRequest
 {
@@ -27,7 +29,7 @@ class AgregarConductorRequest extends FormRequest
             'cedula' => 'required',
             'name' => 'required',
             'apellidos' => 'required',
-            'email' => 'required|unique:usuario,usr_email',
+            'email' => 'required|unique:users,email',
             'address' => 'required',
             'photo' => 'required',
             'pass' => 'required',
@@ -37,5 +39,19 @@ class AgregarConductorRequest extends FormRequest
             //'esPropietario' => 'required'            
         ];
     }
-   
+
+    /**
+     * Return validation errors as json response
+     *
+     * @param Validator $validator
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        $response = [
+            'success' => false,
+            'errors' => $validator->errors(),
+        ];
+
+        throw new HttpResponseException(response()->json($response, 400));
+    }
 }

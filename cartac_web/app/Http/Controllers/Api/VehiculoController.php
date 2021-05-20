@@ -16,7 +16,25 @@ use Illuminate\Http\Request;
 
 class VehiculoController extends Controller
 {
-    //Agrega vehiculos
+    /**
+     * Agregar vehiculos
+     * 
+	 * @group  v 1.0
+     * 
+     * @bodyParam dimension Integer required Id de la dimensión del vehiculo se obtiene en: api/dimension_vehiculo.
+     * @bodyParam typeFk Integer required Id del tipo del vehiculo se obtiene en: api/tipo_vehiculo.
+     * @bodyParam placa String required Placa del vehiculo (Formato recomendado AAA-000).
+     * @bodyParam image String required Foto del vehiculo en base 64.
+     * @bodyParam fkCarColor Integer required Id del color del vehiculo se obtiene en: api/color_vehiculo.     
+     * @bodyParam fkCarBrand Integer required Id de la marca del vehiculo se obtiene en: api/marca_vehiculo.
+     * @bodyParam veh_rendimiento String  Rendimiento del vehiculo por galón.
+     * @bodyParam id_owner Integer  Id del propietario en caso de que no sea el conductor.
+     * @bodyParam fkUserConductor Integer required Id del conductor.
+     * @bodyParam subCategoryFk String required Categorias y sub-categorias separadas por comas.
+     * @bodyParam tarjeta_prop String required Foto de la tarjeta de propiedad del vehiculo en base 64.
+     * @bodyParam soat String required Foto del Soat del vehiculo en base 64.
+     * @bodyParam tecno String required Foto de la tecnomecanica del vehiculo en base 64.
+     * */
     public function agregar(AgregarVehiculoRequest $request){  
 
         $request->dimension = 1;
@@ -41,6 +59,9 @@ class VehiculoController extends Controller
         $vehiculo->veh_fk_col = $request->fkCarColor;
         $vehiculo->veh_fk_mar = $request->fkCarBrand;
         $vehiculo->veh_fk_dim_tip = $dim_tip->id;
+        if($request->has("veh_rendimiento")){
+            $vehiculo->veh_rendimiento = $request->veh_rendimiento;
+        }
         $vehiculo->veh_fk_est = 2;
         if($request->has("id_owner") && !empty($request->id_owner)){
             
@@ -72,11 +93,10 @@ class VehiculoController extends Controller
         if(!isset($vehiculo_conductor)){
             $vehiculo_conductor = new VehiculoConductorModel();
             $vehiculo_conductor->fk_con_id = $request->fkUserConductor;
-            $vehiculo_conductor->fk_veh_id = null;
-            $vehiculo_conductor->fk_est_id = 2;
-            $vehiculo_conductor->save();
         }
-
+        $vehiculo_conductor->fk_veh_id = $vehiculo->veh_id;
+        $vehiculo_conductor->fk_est_id = 2;
+        $vehiculo_conductor->save();
 
         $tarjeta_prop = Funciones::imagenBase64($request->tarjeta_prop, "imgs/documentacion/".time()."_tarjeta_prop.png");
         $documentacion_tarjeta_prop = new DocumentacionModel();

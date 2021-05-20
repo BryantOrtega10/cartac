@@ -107,6 +107,9 @@
                         <li><a href="{{ route('categorias.index')}}" @if (str_contains(Route::current()->getName(),'categorias'))
                             class="activo"
                         @endif>Categorias</a></li>
+                        <li><a href="{{ route('conductores.index')}}" @if (str_contains(Route::current()->getName(),'conductores'))
+                            class="activo"
+                        @endif>Conductores</a></li>
                         <li>
                             <a href="#" data-toggle="collapse" data-target="#sub-menu1" aria-expanded="false">CATEGORIA <i class="fas fa-sort-down"></i></a> 
                             <ul class="sub-menu collapse" id="sub-menu1">

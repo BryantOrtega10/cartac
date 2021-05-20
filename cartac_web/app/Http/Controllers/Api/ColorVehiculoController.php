@@ -8,6 +8,12 @@ use Illuminate\Http\Request;
 
 class ColorVehiculoController extends Controller
 {
+    /**
+     * Colores vehiculos
+     * 
+	 * @group  v 1.0
+     * 
+     * */
     public function index(){
         $colores = ColorVehiculoModel::select("col_id as id", "col_name as name")->get();
 

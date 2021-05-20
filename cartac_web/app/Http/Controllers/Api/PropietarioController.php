@@ -13,7 +13,22 @@ use Illuminate\Http\Request;
 
 class PropietarioController extends Controller
 {
-    //Agrega propietarios
+    /**
+     * Agregar propietarios
+     * 
+	 * @group  v 1.0
+     * 
+     * @bodyParam email String required Email del propietario.
+     * @bodyParam cedula String required Cedula del propietario.
+     * @bodyParam name String required Nombres del propietario.
+     * @bodyParam apellidos String required Apellidos del propietario.
+     * @bodyParam fk_user_conductor Integer required Id del conductor del servicio /conductor/agregar.
+     * @bodyParam cedula_f String required Foto de la cedula frontal del propietario en base 64.
+     * @bodyParam cedula_r String required Foto de la cedula respaldo del propietario en base 64.
+     * @bodyParam carta_auto String required Foto de la carta de autorización del propietario en base 64.
+     * 
+     * 
+     * */
     public function agregar(AgregarPropietarioRequest $request)
     {  
         $propietario = PropietarioModel::where("pro_email","=",$request->email)->first();
@@ -22,7 +37,7 @@ class PropietarioController extends Controller
             $propietario = new PropietarioModel();
             $propietario->pro_documento = $request->cedula;
             $propietario->pro_nombres = $request->name;
-            //$propietario->pro_apellidos = $request->apellidos;
+            $propietario->pro_apellidos = $request->apellidos;
             $propietario->pro_apellidos = "";
             $propietario->pro_email = $request->email;
             $propietario->pro_fk_tpd = 1;

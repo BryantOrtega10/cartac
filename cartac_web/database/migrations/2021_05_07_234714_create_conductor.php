@@ -23,6 +23,7 @@ class CreateConductor extends Migration
             $table->string("con_celular",50)->nullable();
             $table->string("con_direccion",50);
             $table->string("con_foto",255);
+            $table->string("con_hora_trabajo",255)->nullable();
 
             
 
@@ -42,6 +43,19 @@ class CreateConductor extends Migration
             $table->string("con_numero_billetera",10)->nullable();
             $table->engine = "InnoDB";
         });
+
+        Schema::create('conductor_respuesta', function (Blueprint $table) {
+            $table->id("cnr_id");
+            $table->text("cnr_campos")->nullable();   
+            $table->text("cnr_mensaje")->nullable();   
+
+            $table->bigInteger('cnr_fk_est')->unsigned();
+            $table->foreign('cnr_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
+            $table->index('cnr_fk_est');
+
+            $table->engine = "InnoDB";
+        });
+
         Schema::create('vehiculo_conductor', function (Blueprint $table) {
             
             $table->id("veh_con_id");

@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Http\Exceptions\HttpResponseException;
+use Illuminate\Contracts\Validation\Validator;
 
 class AgregarPropietarioRequest extends FormRequest
 {
@@ -33,5 +35,19 @@ class AgregarPropietarioRequest extends FormRequest
             'cedula_r' => 'required',
             'carta_auto' => 'required',
         ];
+    }
+     /**
+     * Return validation errors as json response
+     *
+     * @param Validator $validator
+     */
+    protected function failedValidation(Validator $validator)
+    {
+        $response = [
+            'success' => false,
+            'errors' => $validator->errors(),
+        ];
+
+        throw new HttpResponseException(response()->json($response, 400));
     }
 }

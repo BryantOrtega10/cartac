@@ -9,6 +9,12 @@ use Illuminate\Http\Request;
 
 class TipoVehiculoController extends Controller
 {
+    /**
+     * Tipos vehiculos
+     * 
+	 * @group  v 1.0
+     * 
+     * */
     public function index(){
         
         $tipos = TipoVehiculoModel::select("tip_id as id", "tip_name as name")->get();

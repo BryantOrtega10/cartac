@@ -128,6 +128,10 @@ class BaseTablasSeeder extends Seeder
                 'est_name' => 'RECHAZADO',
                 'est_clase' => 'rechazado',
             ]
+            , [
+                'est_name' => 'ENVIADO',
+                'est_clase' => 'enviado',
+            ]
         ]);
 
         TipoDocumentoModel::insert([

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\File;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -15,9 +15,14 @@ use Illuminate\Support\Facades\Session;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get("storage-link", function(){
+    File::link(
+        storage_path('app/public'), public_path('storage')
+    );	
+});
 
 Route::get('/migrate', function() {
-    $exitCode = Artisan::call('migrate');
+    $exitCode = Artisan::call('migrate:fresh');
     $exitCode2 = Artisan::call('db:seed');
     return '<h3>Migraci&oacute;n completada '.$exitCode.' '.$exitCode2.'</h3>';
 });
@@ -78,8 +83,11 @@ Route::group(['prefix' => 'categoria'],function(){
     });
     
 });
-
-
+Route::group(['prefix' => 'conductores'],function(){
+    Route::get('/', 'App\Http\Controllers\ConductorController@index')->name('conductores.index');
+    Route::get('verificar/{id}', 'App\Http\Controllers\ConductorController@mostrarFormVerificar')->name('conductores.verificar');
+    Route::post('responder/{id}', 'App\Http\Controllers\ConductorController@responder')->name('conductores.responder');
+});
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/rutas', 'InfoController@index');
+Route::get('/rutas', 'App\Http\Controllers\InfoController@index');
