@@ -64,13 +64,6 @@ class ConductorController extends Controller
             $documentacionVehiculo = null;
 
         }
-
-        
-
-
-
-        
-
         return view('conductores/verificar', [
             "conductor" => $conductor,
             "vehiculo" => $vehiculo,
@@ -83,7 +76,6 @@ class ConductorController extends Controller
     public function responder($con_id, Request $request)
     {
         $conductor = ConductorModel::findOrFail($con_id);
-
         $vehiculo = VehiculoModel::join("vehiculo_conductor", "fk_veh_id", "=", "veh_id")
             ->join("color_veh", "col_id", "=", "veh_fk_col")
             ->join("marca_veh", "mar_id", "=", "veh_fk_mar")
@@ -139,9 +131,14 @@ class ConductorController extends Controller
                 array_push($campos_validar, $validar);
             }
             $campos_validar = implode(",",$campos_validar);
-            $conductor_respuesta = new ConductorRespuestaModel();
+            $conductor_respuesta = ConductorRespuestaModel::where("cnr_fk_con","=",$conductor->con_id)->first();
+            if(!isset($conductor_respuesta)){
+                $conductor_respuesta = new ConductorRespuestaModel();
+            }
+            
             $conductor_respuesta->cnr_campos = $campos_validar;
             $conductor_respuesta->cnr_mensaje = $request->mensaje;
+            $conductor_respuesta->cnr_fk_con = $conductor->con_id;
             $conductor_respuesta->cnr_fk_est = 4;
             $conductor_respuesta->save();
             

@@ -16,6 +16,7 @@ class ConductorRespuestaModel extends Model
     protected $fillable = [
         "cnr_campos",
         "cnr_mensaje",
+        "cnr_fk_con",
         "cnr_fk_est"
     ];
 

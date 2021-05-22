@@ -132,6 +132,16 @@ class BaseTablasSeeder extends Seeder
                 'est_name' => 'ENVIADO',
                 'est_clase' => 'enviado',
             ]
+            , [
+                'est_name' => 'CONECTADO',
+                'est_clase' => 'conectado',
+            ],[
+                'est_name' => 'DESCONECTADO',
+                'est_clase' => 'desconectado',
+            ],[
+                'est_name' => 'EN VIAJE',
+                'est_clase' => 'en_viaje',
+            ]
         ]);
 
         TipoDocumentoModel::insert([
@@ -143,6 +153,9 @@ class BaseTablasSeeder extends Seeder
         RolModel::insert([
             [
                 'rol_name' => "Conductor"
+            ],
+            [
+                'rol_name' => "Cliente"
             ]
         ]);
 

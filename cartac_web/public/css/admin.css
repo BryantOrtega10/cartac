@@ -321,3 +321,9 @@ img.categoria {
 .rechazar.oculto {
     display: none;
 }
+
+.modal-image .modal-body img {
+    max-width: 100%;
+    margin: auto;
+    display: block;
+}

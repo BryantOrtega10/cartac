@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Cartac API",
-        "_postman_id": "8b3d2a84-48d9-4470-b8a3-45d4798501ed",
+        "_postman_id": "1387bcd2-0c12-4791-8f47-6d988bc7249d",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -15,8 +15,8 @@
                     "name": "Crear conductores",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/conductor\/agregar",
                             "query": []
                         },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"est\",\n    \"pass\": \"voluptatibus\",\n    \"cedula\": \"veritatis\",\n    \"name\": \"et\",\n    \"apellidos\": \"autem\",\n    \"phone\": \"vel\",\n    \"con_hora_trabajo\": \"harum\",\n    \"address\": \"non\",\n    \"photo\": \"ducimus\",\n    \"wallet_type\": \"necessitatibus\",\n    \"wallet_number\": \"dolorem\",\n    \"cedula_f\": \"esse\",\n    \"cedula_r\": \"quis\",\n    \"licencia_c\": \"modi\",\n    \"cert_banc\": \"quia\",\n    \"esPropietario\": \"velit\"\n}"
+                            "raw": "{\n    \"email\": \"quas\",\n    \"pass\": \"ab\",\n    \"cedula\": \"consectetur\",\n    \"name\": \"et\",\n    \"apellidos\": \"dolor\",\n    \"phone\": \"esse\",\n    \"con_hora_trabajo\": \"vero\",\n    \"address\": \"velit\",\n    \"photo\": \"qui\",\n    \"wallet_type\": \"sunt\",\n    \"wallet_number\": \"accusantium\",\n    \"cedula_f\": \"temporibus\",\n    \"cedula_r\": \"est\",\n    \"licencia_c\": \"ut\",\n    \"cert_banc\": \"qui\",\n    \"esPropietario\": \"provident\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -43,8 +43,8 @@
                     "name": "Login de conductor",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/conductor\/login",
                             "query": []
                         },
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"qui\",\n    \"pass\": \"aut\"\n}"
+                            "raw": "{\n    \"email\": \"ex\",\n    \"pass\": \"culpa\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -71,8 +71,8 @@
                     "name": "Datos conductor\nTrae los datos de un conductor segun el token del login",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/conductor",
                             "query": []
                         },
@@ -99,8 +99,8 @@
                     "name": "Agregar propietarios",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/propietario\/agregar",
                             "query": []
                         },
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"aut\",\n    \"cedula\": \"sed\",\n    \"name\": \"sed\",\n    \"apellidos\": \"a\",\n    \"fk_user_conductor\": \"expedita\",\n    \"cedula_f\": \"nostrum\",\n    \"cedula_r\": \"eligendi\",\n    \"carta_auto\": \"veniam\"\n}"
+                            "raw": "{\n    \"email\": \"velit\",\n    \"cedula\": \"sint\",\n    \"name\": \"voluptas\",\n    \"apellidos\": \"ut\",\n    \"fk_user_conductor\": \"exercitationem\",\n    \"cedula_f\": \"explicabo\",\n    \"cedula_r\": \"omnis\",\n    \"carta_auto\": \"aut\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -127,8 +127,8 @@
                     "name": "Agregar vehiculos",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/vehiculo\/agregar",
                             "query": []
                         },
@@ -145,7 +145,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dimension\": \"consequuntur\",\n    \"typeFk\": \"sit\",\n    \"placa\": \"dolorem\",\n    \"image\": \"voluptatum\",\n    \"fkCarColor\": \"dicta\",\n    \"fkCarBrand\": \"labore\",\n    \"veh_rendimiento\": \"non\",\n    \"id_owner\": \"est\",\n    \"fkUserConductor\": \"maiores\",\n    \"subCategoryFk\": \"ea\",\n    \"tarjeta_prop\": \"laborum\",\n    \"soat\": \"voluptatem\",\n    \"tecno\": \"harum\"\n}"
+                            "raw": "{\n    \"dimension\": \"eum\",\n    \"typeFk\": \"distinctio\",\n    \"placa\": \"provident\",\n    \"image\": \"aut\",\n    \"fkCarColor\": \"velit\",\n    \"fkCarBrand\": \"quia\",\n    \"veh_rendimiento\": \"ea\",\n    \"id_owner\": \"ullam\",\n    \"fkUserConductor\": \"suscipit\",\n    \"subCategoryFk\": \"a\",\n    \"tarjeta_prop\": \"quaerat\",\n    \"soat\": \"rerum\",\n    \"tecno\": \"minima\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -155,8 +155,8 @@
                     "name": "Colores vehiculos",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/color_vehiculo",
                             "query": []
                         },
@@ -183,8 +183,8 @@
                     "name": "Marcas vehiculos",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/marca_vehiculo",
                             "query": []
                         },
@@ -211,8 +211,8 @@
                     "name": "Dimensiones vehiculos",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/dimension_vehiculo",
                             "query": []
                         },
@@ -239,8 +239,8 @@
                     "name": "Tipos vehiculos",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/tipo_vehiculo",
                             "query": []
                         },
@@ -267,8 +267,8 @@
                     "name": "Categorias vehiculos",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/categoria",
                             "query": []
                         },
@@ -295,8 +295,8 @@
                     "name": "Sub-Categorias vehiculos",
                     "request": {
                         "url": {
-                            "protocol": "http",
-                            "host": "127.0.0.1:8000",
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/sub_categoria",
                             "query": []
                         },
@@ -314,6 +314,96 @@
                         "body": {
                             "mode": "raw",
                             "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "v 1.0.1",
+            "description": "",
+            "item": [
+                {
+                    "name": "Resubir datos conductor",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/conductor\/resubir",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"parametro_respuesta\": \"quasi\",\n    \"id_documentos\": \"dignissimos\",\n    \"documentos\": \"deleniti\"\n}"
+                        },
+                        "description": "La autorizacion es una variable header -> Authorization : Bearer token",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Registrar cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/cliente\/agregar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cli_nombres\": \"consequatur\",\n    \"cli_apellidos\": \"atque\",\n    \"cli_email\": \"explicabo\",\n    \"cli_pass\": \"eos\",\n    \"cli_foto\": \"fugit\",\n    \"cli_red\": \"ipsa\",\n    \"cli_id_red\": \"earum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Login de cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/cliente\/login",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"email\": \"et\",\n    \"pass\": \"esse\"\n}"
                         },
                         "description": "",
                         "response": []

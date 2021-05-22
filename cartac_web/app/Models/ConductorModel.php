@@ -23,7 +23,8 @@ class ConductorModel extends Model
         'con_fk_usr',
         'con_fk_est',
         'con_billetera',
-        'con_numero_billetera'
+        'con_numero_billetera',
+        'con_hora_trabajo'
     ];
     
 

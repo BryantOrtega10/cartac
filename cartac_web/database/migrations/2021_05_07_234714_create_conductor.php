@@ -49,6 +49,10 @@ class CreateConductor extends Migration
             $table->text("cnr_campos")->nullable();   
             $table->text("cnr_mensaje")->nullable();   
 
+            $table->bigInteger('cnr_fk_con')->unsigned();
+            $table->foreign('cnr_fk_con')->references('con_id')->on('conductor')->onDelete('cascade');
+            $table->index('cnr_fk_con');
+
             $table->bigInteger('cnr_fk_est')->unsigned();
             $table->foreign('cnr_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
             $table->index('cnr_fk_est');
@@ -138,6 +142,15 @@ class CreateConductor extends Migration
 
             $table->dropForeign('vehiculo_conductor_fk_con_id_foreign');
             $table->dropIndex('vehiculo_conductor_fk_con_id_index');
+        });
+
+        Schema::table('conductor_respuesta', function(Blueprint $table)
+        {
+            $table->dropForeign('conductor_respuesta_cnr_fk_est_foreign');
+            $table->dropIndex('conductor_respuesta_cnr_fk_est_index');
+
+            $table->dropForeign('conductor_respuesta_cnr_fk_con_foreign');
+            $table->dropIndex('conductor_respuesta_cnr_fk_con_index');
         });
 
         Schema::table('conductor', function(Blueprint $table)

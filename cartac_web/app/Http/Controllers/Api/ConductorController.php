@@ -5,12 +5,16 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Funciones;
 use App\Http\Requests\AgregarConductorRequest;
+use App\Http\Requests\ResubirRequest;
 use App\Models\ConductorModel;
+use App\Models\ConductorRespuestaModel;
 use App\Models\DocumentacionModel;
 use App\Models\PropietarioModel;
 use App\Models\User;
+use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ConductorController extends Controller
@@ -31,9 +35,39 @@ class ConductorController extends Controller
             $usuario->api_token = Str::random(100);
             $usuario->save();
             if($usuario->fk_rol == "1"){
+                $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
+                $respuesta = null;
+                $documentos = null;
+                $vehiculo = VehiculoModel::join("vehiculo_conductor", "fk_veh_id", "=", "veh_id")
+                ->join("color_veh", "col_id", "=", "veh_fk_col")
+                ->join("marca_veh", "mar_id", "=", "veh_fk_mar")
+                ->join("dimension_tipo_veh", "dimension_tipo_veh.id", "=", "veh_fk_dim_tip")
+                ->join("tipo_veh", "dimension_tipo_veh.fk_tip", "=", "tip_id")
+                ->join("dimension_veh", "dimension_tipo_veh.fk_dim", "=", "dim_id")
+                ->where("vehiculo_conductor.fk_est_id", "=", "2")
+                ->first();
+                if($conductor->con_fk_est == "3"){
+                    $respuesta = ConductorRespuestaModel::where("cnr_fk_con","=",$conductor->con_id)->first();
+                    $respuesta->cnr_campos = explode(",",$respuesta->cnr_campos);
+                    $arrDoc = array();
+                    foreach ($respuesta->cnr_campos as $campo){
+                        if(is_numeric($campo)){
+                            array_push($arrDoc, $campo);
+                        }
+                    }
+                    $documentos = DocumentacionModel::join("tipo_documentacion", "tdo_id", "=", "doc_fk_tdo")->whereIn("doc_id",$arrDoc)->get();
+
+                }
+                
                 return response()->json([
                     "success" => true,
-                    "token" => $usuario->api_token
+                    "data" => [
+                        "token" => $usuario->api_token,
+                        "conductor" => $conductor,
+                        "respuesta" => $respuesta,
+                        "documentos" => $documentos,
+                        "vehiculo" => $vehiculo
+                    ]                    
                 ], 200);
             }
             else{
@@ -101,6 +135,7 @@ class ConductorController extends Controller
     public function agregar(AgregarConductorRequest $request)
     {   
         $usuario = new User();
+        $usuario->name = $request->name;
         $usuario->email = $request->email;
         $usuario->password = Hash::make($request->pass);
         $usuario->fk_rol = 1;
@@ -194,6 +229,168 @@ class ConductorController extends Controller
             ], 406);
         }
 
+    }
+
+    /**
+     * Resubir datos conductor
+     * 
+     * La autorizacion es una variable header -> Authorization : Bearer token
+     * 
+	 * @group  v 1.0.1
+     * 
+     * @bodyParam parametro_respuesta String Dato errado.
+     * @bodyParam id_documentos [Array] Id del documento en orden.
+     * @bodyParam documentos [Array] Documento en base 64 que coincida con el orden del campo anterior.
+     * 
+     * 
+     * @authenticated
+     * */
+    public function resubir(Request $request){
+        $usuario = auth()->user();
+        $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
+        $vehiculo = VehiculoModel::join("vehiculo_conductor", "fk_veh_id", "=", "veh_id")
+            ->join("color_veh", "col_id", "=", "veh_fk_col")
+            ->join("marca_veh", "mar_id", "=", "veh_fk_mar")
+            ->join("dimension_tipo_veh", "dimension_tipo_veh.id", "=", "veh_fk_dim_tip")
+            ->join("tipo_veh", "dimension_tipo_veh.fk_tip", "=", "tip_id")
+            ->join("dimension_veh", "dimension_tipo_veh.fk_dim", "=", "dim_id")
+            ->where("vehiculo_conductor.fk_con_id", "=", $conductor->con_id)
+            ->first();
+        $propietario = PropietarioModel::where("pro_id", "=", $vehiculo->veh_fk_pro)->first();
+
+        if($request->has("con_email")){
+            $usuario_ver = User::where("email","=",$request->con_email)->where("id","<>",$usuario->id)->first();
+            if(isset($usuario_ver)){
+                return response()->json([
+                    "success" => false,
+                    "mensaje" => "El nombre de usuario ya esta registrado"
+                ]);
+            }
+            $usuario->email = $request->con_email;            
+            $conductor->con_email = $request->con_email;            
+        }
+        if($request->has("con_documento")){
+            $conductor_ver = ConductorModel::where("con_documento","=",$request->con_documento)->where("con_id","<>",$conductor->con_id)->first();
+            if(isset($conductor_ver)){
+                return response()->json([
+                    "success" => false,
+                    "mensaje" => "El documento ya esta registrado"
+                ]);
+            }
+            $conductor->con_documento = $request->con_documento;
+        }
+        if($request->has("con_nombres")){
+            $conductor->con_nombres = $request->con_nombres;
+        }
+        if($request->has("con_apellidos")){
+            $conductor->con_apellidos = $request->con_apellidos;
+        }
+        if($request->has("con_apellidos")){
+            $conductor->con_apellidos = $request->con_apellidos;
+        }
+        if($request->has("con_celular")){
+            $conductor->con_celular = $request->con_celular;
+        }
+        if($request->has("con_direccion")){
+            $conductor->con_direccion = $request->con_direccion;
+        }
+        if($request->has("con_foto")){
+            Storage::delete($conductor->con_foto);
+            $con_foto = Funciones::imagenBase64($request->con_foto, "imgs/users/".time()."_usuario_".$conductor->con_documento.".png");
+            $conductor->con_foto = $con_foto;
+        }
+        if($request->has("con_billetera")){
+            $conductor->con_billetera = $request->con_billetera;
+        }
+        if($request->has("con_numero_billetera")){
+            $conductor->con_numero_billetera = $request->con_numero_billetera;
+        }
+        if($request->has("con_hora_trabajo")){
+            $conductor->con_hora_trabajo = $request->con_hora_trabajo;
+        }
+        
+        if($request->has("pro_documento")){
+            $propietario->pro_documento = $request->pro_documento;
+        }
+        if($request->has("pro_nombres")){
+            $propietario->pro_nombres = $request->pro_nombres;
+        }
+        if($request->has("pro_apellidos")){
+            $propietario->pro_apellidos = $request->pro_apellidos;
+        }
+        if($request->has("pro_email")){
+            $propietario->pro_email = $request->pro_email;
+        }
+
+
+        if($request->has("veh_placa")){
+            $vehiculo->veh_placa = $request->veh_placa;
+        }
+
+        if($request->has("veh_fk_col")){
+            $vehiculo->veh_fk_col = $request->veh_fk_col;
+        }
+        if($request->has("veh_fk_mar")){
+            $vehiculo->veh_fk_mar = $request->veh_fk_mar;
+        }
+        if($request->has("veh_tip")){
+            $vehiculo->veh_tip = $request->veh_tip;
+        }
+        if($request->has("veh_dim")){
+            $vehiculo->veh_dim = $request->veh_dim;
+        }
+        if($request->has("veh_rendimiento")){
+            $vehiculo->veh_rendimiento = $request->veh_rendimiento;
+        }
+        if($request->has("veh_foto")){
+            $vehiculo->veh_foto = $request->veh_foto;
+        }
+
+
+        
+        if($request->has("id_documentos")){
+            foreach($request->id_documentos as $key => $id_documento){
+                $docu = DocumentacionModel::findOrFail($id_documento);
+                Storage::delete($docu->doc_ruta);
+                $doc_ruta = Funciones::imagenBase64($request->documentos[$key], "imgs/documentacion/".time()."_resubida_".$conductor->con_documento.".png");
+                $docu->doc_ruta = $doc_ruta;
+                $docu->save();
+            }
+        }
+
+        $conductor->con_fk_est = 2;
+        $propietario->save();
+        $vehiculo->save();
+        $conductor->save();
+        return response()->json([
+            "success" => true,
+            "mensaje" => "Datos reenviados"
+        ]);
+    }
+    /**
+     * Conectar al conductor
+     * Permite que el conductor pueda aceptar viajes
+     * 
+	 * @group  v 1.0.2
+     * 
+     * @authenticated
+     * 
+	 */
+    public function conectar(){
+        $usuario = auth()->user();
+
+        $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
+        if($conductor->con_fk_est == "2" || $conductor->con_fk_est == "3"){
+            return response()->json([
+                "success" => true,
+                "mensaje" => "El conductor no ha sido activado por el administrador"
+            ], 406);
+        }
+        $conductor->con_fk_est = 5;
+        $conductor->save();
+        return response()->json([
+            "success" => true
+        ], 200);
     }
 
     

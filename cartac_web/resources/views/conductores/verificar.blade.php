@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', 'Agregar Peaje')
+@section('title', 'Verificar Conductor')
 @section('content')
 <div class="contenedor">
     
@@ -256,6 +256,15 @@
         @else
             <h5>El conductor se encuentra registrando los datos</h5>
         @endisset
+    </div>
+</div>
+<div class="modal fade modal-image" tabindex="-1" role="dialog" aria-labelledby="modal-image" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
+                <img id="modal-image" />
+            </div>
+        </div>
     </div>
 </div>
 <script type="text/javascript" src="{{ URL::asset('js/conductores/forms.js') }}"></script>

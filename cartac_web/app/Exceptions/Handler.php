@@ -67,7 +67,7 @@ class Handler extends ExceptionHandler
             }
     
             if($exception instanceof HttpException){
-                return response()->json(["success" => false, "message" => "Error de ruta"], 404);
+                return response()->json(["success" => false, "message" => "Error de ruta" , $exception->getMessage()], 404);
             }
     
             if($exception instanceof AuthenticationException){

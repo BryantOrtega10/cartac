@@ -21,6 +21,10 @@ jQuery(function() {
 
     });
 
+    $("body").on("click", ".cont-img img", function() {
+        $(".modal-image").modal("show");
+        $("#modal-image").prop("src", $(this).prop("src"));
+    });
 
 
 

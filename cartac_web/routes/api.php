@@ -18,7 +18,14 @@ Route::group(['prefix' => 'conductor'],function(){
     Route::post("agregar", "App\Http\Controllers\Api\ConductorController@agregar");
     Route::post("login", "App\Http\Controllers\Api\ConductorController@login");
     Route::middleware('auth:api')->get("/", "App\Http\Controllers\Api\ConductorController@datos_conductor");    
+    Route::middleware('auth:api')->post("resubir", "App\Http\Controllers\Api\ConductorController@resubir");    
 });
+
+Route::group(['prefix' => 'cliente'],function(){
+    Route::post("agregar", "App\Http\Controllers\Api\ClienteController@registro_cliente");
+    Route::post("login", "App\Http\Controllers\Api\ClienteController@login");
+});
+
 
 Route::group(['prefix' => 'propietario'],function(){
     Route::post("agregar", "App\Http\Controllers\Api\PropietarioController@agregar");

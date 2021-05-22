@@ -18,7 +18,9 @@ class CreateCliente extends Migration
             $table->string("cli_nombres",50);
             $table->string("cli_apellidos",50);
             $table->string("cli_email",50);
-            $table->string("cli_foto",255);
+            $table->string("cli_foto",255)->nullable();
+            $table->string("cli_red",50)->nullable();
+            $table->string("cli_id_red",255)->nullable();
 
             $table->bigInteger('cli_fk_usr')->unsigned()->nullable();
             $table->foreign('cli_fk_usr')->references('id')->on('users')->onDelete('cascade');
