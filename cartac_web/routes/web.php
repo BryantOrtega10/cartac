@@ -89,5 +89,19 @@ Route::group(['prefix' => 'conductores'],function(){
     Route::post('responder/{id}', 'App\Http\Controllers\ConductorController@responder')->name('conductores.responder');
 });
 
+Route::group(['prefix' => 'configuracion'],function(){
+    Route::get('/', 'App\Http\Controllers\ConfiguracionController@index')->name('configuracion.index');
+    Route::get('agregar', 'App\Http\Controllers\ConfiguracionController@mostrarFormAgregar')->name('configuracion.agregar');
+    Route::post('agregar', 'App\Http\Controllers\ConfiguracionController@agregar');
+
+    Route::get('modificar/{id}', 'App\Http\Controllers\ConfiguracionController@mostrarFormModificar')->name('configuracion.modificar');
+    Route::get('modificar_gen', 'App\Http\Controllers\ConfiguracionController@mostrarFormModificarGen')->name('configuracion.modificar_gen');
+    Route::post('modificar_gen', 'App\Http\Controllers\ConfiguracionController@modificar_gen');
+
+    Route::post('modificar/{id}', 'App\Http\Controllers\ConfiguracionController@modificar');
+    Route::post('eliminar/{id}', 'App\Http\Controllers\ConfiguracionController@eliminar')->name('configuracion.eliminar');
+});
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/rutas', 'App\Http\Controllers\InfoController@index');

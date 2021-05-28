@@ -18,7 +18,11 @@ Route::group(['prefix' => 'conductor'],function(){
     Route::post("agregar", "App\Http\Controllers\Api\ConductorController@agregar");
     Route::post("login", "App\Http\Controllers\Api\ConductorController@login");
     Route::middleware('auth:api')->get("/", "App\Http\Controllers\Api\ConductorController@datos_conductor");    
+    Route::middleware('auth:api')->post("datosErroneos", "App\Http\Controllers\Api\ConductorController@datosErroneos");    
     Route::middleware('auth:api')->post("resubir", "App\Http\Controllers\Api\ConductorController@resubir");    
+    Route::middleware('auth:api')->post("conectar", "App\Http\Controllers\Api\ConductorController@conectar");    
+    Route::middleware('auth:api')->post("actualizarUbicacion", "App\Http\Controllers\Api\ConductorController@actualizarUbicacion");    
+    
 });
 
 Route::group(['prefix' => 'cliente'],function(){
@@ -33,6 +37,13 @@ Route::group(['prefix' => 'propietario'],function(){
 
 Route::group(['prefix' => 'vehiculo'],function(){
     Route::post("agregar", "App\Http\Controllers\Api\VehiculoController@agregar");
+});
+
+Route::group(['prefix' => 'servicio'],function(){
+    Route::middleware('auth:api')->post("cotizar", "App\Http\Controllers\Api\ServicioController@cotizar");
+    Route::middleware('auth:api')->post("crear", "App\Http\Controllers\Api\ServicioController@crear");
+    Route::middleware('auth:api')->post("aceptar", "App\Http\Controllers\Api\ServicioController@aceptar");
+    
 });
 
 Route::get("color_vehiculo", "App\Http\Controllers\Api\ColorVehiculoController@index");

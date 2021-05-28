@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Cartac API",
-        "_postman_id": "1387bcd2-0c12-4791-8f47-6d988bc7249d",
+        "_postman_id": "22a6b95c-07a6-4713-b0c2-064aeb1c2ae0",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"quas\",\n    \"pass\": \"ab\",\n    \"cedula\": \"consectetur\",\n    \"name\": \"et\",\n    \"apellidos\": \"dolor\",\n    \"phone\": \"esse\",\n    \"con_hora_trabajo\": \"vero\",\n    \"address\": \"velit\",\n    \"photo\": \"qui\",\n    \"wallet_type\": \"sunt\",\n    \"wallet_number\": \"accusantium\",\n    \"cedula_f\": \"temporibus\",\n    \"cedula_r\": \"est\",\n    \"licencia_c\": \"ut\",\n    \"cert_banc\": \"qui\",\n    \"esPropietario\": \"provident\"\n}"
+                            "raw": "{\n    \"email\": \"et\",\n    \"pass\": \"placeat\",\n    \"cedula\": \"debitis\",\n    \"name\": \"facilis\",\n    \"apellidos\": \"sed\",\n    \"phone\": \"hic\",\n    \"con_hora_trabajo\": \"enim\",\n    \"address\": \"vel\",\n    \"photo\": \"assumenda\",\n    \"wallet_type\": \"sapiente\",\n    \"wallet_number\": \"veniam\",\n    \"cedula_f\": \"soluta\",\n    \"cedula_r\": \"dolore\",\n    \"licencia_c\": \"et\",\n    \"cert_banc\": \"voluptates\",\n    \"esPropietario\": \"quas\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"ex\",\n    \"pass\": \"culpa\"\n}"
+                            "raw": "{\n    \"email\": \"beatae\",\n    \"pass\": \"assumenda\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"velit\",\n    \"cedula\": \"sint\",\n    \"name\": \"voluptas\",\n    \"apellidos\": \"ut\",\n    \"fk_user_conductor\": \"exercitationem\",\n    \"cedula_f\": \"explicabo\",\n    \"cedula_r\": \"omnis\",\n    \"carta_auto\": \"aut\"\n}"
+                            "raw": "{\n    \"email\": \"enim\",\n    \"cedula\": \"tenetur\",\n    \"name\": \"voluptatem\",\n    \"apellidos\": \"aut\",\n    \"fk_user_conductor\": \"iure\",\n    \"cedula_f\": \"minima\",\n    \"cedula_r\": \"nam\",\n    \"carta_auto\": \"qui\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -145,7 +145,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dimension\": \"eum\",\n    \"typeFk\": \"distinctio\",\n    \"placa\": \"provident\",\n    \"image\": \"aut\",\n    \"fkCarColor\": \"velit\",\n    \"fkCarBrand\": \"quia\",\n    \"veh_rendimiento\": \"ea\",\n    \"id_owner\": \"ullam\",\n    \"fkUserConductor\": \"suscipit\",\n    \"subCategoryFk\": \"a\",\n    \"tarjeta_prop\": \"quaerat\",\n    \"soat\": \"rerum\",\n    \"tecno\": \"minima\"\n}"
+                            "raw": "{\n    \"dimension\": \"voluptatem\",\n    \"typeFk\": \"provident\",\n    \"placa\": \"et\",\n    \"image\": \"praesentium\",\n    \"fkCarColor\": \"praesentium\",\n    \"fkCarBrand\": \"dolor\",\n    \"veh_rendimiento\": \"consequatur\",\n    \"id_owner\": \"facilis\",\n    \"fkUserConductor\": \"officiis\",\n    \"subCategoryFk\": \"recusandae\",\n    \"tarjeta_prop\": \"doloremque\",\n    \"soat\": \"vel\",\n    \"tecno\": \"sapiente\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -347,7 +347,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"parametro_respuesta\": \"quasi\",\n    \"id_documentos\": \"dignissimos\",\n    \"documentos\": \"deleniti\"\n}"
+                            "raw": "{\n    \"parametro_respuesta\": \"beatae\",\n    \"id_documentos\": \"et\",\n    \"documentos\": \"ut\"\n}"
                         },
                         "description": "La autorizacion es una variable header -> Authorization : Bearer token",
                         "response": []
@@ -375,7 +375,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cli_nombres\": \"consequatur\",\n    \"cli_apellidos\": \"atque\",\n    \"cli_email\": \"explicabo\",\n    \"cli_pass\": \"eos\",\n    \"cli_foto\": \"fugit\",\n    \"cli_red\": \"ipsa\",\n    \"cli_id_red\": \"earum\"\n}"
+                            "raw": "{\n    \"cli_nombres\": \"error\",\n    \"cli_apellidos\": \"minima\",\n    \"cli_email\": \"non\",\n    \"cli_pass\": \"nam\",\n    \"cli_foto\": \"assumenda\",\n    \"cli_red\": \"modi\",\n    \"cli_id_red\": \"fuga\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -403,7 +403,181 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"et\",\n    \"pass\": \"esse\"\n}"
+                            "raw": "{\n    \"email\": \"facere\",\n    \"pass\": \"doloribus\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "v 1.0.3",
+            "description": "",
+            "item": [
+                {
+                    "name": "Ver datos erroneos de conductor",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/conductor\/datosErroneos",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Conectar al conductor\nPermite que el conductor pueda aceptar viajes, se gener\u00f3 un cambio de la version 1.0.2",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/conductor\/conectar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"veh_id\": \"quas\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Actualizar ubicacion del conductor\nPermite actualizar la ubicacion del conductor con cierto vehiculo",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/conductor\/actualizarUbicacion",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"lat\": \"sit\",\n    \"lng\": \"quia\",\n    \"veh_id\": \"consequuntur\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Cotizar servicio\nPermite conocer el valor del servicio antes de generarlo",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/cotizar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"lat_ini\": \"et\",\n    \"lng_ini\": \"corrupti\",\n    \"lat_fin\": \"corporis\",\n    \"lng_fin\": \"a\",\n    \"tipo_veh\": \"nisi\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Crear servicio\nPermite crear el servicio",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/crear",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"lat_ini\": \"temporibus\",\n    \"lng_ini\": \"suscipit\",\n    \"lat_fin\": \"omnis\",\n    \"lng_fin\": \"voluptas\",\n    \"direccion_inicio\": \"nostrum\",\n    \"direccion_fin\": \"sit\",\n    \"tipo_veh\": \"quos\",\n    \"dimension\": \"quo\",\n    \"categoria\": \"quo\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Aceptar servicio\nPermite Aceptar el servicio por parte del conductor, el id del servicio llega por una notificacion push",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/aceptar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ser_id\": \"et\",\n    \"veh_id\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []

@@ -14,6 +14,7 @@ class VehiculoConductorModel extends Model
     protected $primaryKey = "veh_con_id";
 
     protected $fillable = [
+        "veh_con_ubicacion",
         "fk_veh_id",
         "fk_con_id",
         "fk_est_id"

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Funciones;
+use App\Http\Requests\ActualizarUbicacionConductorRequest;
 use App\Http\Requests\AgregarConductorRequest;
 use App\Http\Requests\ResubirRequest;
 use App\Models\ConductorModel;
@@ -11,8 +12,10 @@ use App\Models\ConductorRespuestaModel;
 use App\Models\DocumentacionModel;
 use App\Models\PropietarioModel;
 use App\Models\User;
+use App\Models\VehiculoConductorModel;
 use App\Models\VehiculoModel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -369,14 +372,16 @@ class ConductorController extends Controller
     }
     /**
      * Conectar al conductor
-     * Permite que el conductor pueda aceptar viajes
+     * Permite que el conductor pueda aceptar viajes, se generó un cambio de la version 1.0.2
      * 
-	 * @group  v 1.0.2
+	 * @group  v 1.0.3
+     * 
+     * @bodyParam veh_id Integer required Id del vehiculo con el que se conecta el conductor.
      * 
      * @authenticated
      * 
 	 */
-    public function conectar(){
+    public function conectar(Request $request){
         $usuario = auth()->user();
 
         $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
@@ -386,12 +391,108 @@ class ConductorController extends Controller
                 "mensaje" => "El conductor no ha sido activado por el administrador"
             ], 406);
         }
-        $conductor->con_fk_est = 5;
+        $vehiculo_conductor = VehiculoConductorModel::where("fk_con_id",$conductor->con_id)->where("fk_veh_id",$request->veh_id)->first();
+        if(!isset($vehiculo_conductor)){
+            return response()->json([
+                "success" => false,
+                "mensaje" => "El vehiculo no pertenece a ese conductor"
+            ], 406);
+        }
+        $vehiculo_conductor->fk_est_id = 5; //CONECTADO
+        $vehiculo_conductor->save();
+        $conductor->con_fk_est = 5; //CONECTADO
         $conductor->save();
+
         return response()->json([
-            "success" => true
+            "success" => true,
+            "mensaje" => "Conductor conectado correctamente"
         ], 200);
     }
 
+
+
+    /**
+     * Actualizar ubicacion del conductor
+     * Permite actualizar la ubicacion del conductor con cierto vehiculo
+     * 
+	 * @group  v 1.0.3
+     * 
+     * @bodyParam lat Double required latitud del conductor.
+     * @bodyParam lng Double required longitud del conductor.
+     * @bodyParam veh_id Integer required Id vehiculo.
+     * 
+     * @authenticated
+     * 
+	 */
+        
+    public function actualizarUbicacion(ActualizarUbicacionConductorRequest $request){
+
+        $usuario = auth()->user();
+        $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
+
+        $vehiculo_conductor = VehiculoConductorModel::where("fk_con_id",$conductor->con_id)->where("fk_veh_id",$request->veh_id)->first();
+        if(!isset($vehiculo_conductor)){
+            return response()->json([
+                "success" => false,
+                "mensaje" => "El vehiculo no pertenece a ese conductor"
+            ], 406);
+        }
+        $vehiculo_conductor->veh_con_ubicacion = DB::raw('POINT('.$request->lat.', '.$request->lng.')');
+        $vehiculo_conductor->save();
+        
+        
+        return response()->json([
+            "success" => true,
+            "mensaje" => "Ubicación actualizada"
+        ], 200);
+
+    }
+   
+    /**
+     * Ver datos erroneos de conductor
+     * 
+	 * @group  v 1.0.3
+     * 
+     * @authenticated
+     * 
+     * */
+    public function datosErroneos(){
+        $usuario = auth()->user();
+        $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
+        $respuesta = null;
+        $documentos = null;
+        $vehiculo = VehiculoModel::join("vehiculo_conductor", "fk_veh_id", "=", "veh_id")
+        ->join("color_veh", "col_id", "=", "veh_fk_col")
+        ->join("marca_veh", "mar_id", "=", "veh_fk_mar")
+        ->join("dimension_tipo_veh", "dimension_tipo_veh.id", "=", "veh_fk_dim_tip")
+        ->join("tipo_veh", "dimension_tipo_veh.fk_tip", "=", "tip_id")
+        ->join("dimension_veh", "dimension_tipo_veh.fk_dim", "=", "dim_id")
+        ->where("vehiculo_conductor.fk_est_id", "=", "2")
+        ->first();
+        if($conductor->con_fk_est == "3"){
+            $respuesta = ConductorRespuestaModel::where("cnr_fk_con","=",$conductor->con_id)->first();
+            $respuesta->cnr_campos = explode(",",$respuesta->cnr_campos);
+            $arrDoc = array();
+            foreach ($respuesta->cnr_campos as $campo){
+                if(is_numeric($campo)){
+                    array_push($arrDoc, $campo);
+                }
+            }
+            $documentos = DocumentacionModel::join("tipo_documentacion", "tdo_id", "=", "doc_fk_tdo")->whereIn("doc_id",$arrDoc)->get();
+
+        }        
+        return response()->json([
+            "success" => true,
+            "data" => [
+               
+                "conductor" => $conductor,
+                "respuesta" => $respuesta,
+                "documentos" => $documentos,
+                "vehiculo" => $vehiculo
+            ]                    
+        ], 200);
     
+            
+     
+    }
 }

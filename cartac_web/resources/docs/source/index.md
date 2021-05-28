@@ -33,7 +33,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"quas","pass":"ab","cedula":"consectetur","name":"et","apellidos":"dolor","phone":"esse","con_hora_trabajo":"vero","address":"velit","photo":"qui","wallet_type":"sunt","wallet_number":"accusantium","cedula_f":"temporibus","cedula_r":"est","licencia_c":"ut","cert_banc":"qui","esPropietario":"provident"}'
+    -d '{"email":"et","pass":"placeat","cedula":"debitis","name":"facilis","apellidos":"sed","phone":"hic","con_hora_trabajo":"enim","address":"vel","photo":"assumenda","wallet_type":"sapiente","wallet_number":"veniam","cedula_f":"soluta","cedula_r":"dolore","licencia_c":"et","cert_banc":"voluptates","esPropietario":"quas"}'
 
 ```
 
@@ -48,22 +48,22 @@ let headers = {
 };
 
 let body = {
-    "email": "quas",
-    "pass": "ab",
-    "cedula": "consectetur",
-    "name": "et",
-    "apellidos": "dolor",
-    "phone": "esse",
-    "con_hora_trabajo": "vero",
-    "address": "velit",
-    "photo": "qui",
-    "wallet_type": "sunt",
-    "wallet_number": "accusantium",
-    "cedula_f": "temporibus",
-    "cedula_r": "est",
-    "licencia_c": "ut",
-    "cert_banc": "qui",
-    "esPropietario": "provident"
+    "email": "et",
+    "pass": "placeat",
+    "cedula": "debitis",
+    "name": "facilis",
+    "apellidos": "sed",
+    "phone": "hic",
+    "con_hora_trabajo": "enim",
+    "address": "vel",
+    "photo": "assumenda",
+    "wallet_type": "sapiente",
+    "wallet_number": "veniam",
+    "cedula_f": "soluta",
+    "cedula_r": "dolore",
+    "licencia_c": "et",
+    "cert_banc": "voluptates",
+    "esPropietario": "quas"
 }
 
 fetch(url, {
@@ -112,7 +112,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"ex","pass":"culpa"}'
+    -d '{"email":"beatae","pass":"assumenda"}'
 
 ```
 
@@ -127,8 +127,8 @@ let headers = {
 };
 
 let body = {
-    "email": "ex",
-    "pass": "culpa"
+    "email": "beatae",
+    "pass": "assumenda"
 }
 
 fetch(url, {
@@ -211,7 +211,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/propietario/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"velit","cedula":"sint","name":"voluptas","apellidos":"ut","fk_user_conductor":"exercitationem","cedula_f":"explicabo","cedula_r":"omnis","carta_auto":"aut"}'
+    -d '{"email":"enim","cedula":"tenetur","name":"voluptatem","apellidos":"aut","fk_user_conductor":"iure","cedula_f":"minima","cedula_r":"nam","carta_auto":"qui"}'
 
 ```
 
@@ -226,14 +226,14 @@ let headers = {
 };
 
 let body = {
-    "email": "velit",
-    "cedula": "sint",
-    "name": "voluptas",
-    "apellidos": "ut",
-    "fk_user_conductor": "exercitationem",
-    "cedula_f": "explicabo",
-    "cedula_r": "omnis",
-    "carta_auto": "aut"
+    "email": "enim",
+    "cedula": "tenetur",
+    "name": "voluptatem",
+    "apellidos": "aut",
+    "fk_user_conductor": "iure",
+    "cedula_f": "minima",
+    "cedula_r": "nam",
+    "carta_auto": "qui"
 }
 
 fetch(url, {
@@ -274,7 +274,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/vehiculo/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dimension":"eum","typeFk":"distinctio","placa":"provident","image":"aut","fkCarColor":"velit","fkCarBrand":"quia","veh_rendimiento":"ea","id_owner":"ullam","fkUserConductor":"suscipit","subCategoryFk":"a","tarjeta_prop":"quaerat","soat":"rerum","tecno":"minima"}'
+    -d '{"dimension":"voluptatem","typeFk":"provident","placa":"et","image":"praesentium","fkCarColor":"praesentium","fkCarBrand":"dolor","veh_rendimiento":"consequatur","id_owner":"facilis","fkUserConductor":"officiis","subCategoryFk":"recusandae","tarjeta_prop":"doloremque","soat":"vel","tecno":"sapiente"}'
 
 ```
 
@@ -289,19 +289,19 @@ let headers = {
 };
 
 let body = {
-    "dimension": "eum",
-    "typeFk": "distinctio",
-    "placa": "provident",
-    "image": "aut",
-    "fkCarColor": "velit",
-    "fkCarBrand": "quia",
-    "veh_rendimiento": "ea",
-    "id_owner": "ullam",
-    "fkUserConductor": "suscipit",
-    "subCategoryFk": "a",
-    "tarjeta_prop": "quaerat",
-    "soat": "rerum",
-    "tecno": "minima"
+    "dimension": "voluptatem",
+    "typeFk": "provident",
+    "placa": "et",
+    "image": "praesentium",
+    "fkCarColor": "praesentium",
+    "fkCarBrand": "dolor",
+    "veh_rendimiento": "consequatur",
+    "id_owner": "facilis",
+    "fkUserConductor": "officiis",
+    "subCategoryFk": "recusandae",
+    "tarjeta_prop": "doloremque",
+    "soat": "vel",
+    "tecno": "sapiente"
 }
 
 fetch(url, {
@@ -914,7 +914,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/resubir" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"parametro_respuesta":"quasi","id_documentos":"dignissimos","documentos":"deleniti"}'
+    -d '{"parametro_respuesta":"beatae","id_documentos":"et","documentos":"ut"}'
 
 ```
 
@@ -929,9 +929,9 @@ let headers = {
 };
 
 let body = {
-    "parametro_respuesta": "quasi",
-    "id_documentos": "dignissimos",
-    "documentos": "deleniti"
+    "parametro_respuesta": "beatae",
+    "id_documentos": "et",
+    "documentos": "ut"
 }
 
 fetch(url, {
@@ -967,7 +967,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cli_nombres":"consequatur","cli_apellidos":"atque","cli_email":"explicabo","cli_pass":"eos","cli_foto":"fugit","cli_red":"ipsa","cli_id_red":"earum"}'
+    -d '{"cli_nombres":"error","cli_apellidos":"minima","cli_email":"non","cli_pass":"nam","cli_foto":"assumenda","cli_red":"modi","cli_id_red":"fuga"}'
 
 ```
 
@@ -982,13 +982,13 @@ let headers = {
 };
 
 let body = {
-    "cli_nombres": "consequatur",
-    "cli_apellidos": "atque",
-    "cli_email": "explicabo",
-    "cli_pass": "eos",
-    "cli_foto": "fugit",
-    "cli_red": "ipsa",
-    "cli_id_red": "earum"
+    "cli_nombres": "error",
+    "cli_apellidos": "minima",
+    "cli_email": "non",
+    "cli_pass": "nam",
+    "cli_foto": "assumenda",
+    "cli_red": "modi",
+    "cli_id_red": "fuga"
 }
 
 fetch(url, {
@@ -1028,7 +1028,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"et","pass":"esse"}'
+    -d '{"email":"facere","pass":"doloribus"}'
 
 ```
 
@@ -1043,8 +1043,8 @@ let headers = {
 };
 
 let body = {
-    "email": "et",
-    "pass": "esse"
+    "email": "facere",
+    "pass": "doloribus"
 }
 
 fetch(url, {
@@ -1068,5 +1068,332 @@ Parameter | Type | Status | Description
         `pass` | String |  optional  | Contraseña del cliente o id de la red social.
     
 <!-- END_ea71a2e0bf12e55039c3666b39ec8975 -->
+
+#v 1.0.3
+
+
+<!-- START_d65755dbd8d30504ceb0a6c278f1dd32 -->
+## Ver datos erroneos de conductor
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/conductor/datosErroneos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/conductor/datosErroneos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/conductor/datosErroneos`
+
+
+<!-- END_d65755dbd8d30504ceb0a6c278f1dd32 -->
+
+<!-- START_976433acc329b3695f4de245f9bc4173 -->
+## Conectar al conductor
+Permite que el conductor pueda aceptar viajes, se generó un cambio de la version 1.0.2
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/conductor/conectar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"veh_id":"quas"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/conductor/conectar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "veh_id": "quas"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/conductor/conectar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `veh_id` | Integer |  required  | Id del vehiculo con el que se conecta el conductor.
+    
+<!-- END_976433acc329b3695f4de245f9bc4173 -->
+
+<!-- START_02bb5fb0151a291ffa1d627a77c93961 -->
+## Actualizar ubicacion del conductor
+Permite actualizar la ubicacion del conductor con cierto vehiculo
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/conductor/actualizarUbicacion" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"lat":"sit","lng":"quia","veh_id":"consequuntur"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/conductor/actualizarUbicacion"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "lat": "sit",
+    "lng": "quia",
+    "veh_id": "consequuntur"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/conductor/actualizarUbicacion`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `lat` | Double |  required  | latitud del conductor.
+        `lng` | Double |  required  | longitud del conductor.
+        `veh_id` | Integer |  required  | Id vehiculo.
+    
+<!-- END_02bb5fb0151a291ffa1d627a77c93961 -->
+
+<!-- START_4149f3ef54e6ede4d09a98391e0a96db -->
+## Cotizar servicio
+Permite conocer el valor del servicio antes de generarlo
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/cotizar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"lat_ini":"et","lng_ini":"corrupti","lat_fin":"corporis","lng_fin":"a","tipo_veh":"nisi"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/cotizar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "lat_ini": "et",
+    "lng_ini": "corrupti",
+    "lat_fin": "corporis",
+    "lng_fin": "a",
+    "tipo_veh": "nisi"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/cotizar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `lat_ini` | Double |  required  | latitud de la ubicacion inicial.
+        `lng_ini` | Double |  required  | longitud de la ubicacion inicial.
+        `lat_fin` | Double |  required  | latitud de la ubicacion final.
+        `lng_fin` | Double |  required  | longitud de la ubicacion final.
+        `tipo_veh` | Integer |  required  | Id del tipo de vehiculo.
+    
+<!-- END_4149f3ef54e6ede4d09a98391e0a96db -->
+
+<!-- START_0c831c48e92f095e552fdb86f2b4cdd1 -->
+## Crear servicio
+Permite crear el servicio
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/crear" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"lat_ini":"temporibus","lng_ini":"suscipit","lat_fin":"omnis","lng_fin":"voluptas","direccion_inicio":"nostrum","direccion_fin":"sit","tipo_veh":"quos","dimension":"quo","categoria":"quo"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/crear"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "lat_ini": "temporibus",
+    "lng_ini": "suscipit",
+    "lat_fin": "omnis",
+    "lng_fin": "voluptas",
+    "direccion_inicio": "nostrum",
+    "direccion_fin": "sit",
+    "tipo_veh": "quos",
+    "dimension": "quo",
+    "categoria": "quo"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/crear`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `lat_ini` | Double |  required  | latitud de la ubicacion inicial.
+        `lng_ini` | Double |  required  | longitud de la ubicacion inicial.
+        `lat_fin` | Double |  required  | latitud de la ubicacion final.
+        `lng_fin` | Double |  required  | longitud de la ubicacion final.
+        `direccion_inicio` | String |  required  | Dirección inicial que el cliente escribió.
+        `direccion_fin` | String |  required  | Dirección final que el cliente escribió.
+        `tipo_veh` | Integer |  required  | Id del tipo de vehiculo.
+        `dimension` | Integer |  required  | Id dimension del vehiculo.
+        `categoria` | Integer |  required  | Id de la categoria del vehiculo.
+    
+<!-- END_0c831c48e92f095e552fdb86f2b4cdd1 -->
+
+<!-- START_af13537ec25e8857875b259cbd0455e6 -->
+## Aceptar servicio
+Permite Aceptar el servicio por parte del conductor, el id del servicio llega por una notificacion push
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/aceptar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ser_id":"et","veh_id":"et"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/aceptar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ser_id": "et",
+    "veh_id": "et"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/aceptar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `ser_id` | Integer |  required  | Id del servicio.
+        `veh_id` | Integer |  required  | Id del vehiculo.
+    
+<!-- END_af13537ec25e8857875b259cbd0455e6 -->
 
 

@@ -14,10 +14,10 @@ use Illuminate\Support\Facades\Redirect;
 
 class PeajeController extends Controller
 {
-    /*public function __construct()
+    public function __construct()
     {
         $this->middleware('auth');
-    }*/
+    }
 
     public function index(){
         $peajes = PeajeModel::all();

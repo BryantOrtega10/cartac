@@ -63,7 +63,8 @@ class CreateConductor extends Migration
         Schema::create('vehiculo_conductor', function (Blueprint $table) {
             
             $table->id("veh_con_id");
-            
+            $table->point("veh_con_ubicacion")->nullable();
+
             $table->bigInteger('fk_veh_id')->unsigned()->nullable();
             $table->foreign('fk_veh_id')->references('veh_id')->on('vehiculo')->onDelete('cascade');
             $table->index('fk_veh_id');

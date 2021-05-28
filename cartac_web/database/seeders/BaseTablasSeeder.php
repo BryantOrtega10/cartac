@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use App\Models\CategoriaModel;
 use App\Models\CategoriaPeajeModel;
 use App\Models\ColorVehiculoModel;
+use App\Models\ConfiguracionModel;
 use App\Models\DimensionTipoVehiculoModel;
 use App\Models\EstadoModel;
 use App\Models\RolModel;
@@ -24,6 +25,15 @@ class BaseTablasSeeder extends Seeder
      */
     public function run()
     {
+        ConfiguracionModel::insert([
+            [
+                'cfg_distancia' => "10",
+                'cfg_tiempo' => "20",
+                'cfg_peso' => "50",
+                'cfg_porcentaje_seguro' => "10.5",
+                'cfg_porcentaje_ganancia' => "5"
+            ]
+        ]);
         CategoriaPeajeModel::insert([
             [
                 'ctp_name' => "No aplica"
@@ -141,6 +151,21 @@ class BaseTablasSeeder extends Seeder
             ],[
                 'est_name' => 'EN VIAJE',
                 'est_clase' => 'en_viaje',
+            ],[
+                'est_name' => 'BUSCANDO CONDUCTOR',
+                'est_clase' => 'buscando_conductor',
+            ],[
+                'est_name' => 'CONDUCTOR EN CAMINO',
+                'est_clase' => 'conductor_en_camino',
+            ],[
+                'est_name' => 'CONDUCTOR ESPERANDO',
+                'est_clase' => 'conductor_esperando',
+            ],[
+                'est_name' => 'TERMINADO',
+                'est_clase' => 'terminado',
+            ],[
+                'est_name' => 'CANCELADO',
+                'est_clase' => 'cancelado',
             ]
         ]);
 

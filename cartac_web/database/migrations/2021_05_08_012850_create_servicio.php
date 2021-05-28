@@ -44,6 +44,7 @@ class CreateServicio extends Migration
             $table->float("cfg_tiempo");
             $table->float("cfg_peso");
             $table->float("cfg_porcentaje_seguro");  
+            $table->float("cfg_porcentaje_ganancia");  
             $table->engine = "InnoDB";      
         });
 
@@ -51,7 +52,7 @@ class CreateServicio extends Migration
             $table->id("cfm_id");
             $table->time("cfm_hora_inicio");
             $table->time("cfm_hora_fin");
-            $table->time("cfm_multiplicador");
+            $table->double("cfm_multiplicador");
 
             $table->bigInteger('cfm_fk_cfg')->unsigned()->nullable();
             $table->foreign('cfm_fk_cfg')->references('cfg_id')->on('configuracion')->onDelete('cascade');
@@ -67,24 +68,43 @@ class CreateServicio extends Migration
             $table->foreign('ser_fk_cli')->references('cli_id')->on('cliente')->onDelete('cascade');
             $table->index('ser_fk_cli');
 
+            $table->bigInteger('ser_fk_con')->unsigned()->nullable();
+            $table->foreign('ser_fk_con')->references('con_id')->on('conductor')->onDelete('cascade');
+            $table->index('ser_fk_con');
+
+            $table->bigInteger('ser_fk_veh')->unsigned()->nullable();
+            $table->foreign('ser_fk_veh')->references('veh_id')->on('vehiculo')->onDelete('cascade');
+            $table->index('ser_fk_veh');
+
             $table->point("ser_ubicacion_ini");
             $table->point("ser_ubicacion_fin");
+
+            $table->lineString("ser_ruta_cotizada");
 
             $table->string("ser_direccion_ini");
             $table->string("ser_direccion_fin");
 
+            $table->decimal('ser_distancia')->nullable();
+            $table->decimal('ser_tiempo')->nullable();
+            $table->decimal('ser_peajes')->nullable();
+            $table->decimal('ser_seguro')->nullable();
+            $table->decimal('ser_ganancia')->nullable();
             $table->decimal("ser_valor_final");
 
-            $table->float("ser_calificacion");
+            $table->float("ser_calificacion")->nullable();
 
-            $table->bigInteger('ser_fk_cat')->unsigned()->nullable();
+            $table->bigInteger('ser_fk_cat')->unsigned();
             $table->foreign('ser_fk_cat')->references('cat_id')->on('categoria')->onDelete('cascade');
             $table->index('ser_fk_cat');
 
-            $table->bigInteger('ser_fk_dim_tip')->unsigned();
-            $table->foreign('ser_fk_dim_tip')->references('id')->on('dimension_tipo_veh')->onDelete('cascade');
-            $table->index('ser_fk_dim_tip');
+            $table->bigInteger('ser_fk_dim')->unsigned();
+            $table->foreign('ser_fk_dim')->references('dim_id')->on('dimension_veh')->onDelete('cascade');
+            $table->index('ser_fk_dim');
 
+            $table->bigInteger('ser_fk_tip')->unsigned();
+            $table->foreign('ser_fk_tip')->references('tip_id')->on('tipo_veh')->onDelete('cascade');
+            $table->index('ser_fk_tip');
+           
             $table->bigInteger('ser_fk_cfm')->unsigned()->nullable();
             $table->foreign('ser_fk_cfm')->references('cfm_id')->on('config_multiplicador')->onDelete('cascade');
             $table->index('ser_fk_cfm');
@@ -99,6 +119,10 @@ class CreateServicio extends Migration
 
             $table->timestamp('ser_created_at')->nullable()->useCurrent();
             $table->timestamp('ser_aceptado_at')->nullable();
+            
+            $table->text('ser_motivo_cancelacion')->nullable();
+            
+
 
             $table->bigInteger('ser_fk_est')->unsigned();
             $table->foreign('ser_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
@@ -167,14 +191,23 @@ class CreateServicio extends Migration
             $table->dropForeign('servicio_ser_fk_cfm_foreign');
             $table->dropIndex('servicio_ser_fk_cfm_index');
 
-            $table->dropForeign('servicio_ser_fk_dim_tip_foreign');
-            $table->dropIndex('servicio_ser_fk_dim_tip_index');
+            $table->dropForeign('servicio_ser_fk_dim_foreign');
+            $table->dropIndex('servicio_ser_fk_dim_index');
+
+            $table->dropForeign('servicio_ser_fk_tip_foreign');
+            $table->dropIndex('servicio_ser_fk_tip_index');
 
             $table->dropForeign('servicio_ser_fk_cat_foreign');
             $table->dropIndex('servicio_ser_fk_cat_index');
 
             $table->dropForeign('servicio_ser_fk_cli_foreign');
             $table->dropIndex('servicio_ser_fk_cli_index');
+
+            $table->dropForeign('servicio_ser_fk_con_foreign');
+            $table->dropIndex('servicio_ser_fk_con_index');
+
+            $table->dropForeign('servicio_ser_fk_veh_foreign');
+            $table->dropIndex('servicio_ser_fk_veh_index');
             
             
             

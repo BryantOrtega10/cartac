@@ -110,24 +110,18 @@
                         <li><a href="{{ route('conductores.index')}}" @if (str_contains(Route::current()->getName(),'conductores'))
                             class="activo"
                         @endif>Conductores</a></li>
-                        <li>
+                        <li><a href="{{ route('configuracion.index')}}" @if (str_contains(Route::current()->getName(),'configuracion'))
+                            class="activo"
+                        @endif>Configuraci&oacute;n</a></li>
+                        <!--<li>
                             <a href="#" data-toggle="collapse" data-target="#sub-menu1" aria-expanded="false">CATEGORIA <i class="fas fa-sort-down"></i></a> 
                             <ul class="sub-menu collapse" id="sub-menu1">
                                 <li><a href="#">SUB CATEGORIA 1</a></li>
                                 <li><a href="#">SUB CATEGORIA 2</a></li>
                                 <li><a href="#">SUB CATEGORIA 3</a></li>
                             </ul>                
-                        </li>
-                        <li><a href="#">CATEGORIA 2</a></li>
-                        <li>
-                            <a href="#" data-toggle="collapse" data-target="#sub-menu3" aria-expanded="false">CATEGORIA 3 <i class="fas fa-sort-down"></i></a> 
-                            <ul class="sub-menu collapse" id="sub-menu3">
-                                <li><a href="#">SUB CATEGORIA 1</a></li>
-                                <li><a href="#">SUB CATEGORIA 2</a></li>
-                                <li><a href="#">SUB CATEGORIA 3</a></li>
-                            </ul>  
-                        </li>
-                        <li><a href="#">CATEGORIA 2</a></li>
+                        </li>-->
+                        
                     </ul>
                 </div>
                 
