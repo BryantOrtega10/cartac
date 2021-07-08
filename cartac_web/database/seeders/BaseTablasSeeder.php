@@ -166,6 +166,9 @@ class BaseTablasSeeder extends Seeder
             ],[
                 'est_name' => 'CANCELADO',
                 'est_clase' => 'cancelado',
+            ],[
+                'est_name' => 'CALIFICADO',
+                'est_clase' => 'calificado',
             ]
         ]);
 

@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Funciones;
 use App\Http\Requests\AgregarClienteRequest;
+use App\Http\Requests\ModificarClienteRequest;
 use App\Models\ClienteModel;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class ClienteController extends Controller
@@ -134,5 +136,53 @@ class ClienteController extends Controller
                 "mensaje" => "Usuario o contraseña incorrectos"
             ], 406);
         }
+    }
+
+
+    /**
+     * Modificar cliente
+     * 
+	 * @group  v 1.0.4
+     * 
+     * @bodyParam cli_nombres String required Nombres del cliente.
+     * @bodyParam cli_apellidos String required Apellidos del cliente.
+     * @bodyParam cli_email String required Email del cliente.
+     * @bodyParam cli_pass String Password del cliente.
+     * @bodyParam cli_foto String/File Puede ser un archivo o una imagen en base 64 de la foto del cliente.
+     * 
+     * @authenticated
+     * 
+     * */
+    public function modificar(ModificarClienteRequest $request){
+        $userBd = auth()->user();
+
+        $usuario = User::findOrFail($userBd->id);
+        $usuario->name = $request->cli_nombres." ".$request->cli_apellidos;
+        $usuario->email = $request->cli_email;
+        if($request->has("cli_pass")){
+            $usuario->password = Hash::make($request->cli_pass);
+        }
+        $usuario->fk_rol = 2;
+        $save_usuario = $usuario->save();
+
+
+        $cliente = ClienteModel::where("cli_fk_usr", "=",$usuario->id)->first();
+        $cliente->cli_nombres = $request->cli_nombres;
+        $cliente->cli_apellidos = $request->cli_apellidos;
+        $cliente->cli_email = $request->cli_email;
+        if($request->hasFile("cli_foto")){
+            Storage::delete($cliente->cli_foto);
+            $directorio = "imgs/users/";
+            $fotoNom =  time()."_usuario_cliente.png";
+            $request->file("cli_foto")->storeAs($directorio, $fotoNom, "local");
+            $foto = $directorio.$fotoNom;
+            $cliente->cli_foto = $foto;
+        }
+        $save_cliente = $cliente->save();
+
+        return response()->json([
+            "success" => true,
+            "message" => "Cliente actualizado correctamente"
+        ]);
     }
 }

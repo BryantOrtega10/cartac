@@ -28,6 +28,7 @@ class ServicioModel extends Model
         "ser_ganancia",
         "ser_valor_final",
         "ser_calificacion",
+        "ser_opinion",
         "ser_fk_cat",
         "ser_fk_dim",
         "ser_fk_tip",
@@ -42,5 +43,16 @@ class ServicioModel extends Model
 
     public $timestamps = false;    
 
-    
+    public function cliente()
+    {
+        return $this->belongsTo(ClienteModel::class, 'ser_fk_cli', 'cli_id');
+    }
+    public function conductor()
+    {
+        return $this->belongsTo(ConductorModel::class, 'ser_fk_con', 'con_id');
+    }
+    public function vehiculo()
+    {
+        return $this->belongsTo(VehiculoModel::class, 'ser_fk_veh', 'veh_id');
+    }    
 }

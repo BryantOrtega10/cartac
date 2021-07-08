@@ -89,9 +89,17 @@ class CreateServicio extends Migration
             $table->decimal('ser_peajes')->nullable();
             $table->decimal('ser_seguro')->nullable();
             $table->decimal('ser_ganancia')->nullable();
+            
+            $table->decimal("ser_subtotal");
+            $table->decimal("ser_descuento");
             $table->decimal("ser_valor_final");
-
+            
             $table->float("ser_calificacion")->nullable();
+            $table->text("ser_opinion")->nullable();
+
+            $table->bigInteger('ser_fk_bon')->unsigned();
+            $table->foreign('ser_fk_bon')->references('bon_id')->on('bono')->onDelete('cascade');
+            $table->index('ser_fk_bon');
 
             $table->bigInteger('ser_fk_cat')->unsigned();
             $table->foreign('ser_fk_cat')->references('cat_id')->on('categoria')->onDelete('cascade');
@@ -165,6 +173,8 @@ class CreateServicio extends Migration
      */
     public function down()
     {
+        
+
         Schema::table('peaje_servicio', function(Blueprint $table)
         {
             $table->dropForeign('peaje_servicio_pjs_fk_pea_id_foreign');
@@ -182,6 +192,13 @@ class CreateServicio extends Migration
 
         Schema::table('servicio', function(Blueprint $table)
         {
+
+            $table->dropForeign('servicio_ser_fk_est_foreign');
+            $table->dropIndex('servicio_ser_fk_est_index');
+
+            $table->dropForeign('servicio_ser_fk_bon_foreign');
+            $table->dropIndex('servicio_ser_fk_bon_index');
+
             $table->dropForeign('servicio_ser_fk_clb_foreign');
             $table->dropIndex('servicio_ser_fk_clb_index');
 
@@ -230,7 +247,7 @@ class CreateServicio extends Migration
 
         
 
-
+        Schema::dropIfExists('codigos_descuento');
         Schema::dropIfExists('peaje_servicio');
         Schema::dropIfExists('ruta');
         Schema::dropIfExists('servicio');

@@ -31,11 +31,16 @@ class CreateCliente extends Migration
         Schema::create('bono', function (Blueprint $table) {
             $table->id("bon_id");
             $table->string("bon_codigo",50);
-            $table->timestamp('bon_fecha_ini')->nullable()->useCurrent();
-            $table->timestamp('bon_fecha_fin')->nullable()->useCurrent();
+            $table->timestamp('bon_fecha_ini')->nullable();
+            $table->timestamp('bon_fecha_fin')->nullable();
             $table->integer("bon_valor")->nullable();
             $table->float("bon_porcentaje")->nullable();
+            $table->integer("bon_disponibles")->nullable();
+
+            
             $table->engine = "InnoDB";
+
+
         });
 
         Schema::create('cliente_bono', function (Blueprint $table) {
@@ -69,6 +74,17 @@ class CreateCliente extends Migration
             $table->engine = "InnoDB";
         });
 
+        Schema::create('direccion', function (Blueprint $table) {
+            $table->id("dir_id");
+            $table->string("dir_direccion",255);
+            $table->point("dir_ubicacion")->nullable();
+
+            
+            $table->bigInteger('dir_fk_cli')->unsigned()->nullable();
+            $table->foreign('dir_fk_cli')->references('cli_id')->on('cliente')->onDelete('cascade');
+            $table->index('dir_fk_cli');
+            $table->engine = "InnoDB";
+        });
         
     }
 
@@ -79,6 +95,12 @@ class CreateCliente extends Migration
      */
     public function down()
     {
+        Schema::table('direccion', function(Blueprint $table)
+        {
+            $table->dropForeign('direccion_dir_fk_cli_foreign');
+            $table->dropIndex('direccion_dir_fk_cli_index');
+
+        });
 
         Schema::table('tipo_pago', function(Blueprint $table)
         {
@@ -102,7 +124,7 @@ class CreateCliente extends Migration
             $table->dropIndex('cliente_cli_fk_usr_index');            
         });
 
-
+        Schema::dropIfExists('direccion');
         Schema::dropIfExists('tipo_pago');
         Schema::dropIfExists('cliente_bono');
         Schema::dropIfExists('bono');

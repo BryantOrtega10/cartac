@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AceptarServicioRequest;
+use App\Http\Requests\CalificarServicioRequest;
+use App\Http\Requests\CambiarEstadoServicioRequest;
+use App\Http\Requests\CancelarServicioRequest;
 use App\Http\Requests\CotizarServicioRequest;
 use App\Http\Requests\CrearServicioRequest;
+use App\Http\Requests\VerDatosServicioRequest;
 use App\Models\ClienteModel;
 use App\Models\ConductorModel;
 use App\Models\ConfiguracionModel;
@@ -13,6 +17,7 @@ use App\Models\MultiplicadorModel;
 use App\Models\PeajeModel;
 use App\Models\PeajeServicioModel;
 use App\Models\ServicioModel;
+use App\Models\VehiculoConductorModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\DB;
@@ -284,6 +289,7 @@ class ServicioController extends Controller
             }
             $servicio->ser_fk_est = 8; //BUSCANDO CONDUCTOR
             $servicio->ser_ruta_cotizada = DB::raw('ST_GeomFromText("LINESTRING('.$lineStringIda.')")');
+            //FALTA EL METODO DE PAGO
             $servicio->save();
             
 
@@ -336,16 +342,14 @@ class ServicioController extends Controller
 	 */    
     public function aceptar(AceptarServicioRequest $request){
         $usuario = auth()->user();
-        $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();        
+        $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
         $servicio = ServicioModel::findOrFail($request->ser_id);
         $servicio->ser_fk_con = $conductor->con_id;
         $servicio->ser_fk_veh = $request->veh_id;
         $servicio->ser_aceptado_at = date("Y-m-d H:i:s");
         $servicio->ser_fk_est = 9;
-        $servicio->save();
-
-       
-
+        $servicio->save();       
+        //PUSH: Enviar al cliente del servicio el conductor y el vehiculo 
         return response()->json([
             "success" => true,
             "mensaje" => "Servicio aceptado correctamente",
@@ -354,8 +358,156 @@ class ServicioController extends Controller
                     "ser_id" => $servicio->ser_id
                 ]                
             ]
-        ],200);
+        ],200);        
+    }
+
+    /**
+     * Ver datos del servicio
+     * Permite ver la ubicación del vehiculo que presta el servicio por parte del cliente
+     * 
+	 * @group  v 1.0.4
+     * 
+     * @bodyParam ser_id Integer required Id del servicio.
+     * 
+     * @authenticated
+     * 
+	 */    
+    public function ver_datos(VerDatosServicioRequest $request){
+
+        $servicio = ServicioModel::findOrFail($request->ser_id);
+        $arrEstadosValidos = [9,10,7];
+        $data = array();
+        $data["ser_direccion_ini"] = $servicio->ser_direccion_ini;
+        $data["ser_direccion_fin"] = $servicio->ser_direccion_fin;
+        $data["ser_distancia"] = $servicio->ser_distancia;
+        $data["ser_tiempo"] = $servicio->ser_tiempo;
+        $data["ser_peajes"] = $servicio->ser_peajes;
+        $data["ser_seguro"] = $servicio->ser_seguro;
+        $data["ser_ganancia"] = $servicio->ser_ganancia;
+        $data["ser_valor_final"] = $servicio->ser_valor_final;
+        $data["cli_nombres"] = $servicio->cliente->cli_nombres;
+        $data["cli_apellidos"] = $servicio->cliente->cli_apellidos;
+        $data["cli_email"] = $servicio->cliente->cli_email;
+        $data["cli_foto"] = $servicio->cliente->cli_foto;
+        $data["veh_placa"] = $servicio->vehiculo->veh_placa;
+        $data["veh_foto"] = $servicio->vehiculo->veh_foto;
+        $data["con_documento"] = $servicio->conductor->con_documento;
+        $data["con_nombres"] = $servicio->conductor->con_nombres;
+        $data["con_apellidos"] = $servicio->conductor->con_apellidos;
+        $data["con_email"] = $servicio->conductor->con_email;
+        $data["con_celular"] = $servicio->conductor->con_celular;
+        $data["con_direccion"] = $servicio->conductor->con_direccion;
+        $data["con_foto"] = $servicio->conductor->con_foto;
+
+        if(in_array($servicio->ser_fk_est, $arrEstadosValidos)){
+            $vehiculo_conductor = VehiculoConductorModel::selectRaw("ST_X(veh_con_ubicacion) as lat, ST_Y(veh_con_ubicacion) as lng")
+            ->where("fk_con_id",$servicio->ser_fk_con)
+            ->where("fk_veh_id",$servicio->ser_fk_veh)
+            ->first();
+            $data["lat_conductor"] = $vehiculo_conductor->lat;
+            $data["lng_conductor"] = $vehiculo_conductor->lng;
+
+        }
         
+
+        return response()->json([
+            "success" => true,
+            "data" => $data
+        ],200);   
+    }
+
+    
+
+    /**
+     * Cambiar estado servicio
+     * Permite cambiar el estado del servicio por parte del conductor, Estados: 10 - CONDUCTOR ESPERANDO, 11 - TERMINADO, 7 - EN VIAJE
+     * 
+	 * @group  v 1.0.4
+     * 
+     * @bodyParam ser_id Integer required Id del servicio.
+     * @bodyParam est_id Integer required Id del estado.
+     * 
+     * @authenticated
+     * 
+	 */    
+    public function cambiar_estado(CambiarEstadoServicioRequest $request){
+        
+        $servicio = ServicioModel::findOrFail($request->ser_id);
+        
+        $servicio->ser_fk_est = $request->est_id;
+        $servicio->save();
+
+
+        if($request->est_id == 10){
+            //PUSH: Enviar al cliente del servicio la notificacion de que el conductor ya llego
+        }
+        else if($request->est_id == 7){
+            //PUSH: Enviar al cliente del servicio la notificacion de que el conductor ya empezo el viaje para cambiar la ventana del cliente
+        }
+        else if($request->est_id == 11){
+            //PUSH: Enviar al cliente del servicio la notificacion de que el servicio terminó
+        }
+
+
+        return response()->json([
+            "success" => true,
+            "mensaje" => "Servicio modificado correctamente",
+            "data" => [
+                "servicio" => [
+                    "ser_id" => $servicio->ser_id
+                ]                
+            ]
+        ],200);        
+    }
+
+    /**
+     * Cancelar servicio
+     * Permite cancelar el servicio por parte del cliente
+     * 
+	 * @group  v 1.0.4
+     * 
+     * @bodyParam ser_id Integer required Id del servicio.
+     * @bodyParam motivo String required Motivo por el  que cancela
+     * 
+     * @authenticated
+     * 
+	 */  
+    public function cancelar(CancelarServicioRequest $request){
+        $servicio = ServicioModel::findOrFail($request->ser_id);        
+        $servicio->ser_motivo_cancelacion = $request->motivo;
+        $servicio->ser_fk_est = 12;
+        $servicio->save();
+        //PUSH: Enviar al conductor del servicio la notificacion de que el servicio se cancelo
+        return response()->json([
+            "success" => true,
+            "mensaje" => "Servicio cancelado correctamente"            
+        ],200);        
+    }
+
+    /**
+     * Calificar servicio
+     * Permite calificar el servicio por parte del cliente
+     * 
+	 * @group  v 1.0.4
+     * 
+     * @bodyParam ser_id Integer required Id del servicio.
+     * @bodyParam calificacion Integer required Número del 0 al 5 que indica la calificación del servicio.
+     * @bodyParam opinion String Opinion acerca del servicio.
+     * 
+     * @authenticated
+     * 
+	 */  
+    public function calificar(CalificarServicioRequest $request){
+        $servicio = ServicioModel::findOrFail($request->ser_id);        
+        $servicio->ser_calificacion = floatval($request->calificacion);
+        $servicio->ser_opinion = $request->opinion;
+        $servicio->ser_fk_est = 13;
+        $servicio->save();
+        //PUSH: Enviar al conductor del servicio la notificacion de que el servicio se cancelo
+        return response()->json([
+            "success" => true,
+            "mensaje" => "Servicio calificado correctamente"            
+        ],200);        
     }
 
     

@@ -327,3 +327,10 @@ img.categoria {
     margin: auto;
     display: block;
 }
+
+.opcion_porcentaje, .opcion_valor {
+    display: none;
+}
+.opcion_porcentaje.activo, .opcion_valor.activo {
+    display: flex;
+}

@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Cartac API",
-        "_postman_id": "22a6b95c-07a6-4713-b0c2-064aeb1c2ae0",
+        "_postman_id": "9951923c-938e-4030-ba55-26db0b6d49d4",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"et\",\n    \"pass\": \"placeat\",\n    \"cedula\": \"debitis\",\n    \"name\": \"facilis\",\n    \"apellidos\": \"sed\",\n    \"phone\": \"hic\",\n    \"con_hora_trabajo\": \"enim\",\n    \"address\": \"vel\",\n    \"photo\": \"assumenda\",\n    \"wallet_type\": \"sapiente\",\n    \"wallet_number\": \"veniam\",\n    \"cedula_f\": \"soluta\",\n    \"cedula_r\": \"dolore\",\n    \"licencia_c\": \"et\",\n    \"cert_banc\": \"voluptates\",\n    \"esPropietario\": \"quas\"\n}"
+                            "raw": "{\n    \"email\": \"non\",\n    \"pass\": \"consectetur\",\n    \"cedula\": \"et\",\n    \"name\": \"voluptas\",\n    \"apellidos\": \"quibusdam\",\n    \"phone\": \"voluptatem\",\n    \"con_hora_trabajo\": \"et\",\n    \"address\": \"occaecati\",\n    \"photo\": \"magnam\",\n    \"wallet_type\": \"molestiae\",\n    \"wallet_number\": \"asperiores\",\n    \"cedula_f\": \"dolorem\",\n    \"cedula_r\": \"perspiciatis\",\n    \"licencia_c\": \"in\",\n    \"cert_banc\": \"quis\",\n    \"esPropietario\": \"ullam\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"beatae\",\n    \"pass\": \"assumenda\"\n}"
+                            "raw": "{\n    \"email\": \"sunt\",\n    \"pass\": \"saepe\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"enim\",\n    \"cedula\": \"tenetur\",\n    \"name\": \"voluptatem\",\n    \"apellidos\": \"aut\",\n    \"fk_user_conductor\": \"iure\",\n    \"cedula_f\": \"minima\",\n    \"cedula_r\": \"nam\",\n    \"carta_auto\": \"qui\"\n}"
+                            "raw": "{\n    \"email\": \"et\",\n    \"cedula\": \"est\",\n    \"name\": \"modi\",\n    \"apellidos\": \"omnis\",\n    \"fk_user_conductor\": \"dolorem\",\n    \"cedula_f\": \"consectetur\",\n    \"cedula_r\": \"reprehenderit\",\n    \"carta_auto\": \"porro\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -145,7 +145,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dimension\": \"voluptatem\",\n    \"typeFk\": \"provident\",\n    \"placa\": \"et\",\n    \"image\": \"praesentium\",\n    \"fkCarColor\": \"praesentium\",\n    \"fkCarBrand\": \"dolor\",\n    \"veh_rendimiento\": \"consequatur\",\n    \"id_owner\": \"facilis\",\n    \"fkUserConductor\": \"officiis\",\n    \"subCategoryFk\": \"recusandae\",\n    \"tarjeta_prop\": \"doloremque\",\n    \"soat\": \"vel\",\n    \"tecno\": \"sapiente\"\n}"
+                            "raw": "{\n    \"dimension\": \"ex\",\n    \"typeFk\": \"alias\",\n    \"placa\": \"ut\",\n    \"image\": \"incidunt\",\n    \"fkCarColor\": \"possimus\",\n    \"fkCarBrand\": \"culpa\",\n    \"veh_rendimiento\": \"dignissimos\",\n    \"id_owner\": \"quia\",\n    \"fkUserConductor\": \"tempore\",\n    \"subCategoryFk\": \"quas\",\n    \"tarjeta_prop\": \"ad\",\n    \"soat\": \"eos\",\n    \"tecno\": \"sint\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -347,7 +347,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"parametro_respuesta\": \"beatae\",\n    \"id_documentos\": \"et\",\n    \"documentos\": \"ut\"\n}"
+                            "raw": "{\n    \"parametro_respuesta\": \"facilis\",\n    \"id_documentos\": \"nam\",\n    \"documentos\": \"beatae\"\n}"
                         },
                         "description": "La autorizacion es una variable header -> Authorization : Bearer token",
                         "response": []
@@ -375,7 +375,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cli_nombres\": \"error\",\n    \"cli_apellidos\": \"minima\",\n    \"cli_email\": \"non\",\n    \"cli_pass\": \"nam\",\n    \"cli_foto\": \"assumenda\",\n    \"cli_red\": \"modi\",\n    \"cli_id_red\": \"fuga\"\n}"
+                            "raw": "{\n    \"cli_nombres\": \"et\",\n    \"cli_apellidos\": \"nobis\",\n    \"cli_email\": \"odit\",\n    \"cli_pass\": \"sapiente\",\n    \"cli_foto\": \"ut\",\n    \"cli_red\": \"qui\",\n    \"cli_id_red\": \"accusamus\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -403,7 +403,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"facere\",\n    \"pass\": \"doloribus\"\n}"
+                            "raw": "{\n    \"email\": \"minus\",\n    \"pass\": \"distinctio\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -465,7 +465,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"veh_id\": \"quas\"\n}"
+                            "raw": "{\n    \"veh_id\": \"omnis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -493,7 +493,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat\": \"sit\",\n    \"lng\": \"quia\",\n    \"veh_id\": \"consequuntur\"\n}"
+                            "raw": "{\n    \"lat\": \"qui\",\n    \"lng\": \"rem\",\n    \"veh_id\": \"odio\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -521,7 +521,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat_ini\": \"et\",\n    \"lng_ini\": \"corrupti\",\n    \"lat_fin\": \"corporis\",\n    \"lng_fin\": \"a\",\n    \"tipo_veh\": \"nisi\"\n}"
+                            "raw": "{\n    \"lat_ini\": \"minus\",\n    \"lng_ini\": \"enim\",\n    \"lat_fin\": \"officia\",\n    \"lng_fin\": \"suscipit\",\n    \"tipo_veh\": \"odit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -549,7 +549,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat_ini\": \"temporibus\",\n    \"lng_ini\": \"suscipit\",\n    \"lat_fin\": \"omnis\",\n    \"lng_fin\": \"voluptas\",\n    \"direccion_inicio\": \"nostrum\",\n    \"direccion_fin\": \"sit\",\n    \"tipo_veh\": \"quos\",\n    \"dimension\": \"quo\",\n    \"categoria\": \"quo\"\n}"
+                            "raw": "{\n    \"lat_ini\": \"voluptate\",\n    \"lng_ini\": \"et\",\n    \"lat_fin\": \"cum\",\n    \"lng_fin\": \"eligendi\",\n    \"direccion_inicio\": \"ratione\",\n    \"direccion_fin\": \"quis\",\n    \"tipo_veh\": \"minus\",\n    \"dimension\": \"fuga\",\n    \"categoria\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -577,7 +577,265 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"et\",\n    \"veh_id\": \"et\"\n}"
+                            "raw": "{\n    \"ser_id\": \"unde\",\n    \"veh_id\": \"hic\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "v 1.0.4",
+            "description": "",
+            "item": [
+                {
+                    "name": "Modificar cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/cliente\/modificar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"cli_nombres\": \"earum\",\n    \"cli_apellidos\": \"rerum\",\n    \"cli_email\": \"rerum\",\n    \"cli_pass\": \"autem\",\n    \"cli_foto\": \"ut\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Consultar direcciones\nPermite consultar direcciones de los clientes",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/cliente\/direccion",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Agregar direcci\u00f3n\nPermite agregar una direcci\u00f3n a un cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/cliente\/direccion\/agregar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"direccion\": \"consequatur\",\n    \"lat\": \"voluptatem\",\n    \"lng\": \"repellendus\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Modificar direcci\u00f3n\nPermite modificar una direcci\u00f3n a un cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/cliente\/direccion\/modificar",
+                            "query": []
+                        },
+                        "method": "PUT",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"direccion\": \"qui\",\n    \"lat\": \"ut\",\n    \"lng\": \"fugiat\",\n    \"dir_id\": \"magni\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Eliminar direcci\u00f3n\nPermite eliminar una direcci\u00f3n a un cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/cliente\/direccion\/eliminar",
+                            "query": []
+                        },
+                        "method": "DELETE",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"dir_id\": \"facilis\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Cambiar estado servicio\nPermite cambiar el estado del servicio por parte del conductor, Estados: 10 - CONDUCTOR ESPERANDO, 11 - TERMINADO, 7 - EN VIAJE",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/cambiar_estado",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ser_id\": \"sit\",\n    \"est_id\": \"eos\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Ver datos del servicio\nPermite ver la ubicaci\u00f3n del vehiculo que presta el servicio por parte del cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/ver_datos",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ser_id\": \"aut\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Cancelar servicio\nPermite cancelar el servicio por parte del cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/cancelar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ser_id\": \"velit\",\n    \"motivo\": \"non\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Calificar servicio\nPermite calificar el servicio por parte del cliente",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/calificar",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"ser_id\": \"quasi\",\n    \"calificacion\": \"ratione\",\n    \"opinion\": \"ex\"\n}"
                         },
                         "description": "",
                         "response": []

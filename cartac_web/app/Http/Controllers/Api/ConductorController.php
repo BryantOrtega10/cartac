@@ -483,16 +483,13 @@ class ConductorController extends Controller
         }        
         return response()->json([
             "success" => true,
-            "data" => [
-               
+            "data" => [               
                 "conductor" => $conductor,
                 "respuesta" => $respuesta,
                 "documentos" => $documentos,
                 "vehiculo" => $vehiculo
             ]                    
         ], 200);
-    
-            
      
     }
 }

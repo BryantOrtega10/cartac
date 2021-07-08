@@ -103,5 +103,18 @@ Route::group(['prefix' => 'configuracion'],function(){
 });
 
 
+Route::group(['prefix' => 'bonos'],function(){
+    Route::get('/', 'App\Http\Controllers\BonoController@index')->name('bonos.index');
+    Route::get('agregar', 'App\Http\Controllers\BonoController@mostrarFormAgregar')->name('bonos.agregar');
+    Route::post('agregar', 'App\Http\Controllers\BonoController@agregar');
+
+    Route::get('modificar/{id}', 'App\Http\Controllers\BonoController@mostrarFormModificar')->name('bonos.modificar');
+    Route::post('modificar/{id}', 'App\Http\Controllers\BonoController@modificar');
+    Route::post('eliminar/{id}', 'App\Http\Controllers\BonoController@eliminar')->name('bonos.eliminar');
+});
+
+
+
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/rutas', 'App\Http\Controllers\InfoController@index');

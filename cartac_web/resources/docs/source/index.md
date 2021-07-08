@@ -33,7 +33,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"et","pass":"placeat","cedula":"debitis","name":"facilis","apellidos":"sed","phone":"hic","con_hora_trabajo":"enim","address":"vel","photo":"assumenda","wallet_type":"sapiente","wallet_number":"veniam","cedula_f":"soluta","cedula_r":"dolore","licencia_c":"et","cert_banc":"voluptates","esPropietario":"quas"}'
+    -d '{"email":"non","pass":"consectetur","cedula":"et","name":"voluptas","apellidos":"quibusdam","phone":"voluptatem","con_hora_trabajo":"et","address":"occaecati","photo":"magnam","wallet_type":"molestiae","wallet_number":"asperiores","cedula_f":"dolorem","cedula_r":"perspiciatis","licencia_c":"in","cert_banc":"quis","esPropietario":"ullam"}'
 
 ```
 
@@ -48,22 +48,22 @@ let headers = {
 };
 
 let body = {
-    "email": "et",
-    "pass": "placeat",
-    "cedula": "debitis",
-    "name": "facilis",
-    "apellidos": "sed",
-    "phone": "hic",
-    "con_hora_trabajo": "enim",
-    "address": "vel",
-    "photo": "assumenda",
-    "wallet_type": "sapiente",
-    "wallet_number": "veniam",
-    "cedula_f": "soluta",
-    "cedula_r": "dolore",
-    "licencia_c": "et",
-    "cert_banc": "voluptates",
-    "esPropietario": "quas"
+    "email": "non",
+    "pass": "consectetur",
+    "cedula": "et",
+    "name": "voluptas",
+    "apellidos": "quibusdam",
+    "phone": "voluptatem",
+    "con_hora_trabajo": "et",
+    "address": "occaecati",
+    "photo": "magnam",
+    "wallet_type": "molestiae",
+    "wallet_number": "asperiores",
+    "cedula_f": "dolorem",
+    "cedula_r": "perspiciatis",
+    "licencia_c": "in",
+    "cert_banc": "quis",
+    "esPropietario": "ullam"
 }
 
 fetch(url, {
@@ -112,7 +112,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"beatae","pass":"assumenda"}'
+    -d '{"email":"sunt","pass":"saepe"}'
 
 ```
 
@@ -127,8 +127,8 @@ let headers = {
 };
 
 let body = {
-    "email": "beatae",
-    "pass": "assumenda"
+    "email": "sunt",
+    "pass": "saepe"
 }
 
 fetch(url, {
@@ -211,7 +211,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/propietario/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"enim","cedula":"tenetur","name":"voluptatem","apellidos":"aut","fk_user_conductor":"iure","cedula_f":"minima","cedula_r":"nam","carta_auto":"qui"}'
+    -d '{"email":"et","cedula":"est","name":"modi","apellidos":"omnis","fk_user_conductor":"dolorem","cedula_f":"consectetur","cedula_r":"reprehenderit","carta_auto":"porro"}'
 
 ```
 
@@ -226,14 +226,14 @@ let headers = {
 };
 
 let body = {
-    "email": "enim",
-    "cedula": "tenetur",
-    "name": "voluptatem",
-    "apellidos": "aut",
-    "fk_user_conductor": "iure",
-    "cedula_f": "minima",
-    "cedula_r": "nam",
-    "carta_auto": "qui"
+    "email": "et",
+    "cedula": "est",
+    "name": "modi",
+    "apellidos": "omnis",
+    "fk_user_conductor": "dolorem",
+    "cedula_f": "consectetur",
+    "cedula_r": "reprehenderit",
+    "carta_auto": "porro"
 }
 
 fetch(url, {
@@ -274,7 +274,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/vehiculo/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dimension":"voluptatem","typeFk":"provident","placa":"et","image":"praesentium","fkCarColor":"praesentium","fkCarBrand":"dolor","veh_rendimiento":"consequatur","id_owner":"facilis","fkUserConductor":"officiis","subCategoryFk":"recusandae","tarjeta_prop":"doloremque","soat":"vel","tecno":"sapiente"}'
+    -d '{"dimension":"ex","typeFk":"alias","placa":"ut","image":"incidunt","fkCarColor":"possimus","fkCarBrand":"culpa","veh_rendimiento":"dignissimos","id_owner":"quia","fkUserConductor":"tempore","subCategoryFk":"quas","tarjeta_prop":"ad","soat":"eos","tecno":"sint"}'
 
 ```
 
@@ -289,19 +289,19 @@ let headers = {
 };
 
 let body = {
-    "dimension": "voluptatem",
-    "typeFk": "provident",
-    "placa": "et",
-    "image": "praesentium",
-    "fkCarColor": "praesentium",
-    "fkCarBrand": "dolor",
-    "veh_rendimiento": "consequatur",
-    "id_owner": "facilis",
-    "fkUserConductor": "officiis",
-    "subCategoryFk": "recusandae",
-    "tarjeta_prop": "doloremque",
-    "soat": "vel",
-    "tecno": "sapiente"
+    "dimension": "ex",
+    "typeFk": "alias",
+    "placa": "ut",
+    "image": "incidunt",
+    "fkCarColor": "possimus",
+    "fkCarBrand": "culpa",
+    "veh_rendimiento": "dignissimos",
+    "id_owner": "quia",
+    "fkUserConductor": "tempore",
+    "subCategoryFk": "quas",
+    "tarjeta_prop": "ad",
+    "soat": "eos",
+    "tecno": "sint"
 }
 
 fetch(url, {
@@ -914,7 +914,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/resubir" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"parametro_respuesta":"beatae","id_documentos":"et","documentos":"ut"}'
+    -d '{"parametro_respuesta":"facilis","id_documentos":"nam","documentos":"beatae"}'
 
 ```
 
@@ -929,9 +929,9 @@ let headers = {
 };
 
 let body = {
-    "parametro_respuesta": "beatae",
-    "id_documentos": "et",
-    "documentos": "ut"
+    "parametro_respuesta": "facilis",
+    "id_documentos": "nam",
+    "documentos": "beatae"
 }
 
 fetch(url, {
@@ -967,7 +967,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cli_nombres":"error","cli_apellidos":"minima","cli_email":"non","cli_pass":"nam","cli_foto":"assumenda","cli_red":"modi","cli_id_red":"fuga"}'
+    -d '{"cli_nombres":"et","cli_apellidos":"nobis","cli_email":"odit","cli_pass":"sapiente","cli_foto":"ut","cli_red":"qui","cli_id_red":"accusamus"}'
 
 ```
 
@@ -982,13 +982,13 @@ let headers = {
 };
 
 let body = {
-    "cli_nombres": "error",
-    "cli_apellidos": "minima",
-    "cli_email": "non",
-    "cli_pass": "nam",
-    "cli_foto": "assumenda",
-    "cli_red": "modi",
-    "cli_id_red": "fuga"
+    "cli_nombres": "et",
+    "cli_apellidos": "nobis",
+    "cli_email": "odit",
+    "cli_pass": "sapiente",
+    "cli_foto": "ut",
+    "cli_red": "qui",
+    "cli_id_red": "accusamus"
 }
 
 fetch(url, {
@@ -1028,7 +1028,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"facere","pass":"doloribus"}'
+    -d '{"email":"minus","pass":"distinctio"}'
 
 ```
 
@@ -1043,8 +1043,8 @@ let headers = {
 };
 
 let body = {
-    "email": "facere",
-    "pass": "doloribus"
+    "email": "minus",
+    "pass": "distinctio"
 }
 
 fetch(url, {
@@ -1123,7 +1123,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/conectar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"veh_id":"quas"}'
+    -d '{"veh_id":"omnis"}'
 
 ```
 
@@ -1138,7 +1138,7 @@ let headers = {
 };
 
 let body = {
-    "veh_id": "quas"
+    "veh_id": "omnis"
 }
 
 fetch(url, {
@@ -1174,7 +1174,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/actualizarUbicacion" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat":"sit","lng":"quia","veh_id":"consequuntur"}'
+    -d '{"lat":"qui","lng":"rem","veh_id":"odio"}'
 
 ```
 
@@ -1189,9 +1189,9 @@ let headers = {
 };
 
 let body = {
-    "lat": "sit",
-    "lng": "quia",
-    "veh_id": "consequuntur"
+    "lat": "qui",
+    "lng": "rem",
+    "veh_id": "odio"
 }
 
 fetch(url, {
@@ -1229,7 +1229,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/cotizar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat_ini":"et","lng_ini":"corrupti","lat_fin":"corporis","lng_fin":"a","tipo_veh":"nisi"}'
+    -d '{"lat_ini":"minus","lng_ini":"enim","lat_fin":"officia","lng_fin":"suscipit","tipo_veh":"odit"}'
 
 ```
 
@@ -1244,11 +1244,11 @@ let headers = {
 };
 
 let body = {
-    "lat_ini": "et",
-    "lng_ini": "corrupti",
-    "lat_fin": "corporis",
-    "lng_fin": "a",
-    "tipo_veh": "nisi"
+    "lat_ini": "minus",
+    "lng_ini": "enim",
+    "lat_fin": "officia",
+    "lng_fin": "suscipit",
+    "tipo_veh": "odit"
 }
 
 fetch(url, {
@@ -1288,7 +1288,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/crear" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat_ini":"temporibus","lng_ini":"suscipit","lat_fin":"omnis","lng_fin":"voluptas","direccion_inicio":"nostrum","direccion_fin":"sit","tipo_veh":"quos","dimension":"quo","categoria":"quo"}'
+    -d '{"lat_ini":"voluptate","lng_ini":"et","lat_fin":"cum","lng_fin":"eligendi","direccion_inicio":"ratione","direccion_fin":"quis","tipo_veh":"minus","dimension":"fuga","categoria":"et"}'
 
 ```
 
@@ -1303,15 +1303,15 @@ let headers = {
 };
 
 let body = {
-    "lat_ini": "temporibus",
-    "lng_ini": "suscipit",
-    "lat_fin": "omnis",
-    "lng_fin": "voluptas",
-    "direccion_inicio": "nostrum",
-    "direccion_fin": "sit",
-    "tipo_veh": "quos",
-    "dimension": "quo",
-    "categoria": "quo"
+    "lat_ini": "voluptate",
+    "lng_ini": "et",
+    "lat_fin": "cum",
+    "lng_fin": "eligendi",
+    "direccion_inicio": "ratione",
+    "direccion_fin": "quis",
+    "tipo_veh": "minus",
+    "dimension": "fuga",
+    "categoria": "et"
 }
 
 fetch(url, {
@@ -1355,7 +1355,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/aceptar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"et","veh_id":"et"}'
+    -d '{"ser_id":"unde","veh_id":"hic"}'
 
 ```
 
@@ -1370,8 +1370,8 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "et",
-    "veh_id": "et"
+    "ser_id": "unde",
+    "veh_id": "hic"
 }
 
 fetch(url, {
@@ -1395,5 +1395,489 @@ Parameter | Type | Status | Description
         `veh_id` | Integer |  required  | Id del vehiculo.
     
 <!-- END_af13537ec25e8857875b259cbd0455e6 -->
+
+#v 1.0.4
+
+
+<!-- START_d1acd3b05a50c416ad35673301364f25 -->
+## Modificar cliente
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/cliente/modificar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"cli_nombres":"earum","cli_apellidos":"rerum","cli_email":"rerum","cli_pass":"autem","cli_foto":"ut"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/cliente/modificar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "cli_nombres": "earum",
+    "cli_apellidos": "rerum",
+    "cli_email": "rerum",
+    "cli_pass": "autem",
+    "cli_foto": "ut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/cliente/modificar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `cli_nombres` | String |  required  | Nombres del cliente.
+        `cli_apellidos` | String |  required  | Apellidos del cliente.
+        `cli_email` | String |  required  | Email del cliente.
+        `cli_pass` | String |  optional  | Password del cliente.
+        `cli_foto` | String/File |  optional  | Puede ser un archivo o una imagen en base 64 de la foto del cliente.
+    
+<!-- END_d1acd3b05a50c416ad35673301364f25 -->
+
+<!-- START_247638557a5e685b01373801e0ba8f51 -->
+## Consultar direcciones
+Permite consultar direcciones de los clientes
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://desarrollocartac.web-html.com/api/cliente/direccion" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/cliente/direccion"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (401):
+
+```json
+{
+    "success": false,
+    "message": "Error de autenticación"
+}
+```
+
+### HTTP Request
+`GET api/cliente/direccion`
+
+
+<!-- END_247638557a5e685b01373801e0ba8f51 -->
+
+<!-- START_ea9a5464a1a5c68831f64f4f197684f1 -->
+## Agregar dirección
+Permite agregar una dirección a un cliente
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/cliente/direccion/agregar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"direccion":"consequatur","lat":"voluptatem","lng":"repellendus"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/cliente/direccion/agregar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "direccion": "consequatur",
+    "lat": "voluptatem",
+    "lng": "repellendus"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/cliente/direccion/agregar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `direccion` | String |  required  | Dirección en texto.
+        `lat` | Double |  required  | latitud de la dirección
+        `lng` | Double |  required  | longitud de la dirección
+    
+<!-- END_ea9a5464a1a5c68831f64f4f197684f1 -->
+
+<!-- START_5464e7109e3711c0df025e6e6845e694 -->
+## Modificar dirección
+Permite modificar una dirección a un cliente
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X PUT \
+    "https://desarrollocartac.web-html.com/api/cliente/direccion/modificar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"direccion":"qui","lat":"ut","lng":"fugiat","dir_id":"magni"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/cliente/direccion/modificar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "direccion": "qui",
+    "lat": "ut",
+    "lng": "fugiat",
+    "dir_id": "magni"
+}
+
+fetch(url, {
+    method: "PUT",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`PUT api/cliente/direccion/modificar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `direccion` | String |  required  | Dirección en texto.
+        `lat` | Double |  required  | latitud de la dirección
+        `lng` | Double |  required  | longitud de la dirección
+        `dir_id` | Integer |  required  | id de la dirección que se quiere modificar
+    
+<!-- END_5464e7109e3711c0df025e6e6845e694 -->
+
+<!-- START_2bf8ea50f2672e1c26919f4603f3b23b -->
+## Eliminar dirección
+Permite eliminar una dirección a un cliente
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X DELETE \
+    "https://desarrollocartac.web-html.com/api/cliente/direccion/eliminar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"dir_id":"facilis"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/cliente/direccion/eliminar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "dir_id": "facilis"
+}
+
+fetch(url, {
+    method: "DELETE",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`DELETE api/cliente/direccion/eliminar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `dir_id` | Integer |  required  | id de la dirección que se quiere eliminar
+    
+<!-- END_2bf8ea50f2672e1c26919f4603f3b23b -->
+
+<!-- START_52d4485eb677aaabeab3f425c5e3c5c3 -->
+## Cambiar estado servicio
+Permite cambiar el estado del servicio por parte del conductor, Estados: 10 - CONDUCTOR ESPERANDO, 11 - TERMINADO, 7 - EN VIAJE
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/cambiar_estado" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ser_id":"sit","est_id":"eos"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/cambiar_estado"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ser_id": "sit",
+    "est_id": "eos"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/cambiar_estado`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `ser_id` | Integer |  required  | Id del servicio.
+        `est_id` | Integer |  required  | Id del estado.
+    
+<!-- END_52d4485eb677aaabeab3f425c5e3c5c3 -->
+
+<!-- START_b9fe0598a1ca06a44ff00057598cfae9 -->
+## Ver datos del servicio
+Permite ver la ubicación del vehiculo que presta el servicio por parte del cliente
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/ver_datos" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ser_id":"aut"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/ver_datos"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ser_id": "aut"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/ver_datos`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `ser_id` | Integer |  required  | Id del servicio.
+    
+<!-- END_b9fe0598a1ca06a44ff00057598cfae9 -->
+
+<!-- START_63c475949e428562c486db3cbbb315e7 -->
+## Cancelar servicio
+Permite cancelar el servicio por parte del cliente
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/cancelar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ser_id":"velit","motivo":"non"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/cancelar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ser_id": "velit",
+    "motivo": "non"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/cancelar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `ser_id` | Integer |  required  | Id del servicio.
+        `motivo` | String |  required  | Motivo por el  que cancela
+    
+<!-- END_63c475949e428562c486db3cbbb315e7 -->
+
+<!-- START_b1f192c084fadec872b34fe08a50b6f9 -->
+## Calificar servicio
+Permite calificar el servicio por parte del cliente
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/calificar" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"ser_id":"quasi","calificacion":"ratione","opinion":"ex"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/calificar"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "ser_id": "quasi",
+    "calificacion": "ratione",
+    "opinion": "ex"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/calificar`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `ser_id` | Integer |  required  | Id del servicio.
+        `calificacion` | Integer |  required  | Número del 0 al 5 que indica la calificación del servicio.
+        `opinion` | String |  optional  | Opinion acerca del servicio.
+    
+<!-- END_b1f192c084fadec872b34fe08a50b6f9 -->
 
 

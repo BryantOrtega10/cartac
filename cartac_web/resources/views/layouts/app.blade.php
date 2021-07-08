@@ -110,6 +110,10 @@
                         <li><a href="{{ route('conductores.index')}}" @if (str_contains(Route::current()->getName(),'conductores'))
                             class="activo"
                         @endif>Conductores</a></li>
+                        <li><a href="{{ route('bonos.index')}}" @if (str_contains(Route::current()->getName(),'bonos'))
+                            class="activo"
+                        @endif>Bonos</a></li>
+
                         <li><a href="{{ route('configuracion.index')}}" @if (str_contains(Route::current()->getName(),'configuracion'))
                             class="activo"
                         @endif>Configuraci&oacute;n</a></li>
