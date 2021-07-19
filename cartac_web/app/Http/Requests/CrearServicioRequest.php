@@ -32,7 +32,9 @@ class CrearServicioRequest extends FormRequest
             "direccion_fin" => 'required',
             "tipo_veh" => 'required',
             "dimension" => 'required',
-            "categoria" => 'required'
+            "categoria" => 'required',
+            "aplica_seguro" => 'required',
+            "valor_carga" => 'required'
         ];
     }
 }

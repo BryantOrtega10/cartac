@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Config;
 
 class Funciones extends Controller
 {
@@ -69,4 +71,19 @@ class Funciones extends Controller
         unlink($rutaImagenOriginal);
         return $nRuta;
     }
+
+
+    public function sendPush($title, $body, $registration_ids = array(), $data = array(), $type = "cliente") {
+       
+        $notification = array('title' =>$title , 'text' => $body, 'sound' => 'default');
+	    $responsePush = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'key='.Config::get('services.fmc_'.$type.'.key')
+        ])->post("https://fcm.googleapis.com/fcm/send",[
+            "registration_ids" => $registration_ids,
+            "notification" => $notification,
+            'data' => $data
+        ]);
+        return $responsePush;        
+	}
 }

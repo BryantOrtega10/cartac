@@ -10,6 +10,8 @@ use App\Http\Requests\CancelarServicioRequest;
 use App\Http\Requests\CotizarServicioRequest;
 use App\Http\Requests\CrearServicioRequest;
 use App\Http\Requests\VerDatosServicioRequest;
+use App\Models\BonoModel;
+use App\Models\ClienteBonoModel;
 use App\Models\ClienteModel;
 use App\Models\ConductorModel;
 use App\Models\ConfiguracionModel;
@@ -17,6 +19,7 @@ use App\Models\MultiplicadorModel;
 use App\Models\PeajeModel;
 use App\Models\PeajeServicioModel;
 use App\Models\ServicioModel;
+use App\Models\TipoVehiculoModel;
 use App\Models\VehiculoConductorModel;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
@@ -63,8 +66,8 @@ class ServicioController extends Controller
 
         if($responseDistance["status"] == "OK" && $responseDirectionsIda["status"] == "OK" && $responseDirectionsVuelta["status"] == "OK"){
             $distancia = $responseDistance["rows"][0]["elements"][0]["distance"]["value"] / 1000; 
-            $tiempo = $responseDistance["rows"][0]["elements"][0]["duration"]["value"] / 60;
-
+            $tiempoRecorrido = $responseDistance["rows"][0]["elements"][0]["duration"]["value"] / 60;
+            
             $encodedIda = $responseDirectionsIda["routes"][0]["overview_polyline"]["points"];
             $encodedVuelta = $responseDirectionsVuelta["routes"][0]["overview_polyline"]["points"];
 
@@ -90,17 +93,37 @@ class ServicioController extends Controller
             
             $sqlWhere = "('".date("H:i:s")."' BETWEEN cfm_hora_inicio AND cfm_hora_fin)";
             $multiplicador = MultiplicadorModel::whereRaw($sqlWhere)->first();
-
+                        
             if(isset($multiplicador)){
-                $configuracion_defecto->cfg_distancia = $configuracion_defecto->cfg_distancia*$multiplicador->cfm_multiplicador;
-                $configuracion_defecto->cfg_tiempo = $configuracion_defecto->cfg_tiempo*$multiplicador->cfm_multiplicador;
-                $configuracion_defecto->cfg_peso = $configuracion_defecto->cfg_peso*$multiplicador->cfm_multiplicador;                
+                $configuracion_defecto->cfg_hora_hombre = $configuracion_defecto->cfg_hora_hombre * $multiplicador->cfm_multiplicador;
+                $configuracion_defecto->cfg_gasolina = $configuracion_defecto->cfg_gasolina * $multiplicador->cfm_multiplicador;
+                $configuracion_defecto->cfg_gas = $configuracion_defecto->cfg_gas * $multiplicador->cfm_multiplicador;
+                $configuracion_defecto->cfg_acpm = $configuracion_defecto->cfg_acpm * $multiplicador->cfm_multiplicador;
             }
 
             $distancia = round($distancia, 2);
-            $tiempo = round($tiempo, 2);
-            $valorDistancia = $distancia*$configuracion_defecto->cfg_distancia;
-            $valorTiempo = $tiempo*$configuracion_defecto->cfg_tiempo;
+            $tiempoRecorrido = round($tiempoRecorrido, 2);
+
+
+            $tipo_vehiculo = TipoVehiculoModel::findOrFail($request->tipo_veh);
+            $alquiler = $tipo_vehiculo->tip_alquiler;
+            $distanciaxKm = 0;
+            if($tipo_vehiculo->tip_combustible == "GASOLINA"){
+                $distanciaxKm = $configuracion_defecto->cfg_gasolina / $tipo_vehiculo->tip_rendimiento;
+            }
+            else if($tipo_vehiculo->tip_combustible == "GAS"){
+                $distanciaxKm = $configuracion_defecto->cfg_gas / $tipo_vehiculo->tip_rendimiento;
+            }
+            else if($tipo_vehiculo->tip_combustible == "ACPM"){
+                $distanciaxKm = $configuracion_defecto->cfg_acpm / $tipo_vehiculo->tip_rendimiento;
+            }
+            $tiempoCargue = $tipo_vehiculo->tip_tiempo_cargue;
+
+            $valorDistancia = $distancia * $distanciaxKm;
+            $tiempoTotal = $tiempoRecorrido + $tiempoCargue;
+            
+
+            $valorTiempo = ($configuracion_defecto->cfg_hora_hombre/60) * $tiempoTotal;
             
             $sqlIda = "ST_Crosses(ST_Buffer(pea_ubic, (360*pea_radio)/40000000), ST_GeomFromText('LineString(".$lineStringIda.")'))";
             $sqlVuelta = "ST_Crosses(ST_Buffer(pea_ubic, (360*pea_radio)/40000000), ST_GeomFromText('LineString(".$lineStringVuelta.")'))";
@@ -125,24 +148,26 @@ class ServicioController extends Controller
                 $valorPeajes+=$peajeVuelta->pcp_valor;
             }
 
-            $subTotal = $valorDistancia + $valorTiempo + $valorPeajes;
-            $seguro = round($subTotal*($configuracion_defecto->cfg_porcentaje_seguro/100),2);
-            $ganancia = round($subTotal*($configuracion_defecto->cfg_porcentaje_ganancia/100),2);
-            $total = $subTotal + $seguro + $ganancia;
+            $subTotal = round($alquiler + $valorDistancia + $valorTiempo, 0);
+            $total = round($subTotal / (1 - ($configuracion_defecto->cfg_porcentaje_ganancia/100)),0 );
+            $ganancia = $total - $subTotal;
             
             return response()->json([
                 "success" => true,
                 "data" => [
+                    "alquiler" => $alquiler,
                     "distancia" => $distancia,
-                    "tiempo" => $tiempo,
+                    "tiempoCargue" => $tiempoCargue,
+                    "tiempoRecorrido" => $tiempoRecorrido,
                     "peajesIda" => $peajesIda,
                     "peajesVuelta" => $peajesVuelta,
                     "valorDistancia" => $valorDistancia,
                     "valorTiempo" => $valorTiempo,
                     "valorPeajes" => $valorPeajes,
-                    "valorSeguro" => $seguro,
                     "valorGanancia" => $ganancia,
-                    "total" => $total                    
+                    "subTotal" => $subTotal,
+                    "total" => $total
+    
                 ]
             ],200);
 
@@ -159,7 +184,7 @@ class ServicioController extends Controller
      * Crear servicio
      * Permite crear el servicio
      * 
-	 * @group  v 1.0.3
+	 * @group  v 1.0.5
      * 
      * @bodyParam lat_ini Double required latitud de la ubicacion inicial.
      * @bodyParam lng_ini Double required longitud de la ubicacion inicial.
@@ -170,6 +195,9 @@ class ServicioController extends Controller
      * @bodyParam tipo_veh Integer required Id del tipo de vehiculo.
      * @bodyParam dimension Integer required Id dimension del vehiculo.
      * @bodyParam categoria Integer required Id de la categoria del vehiculo.
+     * @bodyParam aplica_seguro Integer required 0 o 1 si aplica el seguro.
+     * @bodyParam bono String optional Bono de descuento.
+     * 
      * 
      * @authenticated
      * 
@@ -197,7 +225,7 @@ class ServicioController extends Controller
 
         if($responseDistance["status"] == "OK" && $responseDirectionsIda["status"] == "OK" && $responseDirectionsVuelta["status"] == "OK"){
             $distancia = $responseDistance["rows"][0]["elements"][0]["distance"]["value"] / 1000; 
-            $tiempo = $responseDistance["rows"][0]["elements"][0]["duration"]["value"] / 60;
+            $tiempoRecorrido = $responseDistance["rows"][0]["elements"][0]["duration"]["value"] / 60;
 
             $encodedIda = $responseDirectionsIda["routes"][0]["overview_polyline"]["points"];
             $encodedVuelta = $responseDirectionsVuelta["routes"][0]["overview_polyline"]["points"];
@@ -226,15 +254,35 @@ class ServicioController extends Controller
             $multiplicador = MultiplicadorModel::whereRaw($sqlWhere)->first();
 
             if(isset($multiplicador)){
-                $configuracion_defecto->cfg_distancia = $configuracion_defecto->cfg_distancia*$multiplicador->cfm_multiplicador;
-                $configuracion_defecto->cfg_tiempo = $configuracion_defecto->cfg_tiempo*$multiplicador->cfm_multiplicador;
-                $configuracion_defecto->cfg_peso = $configuracion_defecto->cfg_peso*$multiplicador->cfm_multiplicador;                
+                $configuracion_defecto->cfg_hora_hombre = $configuracion_defecto->cfg_hora_hombre * $multiplicador->cfm_multiplicador;
+                $configuracion_defecto->cfg_gasolina = $configuracion_defecto->cfg_gasolina * $multiplicador->cfm_multiplicador;
+                $configuracion_defecto->cfg_gas = $configuracion_defecto->cfg_gas * $multiplicador->cfm_multiplicador;
+                $configuracion_defecto->cfg_acpm = $configuracion_defecto->cfg_acpm * $multiplicador->cfm_multiplicador;
             }
 
             $distancia = round($distancia, 2);
-            $tiempo = round($tiempo, 2);
-            $valorDistancia = $distancia*$configuracion_defecto->cfg_distancia;
-            $valorTiempo = $tiempo*$configuracion_defecto->cfg_tiempo;
+            $tiempoRecorrido = round($tiempoRecorrido, 2);
+
+
+            $tipo_vehiculo = TipoVehiculoModel::findOrFail($request->tipo_veh);
+            $alquiler = $tipo_vehiculo->tip_alquiler;
+            $distanciaxKm = 0;
+            if($tipo_vehiculo->tip_combustible == "GASOLINA"){
+                $distanciaxKm = $configuracion_defecto->cfg_gasolina / $tipo_vehiculo->tip_rendimiento;
+            }
+            else if($tipo_vehiculo->tip_combustible == "GAS"){
+                $distanciaxKm = $configuracion_defecto->cfg_gas / $tipo_vehiculo->tip_rendimiento;
+            }
+            else if($tipo_vehiculo->tip_combustible == "ACPM"){
+                $distanciaxKm = $configuracion_defecto->cfg_acpm / $tipo_vehiculo->tip_rendimiento;
+            }
+            $tiempoCargue = $tipo_vehiculo->tip_tiempo_cargue;
+
+            $valorDistancia = $distancia * $distanciaxKm;
+            $tiempoTotal = $tiempoRecorrido + $tiempoCargue;
+            
+
+            $valorTiempo = ($configuracion_defecto->cfg_hora_hombre/60) * $tiempoTotal;
             
             $sqlIda = "ST_Crosses(ST_Buffer(pea_ubic, (360*pea_radio)/40000000), ST_GeomFromText('LineString(".$lineStringIda.")'))";
             $sqlVuelta = "ST_Crosses(ST_Buffer(pea_ubic, (360*pea_radio)/40000000), ST_GeomFromText('LineString(".$lineStringVuelta.")'))";
@@ -259,27 +307,82 @@ class ServicioController extends Controller
                 $valorPeajes+=$peajeVuelta->pcp_valor;
             }
 
-            $subTotal = $valorDistancia + $valorTiempo + $valorPeajes;
-            $seguro = round($subTotal*($configuracion_defecto->cfg_porcentaje_seguro/100),2);
-            $ganancia = round($subTotal*($configuracion_defecto->cfg_porcentaje_ganancia/100),2);
+            $seguro = 0;
+            if($request->aplica_seguro == "1"){
+                $seguro = round(($configuracion_defecto->cfg_porcentaje_seguro/100)*($request->valor_carga), 0);
+            }
             
-            $total = $subTotal + $seguro + $ganancia;
 
-            
-            $servicio = new ServicioModel();
+
+            $subTotal = round($alquiler + $valorDistancia + $valorTiempo + $seguro + $valorPeajes, 0);
+            $total = round($subTotal / (1 - ($configuracion_defecto->cfg_porcentaje_ganancia/100)),0 );
+            $ganancia = $total - $subTotal;
+            $descuento = 0;
             $usuario = auth()->user();
             $cliente = ClienteModel::where("cli_fk_usr", "=",$usuario->id)->first();
-
+            $servicio = new ServicioModel();
             $servicio->ser_fk_cli = $cliente->cli_id;
             $servicio->ser_ubicacion_ini = DB::raw('POINT('.$request->lat_ini.', '.$request->lng_ini.')');
             $servicio->ser_ubicacion_fin = DB::raw('POINT('.$request->lat_fin.', '.$request->lng_fin.')');
             $servicio->ser_direccion_ini = $request->direccion_inicio;
             $servicio->ser_direccion_fin = $request->direccion_fin;
-            $servicio->ser_distancia = $valorDistancia;
-            $servicio->ser_tiempo = $valorTiempo;
-            $servicio->ser_peajes = $valorPeajes;
+            $servicio->ser_distancia = round($valorDistancia);
+            $servicio->ser_tiempo = round($valorTiempo);
+            $servicio->ser_peajes = round($valorPeajes);
             $servicio->ser_seguro = $seguro;
             $servicio->ser_ganancia = $ganancia;
+            $servicio->ser_subtotal = $subTotal;
+
+            if($request->has("bono")){
+                if(!empty($request->bono)){
+                    $bono = BonoModel::where("bon_codigo","=",$request->bono)
+                    ->where("bon_fecha_ini","<=", date("Y:m:d H:i:s"))
+                    ->where("bon_fecha_fin",">=", date("Y:m:d H:i:s"))
+                    ->where("bon_disponibles",">", "0")
+                    ->where("bon_fk_est","=","1")
+                    ->first();
+                    if(isset($bono)){
+                        if(isset($bono->bon_valor)){
+                            $descuento = $bono->bon_valor;
+
+                            $clienteBono = new ClienteBonoModel();
+                            $clienteBono->clb_fk_cli_id = $cliente->cli_id;
+                            $clienteBono->clb_fk_bon_id = $bono->bon_id;
+                            $clienteBono->clb_fk_est = "11"; //TERMINADO
+                            $clienteBono->save();
+                            $servicio->ser_fk_bon = $bono->bon_id;
+                            $bono->bon_disponibles = $bono->bon_disponibles - 1;
+                            $bono->save();
+                        }
+                        else if(isset($bono->bon_porcentaje)){
+                            $descuento = ($bono->bon_porcentaje/100)*$total;
+
+                            $clienteBono = new ClienteBonoModel();
+                            $clienteBono->clb_fk_cli_id = $cliente->cli_id;
+                            $clienteBono->clb_fk_bon_id = $bono->bon_id;
+                            $clienteBono->clb_fk_est = "11"; //TERMINADO
+                            $clienteBono->save();
+                            $servicio->ser_fk_bon = $bono->bon_id;
+                            $bono->bon_disponibles = $bono->bon_disponibles - 1;
+                            $bono->save();
+                        }
+                    }
+                    else{
+                        return response()->json([
+                            "success" => false,
+                            "mensaje" => "No se encontró ese bono o ya venció"
+                        ],403);
+                    }
+                }
+            }
+            
+            $total = $total - round($descuento,0);
+            if($total < 0){
+                $total = 0;
+            }
+
+            
+            $servicio->ser_descuento = $descuento;
             $servicio->ser_valor_final = $total;
             $servicio->ser_fk_cat = $request->categoria;
             $servicio->ser_fk_dim = $request->dimension;
@@ -308,7 +411,7 @@ class ServicioController extends Controller
                 ]);
             }
 
-
+            
 
             return response()->json([
                 "success" => true,
@@ -384,6 +487,7 @@ class ServicioController extends Controller
         $data["ser_peajes"] = $servicio->ser_peajes;
         $data["ser_seguro"] = $servicio->ser_seguro;
         $data["ser_ganancia"] = $servicio->ser_ganancia;
+        $data["ser_descuento"] = $servicio->ser_descuento;
         $data["ser_valor_final"] = $servicio->ser_valor_final;
         $data["cli_nombres"] = $servicio->cliente->cli_nombres;
         $data["cli_apellidos"] = $servicio->cliente->cli_apellidos;
@@ -508,6 +612,86 @@ class ServicioController extends Controller
             "success" => true,
             "mensaje" => "Servicio calificado correctamente"            
         ],200);        
+    }
+
+
+
+    /**
+     * Historial de servicios
+     * Permite ver los servicios que han sido calificados por parte del cliente
+     * 
+	 * @group  v 1.0.5
+     * 
+     * 
+     * @authenticated
+     * 
+	 */  
+    public function historial(){
+        $usuario = auth()->user();
+        
+        $cliente = ClienteModel::where("cli_fk_usr", "=",$usuario->id)->first();
+        
+        $servicios = ServicioModel::selectRaw("ST_X(ser_ubicacion_ini) as lat_ini, ST_Y(ser_ubicacion_ini) as lng_ini,
+            ST_X(ser_ubicacion_fin) as lat_fin, ST_Y(ser_ubicacion_fin) as lng_fin, ST_AsText(ser_ruta_cotizada) as ruta,
+            `ser_direccion_ini`, `ser_direccion_fin`, `ser_distancia`, `ser_tiempo`, `ser_peajes`, `ser_seguro`, 
+            `ser_ganancia`, `ser_subtotal`, `ser_descuento`, `ser_valor_final`, `ser_calificacion`, `ser_opinion`,
+            `est_name`, `ser_motivo_cancelacion`
+        ")
+        ->join("estado", "est_id", "=", "ser_fk_est")
+        ->where("ser_fk_cli","=",$cliente->cli_id)
+        ->whereIn("ser_fk_est",[13,12])->get();
+        
+        
+        //PUSH: Enviar al conductor del servicio la notificacion de que el servicio se cancelo
+        return response()->json([
+            "success" => true,
+            "data" => [
+                "servicios" => $servicios
+            ]  
+        ],200);        
+    }
+    
+
+
+    
+    public function buscar_conductor(){
+        $servicios = ServicioModel::selectRaw('ST_X(ser_ubicacion_ini) as lat_ini, ST_Y(ser_ubicacion_ini) as lng_ini,
+        ser_busqueda_distancia_km, ser_fk_est, ser_id')
+        ->where("ser_fk_est","=","8")->get();
+        foreach ($servicios as $servicio){
+            
+            
+            $sqlUbicacion = "ST_Contains(ST_Buffer(ST_GeomFromText('POINT(".$servicio->lat_ini." ".$servicio->lng_ini.")'), (360*".$servicio->ser_busqueda_distancia_km.")/40000), 
+            veh_con_ubicacion)";
+
+            $conductores_veh = VehiculoConductorModel::whereRaw($sqlUbicacion)
+            ->where("fk_est_id","=","5")//CONECTADO
+            ->get();
+
+            
+            foreach ($conductores_veh as $conductor_veh){
+                
+                dump($conductor_veh->conductor->usuario->push_token);
+                //PUSH a conductor
+            }
+            
+            $servicioBD = ServicioModel::findOrFail($servicio->ser_id); 
+            if($servicioBD->ser_busqueda_distancia_km == 2){
+                $servicioBD->ser_busqueda_distancia_km = 5;
+            }
+            else if($servicioBD->ser_busqueda_distancia_km == 5){
+                $servicioBD->ser_busqueda_distancia_km = 10;
+            }
+            else if($servicioBD->ser_busqueda_distancia_km == 10){
+                //PUSH a cliente informando
+                $servicioBD->ser_fk_est = 15;
+            }
+            
+            $servicioBD->save();
+            
+        }
+
+        
     }
 
     

@@ -32,4 +32,10 @@ return [
     'google' => [
         'key' => env('GOOGLE_KEY'),
     ],
+    'fmc_cliente' => [
+        'key' => env('FCM_CLIENTE_KEY')
+    ],
+    'fmc_conductor' => [
+        'key' => env('FCM_CONDUCTOR_KEY')
+    ]
 ];

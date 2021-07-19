@@ -53,10 +53,21 @@ class CreateTablasVehiculos extends Migration
 
         Schema::create('tipo_veh', function (Blueprint $table) {
             $table->id("tip_id");
+
+
             $table->string("tip_name",100);
             $table->string("tip_foto",255)->nullable();
 
+            $table->integer("tip_alquiler");
+            $table->string("tip_combustible");
+            $table->float("tip_rendimiento");
+            $table->integer("tip_tiempo_cargue");
+
             $table->bigInteger('tip_fk_ctp')->unsigned();
+
+
+
+
             $table->foreign('tip_fk_ctp')->references('ctp_id')->on('categoria_peaje')->onDelete('cascade');
             $table->index('tip_fk_ctp');
             $table->engine = "InnoDB";

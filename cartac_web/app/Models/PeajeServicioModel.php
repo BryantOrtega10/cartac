@@ -21,6 +21,10 @@ class PeajeServicioModel extends Model
 
     public $timestamps = false;
 
+    public function peaje()
+    {
+        return $this->belongsTo(PeajeModel::class, 'pjs_fk_pea_id', 'pea_id');
+    } 
     	
     
 }

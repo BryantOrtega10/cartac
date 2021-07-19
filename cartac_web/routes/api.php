@@ -62,6 +62,9 @@ Route::group(['prefix' => 'servicio'],function(){
     Route::middleware('auth:api')->post("ver_datos", "App\Http\Controllers\Api\ServicioController@ver_datos");
     Route::middleware('auth:api')->post("cancelar", "App\Http\Controllers\Api\ServicioController@cancelar");
     Route::middleware('auth:api')->post("calificar", "App\Http\Controllers\Api\ServicioController@calificar");
+    Route::middleware('auth:api')->post("historial", "App\Http\Controllers\Api\ServicioController@historial");
+    Route::get("buscar_conductor", "App\Http\Controllers\Api\ServicioController@buscar_conductor");
+    
     
 });
 

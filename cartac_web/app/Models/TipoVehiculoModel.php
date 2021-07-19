@@ -14,9 +14,16 @@ class TipoVehiculoModel extends Model
     protected $primaryKey = 'tip_id';
 
     protected $fillable = [
-        'tip_name',
-        'tip_fk_ctp'
+        "tip_name",
+        "tip_foto",
+        "tip_alquiler",
+        "tip_combustible",
+        "tip_rendimiento",
+        "tip_tiempo_cargue",
+        "tip_fk_ctp"
     ];
+
+    
 
     public $timestamps = false;
 

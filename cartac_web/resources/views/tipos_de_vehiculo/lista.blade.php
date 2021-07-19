@@ -1,12 +1,12 @@
 @extends('layouts.app')
-@section('title', 'Bonos')
+@section('title', 'Tipos de vehiculos')
 @section('content')
 <div class="contenedor">
     
     <div class="row">
         <div class="col-12">
             <div class="nav-indicador">
-                <a href="{{route('bonos.index')}}">Bonos</a>
+                <a href="{{route('tipos_de_vehiculo.index')}}">Tipos de vehiculos</a>
             </div>
         </div>
     </div>
@@ -18,43 +18,41 @@
 
     <div class="row">
         <div class="col-12 text-right">
-            <a href="{{route('bonos.agregar')}}" class="btn btn-primary">Agregar bono</a>
+            <a href="{{route('tipos_de_vehiculo.agregar')}}" class="btn btn-primary">Agregar tipo de vehiculo</a>
         </div>
     </div>
     <br>
     <div class="row">
         <div class="col-12">
-            <table class="table table-striped" id="tabla-bonos">
+            <table class="table table-striped" id="tabla-tipos-vehiculos">
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>C&oacute;digo</th>
-                        <th>Fecha inicio</th>
-                        <th>Fecha fin</th>
-                        <th>Descuento</th>
-                        <th>Disponibles</th>
-                        <th>Estado</th>
+                        <th>Nombre</th>
+                        <th>Foto</th>
+                        <th>Alquiler</th>
+                        <th>Combustible</th>
+                        <th>Rendimiento</th>
+                        <th>Tiempo de cargue</th>
+                        <th>Categoria peaje</th>
                         <th class="text-center">Modificar</th>
                         <th class="text-center">Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($bonos as $bono)
+                    @foreach ($tipos as $tipo)
                         <tr>
-                            <td>{{$bono->bon_id}}</td>
-                            <td>{{$bono->bon_codigo}}</td>
-                            <td>{{date("Y-m-d H:i", strtotime($bono->bon_fecha_ini))}}</td>
-                            <td>{{date("Y-m-d H:i", strtotime($bono->bon_fecha_fin))}}</td>
-                            <td>@if(isset($bono->bon_valor))
-                                {{"$".number_format($bono->bon_valor, 0, ",", ".")}}
-                            @else
-                                {{$bono->bon_porcentaje."%"}}
-                            @endif</td>
-                            <td>{{$bono->bon_disponibles}}</td>
-                            <td>{{$bono->estado->est_name}}</td>
-                            <td class="text-center"><a href="{{route('bonos.modificar', ['id' => $bono->bon_id])}}" class="modificar"><i class="fas fa-edit"></i></a></td>
+                            <td>{{$tipo->tip_id}}</td>
+                            <td>{{$tipo->tip_name}}</td>
+                            <td><img class="img-tipo-vehiculo" src="{{ (isset($tipo->tip_foto) && !empty($tipo->tip_foto) ? Storage::url($tipo->tip_foto) : '/imgs/theme/no-image.png' ) }}"/></td>
+                            <td>{{"$".number_format($tipo->tip_alquiler,0,".",",")}}</td>
+                            <td>{{$tipo->tip_combustible}}</td>
+                            <td>{{$tipo->tip_rendimiento}}</td>
+                            <td>{{$tipo->tip_tiempo_cargue}}</td>
+                            <td>{{$tipo->categoria_peaje->ctp_name}}</td>
+                            <td class="text-center"><a href="{{route('tipos_de_vehiculo.modificar', ['id' => $tipo->tip_id])}}" class="modificar"><i class="fas fa-edit"></i></a></td>
                             <td class="text-center">
-                                <a href="{{route('bonos.eliminar', ['id' => $bono->bon_id])}}" class="eliminar"><i class="fas fa-trash"></i></a>
+                                <a href="{{route('tipos_de_vehiculo.eliminar', ['id' => $tipo->tip_id])}}" class="eliminar"><i class="fas fa-trash"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -66,7 +64,7 @@
         <div class="modal-dialog modal-sm">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="my-0">En verdad desea eliminar este bono?</h5>
+                    <h5 class="my-0">En verdad desea eliminar este tipo de vehiculo?</h5>
                 </div>
                 <div class="modal-body">
                     
@@ -86,5 +84,5 @@
         </div>
     </div>
 </div>
-<script type="text/javascript" src="{{ URL::asset('js/bonos/lista.js') }}"></script>
+<script type="text/javascript" src="{{ URL::asset('js/tipos_de_vehiculo/lista.js') }}"></script>
 @endsection

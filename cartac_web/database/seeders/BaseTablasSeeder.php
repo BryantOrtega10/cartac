@@ -27,11 +27,12 @@ class BaseTablasSeeder extends Seeder
     {
         ConfiguracionModel::insert([
             [
-                'cfg_distancia' => "10",
-                'cfg_tiempo' => "20",
-                'cfg_peso' => "50",
-                'cfg_porcentaje_seguro' => "10.5",
-                'cfg_porcentaje_ganancia' => "5"
+                "cfg_hora_hombre" => "20000",
+                "cfg_gasolina" => "8000",
+                "cfg_gas" => "5000",
+                "cfg_acpm" => "7000",
+                "cfg_porcentaje_seguro" => "0.25",
+                "cfg_porcentaje_ganancia" => "20"
             ]
         ]);
         CategoriaPeajeModel::insert([
@@ -64,63 +65,136 @@ class BaseTablasSeeder extends Seeder
         TipoVehiculoModel::insert([
             [
                 "tip_name" => "MOTOCARRO",
+                "tip_alquiler" => "5000",
+                "tip_tiempo_cargue" => "15",
+                "tip_combustible" => "GASOLINA",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "1"
             ], [
                 "tip_name" => "CAMIONETA PLATON",
+                "tip_alquiler" => "10000",
+                "tip_tiempo_cargue" => "20",
+                "tip_combustible" => "GASOLINA",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "2"
             ], [
                 "tip_name" => "VANS DE CARGA",
+                "tip_alquiler" => "15000",
+                "tip_tiempo_cargue" => "25",
+                "tip_combustible" => "GASOLINA",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "4"
             ], [
                 "tip_name" => "REMOLQUE ABIERTO",
+                "tip_alquiler" => "20000",
+                "tip_tiempo_cargue" => "30",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "4"
             ], [
                 "tip_name" => "FURGON",
+                "tip_alquiler" => "25000",
+                "tip_tiempo_cargue" => "35",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "5"
             ], [
                 "tip_name" => "FURGON GRANDE TURBO",
+                "tip_alquiler" => "30000",
+                "tip_tiempo_cargue" => "40",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "5"
             ], [
                 "tip_name" => "TRACTOCAMION 4 EJES",
+                "tip_alquiler" => "35000",
+                "tip_tiempo_cargue" => "45",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "6"
             ], [
                 "tip_name" => "TRACTOCAMION 6 EJES",
+                "tip_alquiler" => "40000",
+                "tip_tiempo_cargue" => "50",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "8"
             ], [
                 "tip_name" => "VOLQUETA",
+                "tip_alquiler" => "45000",
+                "tip_tiempo_cargue" => "55",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "6"
             ], [
                 "tip_name" => "CAMION TRANS CONTAINER (PLANCHON CON UÑAS)",
+                "tip_alquiler" => "50000",
+                "tip_tiempo_cargue" => "60",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "8"
             ], [
                 "tip_name" => "CAMION CISTERNA",
+                "tip_alquiler" => "55000",
+                "tip_tiempo_cargue" => "65",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "6"
             ], [
                 "tip_name" => "CAMION FRIGORIFICO",
+                "tip_alquiler" => "60000",
+                "tip_tiempo_cargue" => "70",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "5"
             ], [
                 "tip_name" => "CAMION PLANCHA",
+                "tip_alquiler" => "65000",
+                "tip_tiempo_cargue" => "75",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
+                "tip_fk_ctp" => "5"
+            ], [
+                "tip_name" => "CAMION CON ESTACAS (CAMION JAULA)",
+                "tip_alquiler" => "40000",
+                "tip_tiempo_cargue" => "60",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "5"
             ], [
                 "tip_name" => "CAMION NINERA",
-                "tip_fk_ctp" => "8"
+                "tip_alquiler" => "75000",
+                "tip_tiempo_cargue" => "85",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
+                "tip_fk_ctp" => "6"
             ], [
                 "tip_name" => "CAMION GRUA",
+                "tip_alquiler" => "80000",
+                "tip_tiempo_cargue" => "90",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "6"
             ], [
                 "tip_name" => "CAMION CAMA BAJA",
+                "tip_alquiler" => "85000",
+                "tip_tiempo_cargue" => "95",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "6"
             ], [
                 "tip_name" => "CAMION CON ESTACAS",
+                "tip_alquiler" => "0",
+                "tip_tiempo_cargue" => "100",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "6"
             ], [
                 "tip_name" => "CAMION CON CARPA",
-                "tip_fk_ctp" => "6"
-            ], [
-                "tip_name" => "GRUA PARA VEHICULO",
-                "tip_fk_ctp" => "5"
-            ], [
-                "tip_name" => "GRUA PARA MOTO",
+                "tip_alquiler" => "95000",
+                "tip_tiempo_cargue" => "105",
+                "tip_combustible" => "ACPM",
+                "tip_rendimiento" => "20",
                 "tip_fk_ctp" => "5"
             ]
         ]);
@@ -169,6 +243,12 @@ class BaseTablasSeeder extends Seeder
             ],[
                 'est_name' => 'CALIFICADO',
                 'est_clase' => 'calificado',
+            ],[
+                'est_name' => 'ELIMINADO',
+                'est_clase' => 'eliminado',
+            ],[
+                'est_name' => 'NO HAY CONDUCTORES DISPONIBLES',
+                'est_clase' => 'conductor_no_encontrado',
             ]
         ]);
 

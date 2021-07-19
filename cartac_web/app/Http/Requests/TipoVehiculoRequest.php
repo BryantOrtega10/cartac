@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BonoRequest extends FormRequest
+class TipoVehiculoRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,11 +24,12 @@ class BonoRequest extends FormRequest
     public function rules()
     {
         return [
-            'codigo' => 'required',
-            'fecha_inicio' => 'required|date',
-            'fecha_fin' => 'required|date|after:fecha_inicio',
-            'tipo' => 'required',
-            'disponibles' => 'required|numeric|gt:0'
+            'nombre' => 'required',
+            'alquiler' => 'required',
+            'tipo_combustible' => 'required',
+            'rendimiento' => 'required',
+            'tiempo_cargue' => 'required',
+            'categoria_peaje' => 'required'
         ];
     }
 }

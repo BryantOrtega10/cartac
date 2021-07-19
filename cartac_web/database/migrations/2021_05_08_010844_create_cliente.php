@@ -37,6 +37,9 @@ class CreateCliente extends Migration
             $table->float("bon_porcentaje")->nullable();
             $table->integer("bon_disponibles")->nullable();
 
+            $table->bigInteger('bon_fk_est')->unsigned();
+            $table->foreign('bon_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
+            $table->index('bon_fk_est');
             
             $table->engine = "InnoDB";
 
@@ -54,7 +57,7 @@ class CreateCliente extends Migration
             $table->foreign('clb_fk_bon_id')->references('bon_id')->on('bono')->onDelete('cascade');
             $table->index('clb_fk_bon_id');
 
-            $table->timestamp("clb_usado")->nullable();
+            $table->timestamp("clb_usado")->nullable()->useCurrent();
             
             $table->bigInteger('clb_fk_est')->unsigned();
             $table->foreign('clb_fk_est')->references('est_id')->on('estado')->onDelete('cascade');
@@ -117,6 +120,13 @@ class CreateCliente extends Migration
             $table->dropIndex('cliente_bono_clb_fk_cli_id_index');
             
         });
+
+        Schema::table('bono', function(Blueprint $table)
+        {
+            $table->dropForeign('bono_bon_fk_est_foreign');
+            $table->dropIndex('bono_bon_fk_est_index');            
+        });
+
 
         Schema::table('cliente', function(Blueprint $table)
         {

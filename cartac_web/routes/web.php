@@ -113,7 +113,24 @@ Route::group(['prefix' => 'bonos'],function(){
     Route::post('eliminar/{id}', 'App\Http\Controllers\BonoController@eliminar')->name('bonos.eliminar');
 });
 
+Route::group(['prefix' => 'tipo-vehiculo'],function(){
+    Route::get('/', 'App\Http\Controllers\TipoVehiculoController@index')->name('tipos_de_vehiculo.index');
+    Route::get('agregar', 'App\Http\Controllers\TipoVehiculoController@mostrarFormAgregar')->name('tipos_de_vehiculo.agregar');
+    Route::post('agregar', 'App\Http\Controllers\TipoVehiculoController@agregar');
 
+    Route::get('modificar/{id}', 'App\Http\Controllers\TipoVehiculoController@mostrarFormModificar')->name('tipos_de_vehiculo.modificar');
+    Route::post('modificar/{id}', 'App\Http\Controllers\TipoVehiculoController@modificar');
+    Route::post('eliminar/{id}', 'App\Http\Controllers\TipoVehiculoController@eliminar')->name('tipos_de_vehiculo.eliminar');
+});
+
+
+
+Route::group(['prefix' => 'servicios'],function(){
+    Route::get('/', 'App\Http\Controllers\ServicioController@index')->name('servicios.index');
+    Route::get('ver_detalle/{id}', 'App\Http\Controllers\ServicioController@mostrarFormDetalle')->name('servicios.ver_detalle');
+    Route::post('cancelar/{id}', 'App\Http\Controllers\ServicioController@cancelar')->name('servicios.cancelar');
+
+});
 
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

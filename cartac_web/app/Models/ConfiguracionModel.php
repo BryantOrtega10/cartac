@@ -14,9 +14,10 @@ class ConfiguracionModel extends Model
     protected $primaryKey = "cfg_id";
 
     protected $fillable = [
-        "cfg_distancia",
-        "cfg_tiempo",
-        "cfg_peso",
+        "cfg_hora_hombre",
+        "cfg_gasolina",
+        "cfg_gas",
+        "cfg_acpm",
         "cfg_porcentaje_seguro",
         "cfg_porcentaje_ganancia"
     ];    

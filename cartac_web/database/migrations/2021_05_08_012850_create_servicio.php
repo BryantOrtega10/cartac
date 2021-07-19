@@ -40,9 +40,10 @@ class CreateServicio extends Migration
 
         Schema::create('configuracion', function (Blueprint $table) {
             $table->id("cfg_id");
-            $table->float("cfg_distancia");
-            $table->float("cfg_tiempo");
-            $table->float("cfg_peso");
+            $table->float("cfg_hora_hombre");
+            $table->float("cfg_gasolina");
+            $table->float("cfg_gas");
+            $table->float("cfg_acpm");
             $table->float("cfg_porcentaje_seguro");  
             $table->float("cfg_porcentaje_ganancia");  
             $table->engine = "InnoDB";      
@@ -84,20 +85,21 @@ class CreateServicio extends Migration
             $table->string("ser_direccion_ini");
             $table->string("ser_direccion_fin");
 
-            $table->decimal('ser_distancia')->nullable();
-            $table->decimal('ser_tiempo')->nullable();
-            $table->decimal('ser_peajes')->nullable();
-            $table->decimal('ser_seguro')->nullable();
-            $table->decimal('ser_ganancia')->nullable();
+            $table->integer('ser_distancia')->nullable();
+            $table->integer('ser_tiempo')->nullable();
+            $table->integer('ser_peajes')->nullable();
+            $table->integer('ser_seguro')->nullable();
+            $table->integer('ser_ganancia')->nullable();
             
-            $table->decimal("ser_subtotal");
-            $table->decimal("ser_descuento");
-            $table->decimal("ser_valor_final");
+            $table->integer("ser_subtotal");
+            $table->integer("ser_descuento");
+            $table->integer("ser_valor_final");
+            $table->integer("ser_busqueda_distancia_km")->nullable()->default("2");
             
             $table->float("ser_calificacion")->nullable();
             $table->text("ser_opinion")->nullable();
 
-            $table->bigInteger('ser_fk_bon')->unsigned();
+            $table->bigInteger('ser_fk_bon')->unsigned()->nullable();
             $table->foreign('ser_fk_bon')->references('bon_id')->on('bono')->onDelete('cascade');
             $table->index('ser_fk_bon');
 

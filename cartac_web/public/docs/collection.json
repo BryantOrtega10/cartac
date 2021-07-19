@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Cartac API",
-        "_postman_id": "9951923c-938e-4030-ba55-26db0b6d49d4",
+        "_postman_id": "5d3e7d8d-fc1b-4cab-8cfb-703ae4a11f71",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"non\",\n    \"pass\": \"consectetur\",\n    \"cedula\": \"et\",\n    \"name\": \"voluptas\",\n    \"apellidos\": \"quibusdam\",\n    \"phone\": \"voluptatem\",\n    \"con_hora_trabajo\": \"et\",\n    \"address\": \"occaecati\",\n    \"photo\": \"magnam\",\n    \"wallet_type\": \"molestiae\",\n    \"wallet_number\": \"asperiores\",\n    \"cedula_f\": \"dolorem\",\n    \"cedula_r\": \"perspiciatis\",\n    \"licencia_c\": \"in\",\n    \"cert_banc\": \"quis\",\n    \"esPropietario\": \"ullam\"\n}"
+                            "raw": "{\n    \"email\": \"est\",\n    \"pass\": \"voluptas\",\n    \"cedula\": \"quia\",\n    \"name\": \"voluptatem\",\n    \"apellidos\": \"aut\",\n    \"phone\": \"ea\",\n    \"con_hora_trabajo\": \"nemo\",\n    \"address\": \"iure\",\n    \"photo\": \"nemo\",\n    \"wallet_type\": \"et\",\n    \"wallet_number\": \"et\",\n    \"cedula_f\": \"numquam\",\n    \"cedula_r\": \"dolores\",\n    \"licencia_c\": \"cupiditate\",\n    \"cert_banc\": \"velit\",\n    \"esPropietario\": \"quasi\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"sunt\",\n    \"pass\": \"saepe\"\n}"
+                            "raw": "{\n    \"email\": \"a\",\n    \"pass\": \"voluptatibus\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"et\",\n    \"cedula\": \"est\",\n    \"name\": \"modi\",\n    \"apellidos\": \"omnis\",\n    \"fk_user_conductor\": \"dolorem\",\n    \"cedula_f\": \"consectetur\",\n    \"cedula_r\": \"reprehenderit\",\n    \"carta_auto\": \"porro\"\n}"
+                            "raw": "{\n    \"email\": \"aut\",\n    \"cedula\": \"aut\",\n    \"name\": \"aliquid\",\n    \"apellidos\": \"doloribus\",\n    \"fk_user_conductor\": \"tenetur\",\n    \"cedula_f\": \"tempore\",\n    \"cedula_r\": \"et\",\n    \"carta_auto\": \"aperiam\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -145,7 +145,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dimension\": \"ex\",\n    \"typeFk\": \"alias\",\n    \"placa\": \"ut\",\n    \"image\": \"incidunt\",\n    \"fkCarColor\": \"possimus\",\n    \"fkCarBrand\": \"culpa\",\n    \"veh_rendimiento\": \"dignissimos\",\n    \"id_owner\": \"quia\",\n    \"fkUserConductor\": \"tempore\",\n    \"subCategoryFk\": \"quas\",\n    \"tarjeta_prop\": \"ad\",\n    \"soat\": \"eos\",\n    \"tecno\": \"sint\"\n}"
+                            "raw": "{\n    \"dimension\": \"non\",\n    \"typeFk\": \"autem\",\n    \"placa\": \"enim\",\n    \"image\": \"aliquam\",\n    \"fkCarColor\": \"itaque\",\n    \"fkCarBrand\": \"distinctio\",\n    \"veh_rendimiento\": \"natus\",\n    \"id_owner\": \"voluptatibus\",\n    \"fkUserConductor\": \"nihil\",\n    \"subCategoryFk\": \"exercitationem\",\n    \"tarjeta_prop\": \"pariatur\",\n    \"soat\": \"et\",\n    \"tecno\": \"pariatur\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -214,34 +214,6 @@
                             "protocol": "https",
                             "host": "desarrollocartac.web-html.com\/",
                             "path": "api\/dimension_vehiculo",
-                            "query": []
-                        },
-                        "method": "GET",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "[]"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Tipos vehiculos",
-                    "request": {
-                        "url": {
-                            "protocol": "https",
-                            "host": "desarrollocartac.web-html.com\/",
-                            "path": "api\/tipo_vehiculo",
                             "query": []
                         },
                         "method": "GET",
@@ -347,7 +319,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"parametro_respuesta\": \"facilis\",\n    \"id_documentos\": \"nam\",\n    \"documentos\": \"beatae\"\n}"
+                            "raw": "{\n    \"parametro_respuesta\": \"in\",\n    \"id_documentos\": \"atque\",\n    \"documentos\": \"consequatur\"\n}"
                         },
                         "description": "La autorizacion es una variable header -> Authorization : Bearer token",
                         "response": []
@@ -375,7 +347,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cli_nombres\": \"et\",\n    \"cli_apellidos\": \"nobis\",\n    \"cli_email\": \"odit\",\n    \"cli_pass\": \"sapiente\",\n    \"cli_foto\": \"ut\",\n    \"cli_red\": \"qui\",\n    \"cli_id_red\": \"accusamus\"\n}"
+                            "raw": "{\n    \"cli_nombres\": \"quia\",\n    \"cli_apellidos\": \"labore\",\n    \"cli_email\": \"enim\",\n    \"cli_pass\": \"magnam\",\n    \"cli_foto\": \"et\",\n    \"cli_red\": \"non\",\n    \"cli_id_red\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -403,7 +375,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"minus\",\n    \"pass\": \"distinctio\"\n}"
+                            "raw": "{\n    \"email\": \"molestiae\",\n    \"pass\": \"omnis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -465,7 +437,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"veh_id\": \"omnis\"\n}"
+                            "raw": "{\n    \"veh_id\": \"doloribus\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -493,7 +465,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat\": \"qui\",\n    \"lng\": \"rem\",\n    \"veh_id\": \"odio\"\n}"
+                            "raw": "{\n    \"lat\": \"perferendis\",\n    \"lng\": \"a\",\n    \"veh_id\": \"cum\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -521,35 +493,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat_ini\": \"minus\",\n    \"lng_ini\": \"enim\",\n    \"lat_fin\": \"officia\",\n    \"lng_fin\": \"suscipit\",\n    \"tipo_veh\": \"odit\"\n}"
-                        },
-                        "description": "",
-                        "response": []
-                    }
-                },
-                {
-                    "name": "Crear servicio\nPermite crear el servicio",
-                    "request": {
-                        "url": {
-                            "protocol": "https",
-                            "host": "desarrollocartac.web-html.com\/",
-                            "path": "api\/servicio\/crear",
-                            "query": []
-                        },
-                        "method": "POST",
-                        "header": [
-                            {
-                                "key": "Content-Type",
-                                "value": "application\/json"
-                            },
-                            {
-                                "key": "Accept",
-                                "value": "application\/json"
-                            }
-                        ],
-                        "body": {
-                            "mode": "raw",
-                            "raw": "{\n    \"lat_ini\": \"voluptate\",\n    \"lng_ini\": \"et\",\n    \"lat_fin\": \"cum\",\n    \"lng_fin\": \"eligendi\",\n    \"direccion_inicio\": \"ratione\",\n    \"direccion_fin\": \"quis\",\n    \"tipo_veh\": \"minus\",\n    \"dimension\": \"fuga\",\n    \"categoria\": \"et\"\n}"
+                            "raw": "{\n    \"lat_ini\": \"hic\",\n    \"lng_ini\": \"accusamus\",\n    \"lat_fin\": \"corporis\",\n    \"lng_fin\": \"nemo\",\n    \"tipo_veh\": \"quis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -577,7 +521,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"unde\",\n    \"veh_id\": \"hic\"\n}"
+                            "raw": "{\n    \"ser_id\": \"ea\",\n    \"veh_id\": \"reiciendis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -611,7 +555,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cli_nombres\": \"earum\",\n    \"cli_apellidos\": \"rerum\",\n    \"cli_email\": \"rerum\",\n    \"cli_pass\": \"autem\",\n    \"cli_foto\": \"ut\"\n}"
+                            "raw": "{\n    \"cli_nombres\": \"ut\",\n    \"cli_apellidos\": \"quia\",\n    \"cli_email\": \"eos\",\n    \"cli_pass\": \"quibusdam\",\n    \"cli_foto\": \"velit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -667,7 +611,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"direccion\": \"consequatur\",\n    \"lat\": \"voluptatem\",\n    \"lng\": \"repellendus\"\n}"
+                            "raw": "{\n    \"direccion\": \"hic\",\n    \"lat\": \"molestias\",\n    \"lng\": \"reprehenderit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -695,7 +639,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"direccion\": \"qui\",\n    \"lat\": \"ut\",\n    \"lng\": \"fugiat\",\n    \"dir_id\": \"magni\"\n}"
+                            "raw": "{\n    \"direccion\": \"voluptate\",\n    \"lat\": \"nemo\",\n    \"lng\": \"eos\",\n    \"dir_id\": \"facere\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -723,7 +667,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dir_id\": \"facilis\"\n}"
+                            "raw": "{\n    \"dir_id\": \"eos\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -751,7 +695,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"sit\",\n    \"est_id\": \"eos\"\n}"
+                            "raw": "{\n    \"ser_id\": \"quia\",\n    \"est_id\": \"ut\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -779,7 +723,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"aut\"\n}"
+                            "raw": "{\n    \"ser_id\": \"sunt\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -807,7 +751,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"velit\",\n    \"motivo\": \"non\"\n}"
+                            "raw": "{\n    \"ser_id\": \"nihil\",\n    \"motivo\": \"minima\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -835,7 +779,97 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"quasi\",\n    \"calificacion\": \"ratione\",\n    \"opinion\": \"ex\"\n}"
+                            "raw": "{\n    \"ser_id\": \"maxime\",\n    \"calificacion\": \"architecto\",\n    \"opinion\": \"officiis\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "v 1.0.5",
+            "description": "",
+            "item": [
+                {
+                    "name": "Crear servicio\nPermite crear el servicio",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/crear",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"lat_ini\": \"laudantium\",\n    \"lng_ini\": \"quia\",\n    \"lat_fin\": \"est\",\n    \"lng_fin\": \"velit\",\n    \"direccion_inicio\": \"veritatis\",\n    \"direccion_fin\": \"sit\",\n    \"tipo_veh\": \"eligendi\",\n    \"dimension\": \"voluptatem\",\n    \"categoria\": \"corrupti\",\n    \"aplica_seguro\": \"voluptas\",\n    \"bono\": \"rerum\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Historial de servicios\nPermite ver los servicios que han sido calificados",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/historial",
+                            "query": []
+                        },
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "Tipos vehiculos",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/tipo_vehiculo",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"categoria\": \"consequatur\"\n}"
                         },
                         "description": "",
                         "response": []

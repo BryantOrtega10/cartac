@@ -113,6 +113,12 @@
                         <li><a href="{{ route('bonos.index')}}" @if (str_contains(Route::current()->getName(),'bonos'))
                             class="activo"
                         @endif>Bonos</a></li>
+                        <li><a href="{{ route('tipos_de_vehiculo.index')}}" @if (str_contains(Route::current()->getName(),'tipos_de_vehiculo'))
+                            class="activo"
+                        @endif>Tipos de vehiculos</a></li>
+                        <li><a href="{{ route('servicios.index')}}" @if (str_contains(Route::current()->getName(),'servicios'))
+                            class="activo"
+                        @endif>Servicios</a></li>
 
                         <li><a href="{{ route('configuracion.index')}}" @if (str_contains(Route::current()->getName(),'configuracion'))
                             class="activo"
@@ -131,7 +137,7 @@
                 
             </div>
             @endif
-            <div class="col">
+            <div class="@if(isset($from) && $from == "login") col  @else col-10 @endif">
                 <main>
                     @yield('content')
                 </main>

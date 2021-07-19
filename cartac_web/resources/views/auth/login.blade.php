@@ -1,4 +1,4 @@
-@extends('layouts.app',["class_body" => "body-login"])
+@extends('layouts.app',["class_body" => "body-login", "from" => "login"])
 
 @section('content')
 <div class="container">

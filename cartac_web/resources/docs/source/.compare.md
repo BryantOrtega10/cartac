@@ -33,7 +33,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"non","pass":"consectetur","cedula":"et","name":"voluptas","apellidos":"quibusdam","phone":"voluptatem","con_hora_trabajo":"et","address":"occaecati","photo":"magnam","wallet_type":"molestiae","wallet_number":"asperiores","cedula_f":"dolorem","cedula_r":"perspiciatis","licencia_c":"in","cert_banc":"quis","esPropietario":"ullam"}'
+    -d '{"email":"est","pass":"voluptas","cedula":"quia","name":"voluptatem","apellidos":"aut","phone":"ea","con_hora_trabajo":"nemo","address":"iure","photo":"nemo","wallet_type":"et","wallet_number":"et","cedula_f":"numquam","cedula_r":"dolores","licencia_c":"cupiditate","cert_banc":"velit","esPropietario":"quasi"}'
 
 ```
 
@@ -48,22 +48,22 @@ let headers = {
 };
 
 let body = {
-    "email": "non",
-    "pass": "consectetur",
-    "cedula": "et",
-    "name": "voluptas",
-    "apellidos": "quibusdam",
-    "phone": "voluptatem",
-    "con_hora_trabajo": "et",
-    "address": "occaecati",
-    "photo": "magnam",
-    "wallet_type": "molestiae",
-    "wallet_number": "asperiores",
-    "cedula_f": "dolorem",
-    "cedula_r": "perspiciatis",
-    "licencia_c": "in",
-    "cert_banc": "quis",
-    "esPropietario": "ullam"
+    "email": "est",
+    "pass": "voluptas",
+    "cedula": "quia",
+    "name": "voluptatem",
+    "apellidos": "aut",
+    "phone": "ea",
+    "con_hora_trabajo": "nemo",
+    "address": "iure",
+    "photo": "nemo",
+    "wallet_type": "et",
+    "wallet_number": "et",
+    "cedula_f": "numquam",
+    "cedula_r": "dolores",
+    "licencia_c": "cupiditate",
+    "cert_banc": "velit",
+    "esPropietario": "quasi"
 }
 
 fetch(url, {
@@ -112,7 +112,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"sunt","pass":"saepe"}'
+    -d '{"email":"a","pass":"voluptatibus"}'
 
 ```
 
@@ -127,8 +127,8 @@ let headers = {
 };
 
 let body = {
-    "email": "sunt",
-    "pass": "saepe"
+    "email": "a",
+    "pass": "voluptatibus"
 }
 
 fetch(url, {
@@ -211,7 +211,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/propietario/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"et","cedula":"est","name":"modi","apellidos":"omnis","fk_user_conductor":"dolorem","cedula_f":"consectetur","cedula_r":"reprehenderit","carta_auto":"porro"}'
+    -d '{"email":"aut","cedula":"aut","name":"aliquid","apellidos":"doloribus","fk_user_conductor":"tenetur","cedula_f":"tempore","cedula_r":"et","carta_auto":"aperiam"}'
 
 ```
 
@@ -226,14 +226,14 @@ let headers = {
 };
 
 let body = {
-    "email": "et",
-    "cedula": "est",
-    "name": "modi",
-    "apellidos": "omnis",
-    "fk_user_conductor": "dolorem",
-    "cedula_f": "consectetur",
-    "cedula_r": "reprehenderit",
-    "carta_auto": "porro"
+    "email": "aut",
+    "cedula": "aut",
+    "name": "aliquid",
+    "apellidos": "doloribus",
+    "fk_user_conductor": "tenetur",
+    "cedula_f": "tempore",
+    "cedula_r": "et",
+    "carta_auto": "aperiam"
 }
 
 fetch(url, {
@@ -274,7 +274,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/vehiculo/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dimension":"ex","typeFk":"alias","placa":"ut","image":"incidunt","fkCarColor":"possimus","fkCarBrand":"culpa","veh_rendimiento":"dignissimos","id_owner":"quia","fkUserConductor":"tempore","subCategoryFk":"quas","tarjeta_prop":"ad","soat":"eos","tecno":"sint"}'
+    -d '{"dimension":"non","typeFk":"autem","placa":"enim","image":"aliquam","fkCarColor":"itaque","fkCarBrand":"distinctio","veh_rendimiento":"natus","id_owner":"voluptatibus","fkUserConductor":"nihil","subCategoryFk":"exercitationem","tarjeta_prop":"pariatur","soat":"et","tecno":"pariatur"}'
 
 ```
 
@@ -289,19 +289,19 @@ let headers = {
 };
 
 let body = {
-    "dimension": "ex",
-    "typeFk": "alias",
-    "placa": "ut",
-    "image": "incidunt",
-    "fkCarColor": "possimus",
-    "fkCarBrand": "culpa",
-    "veh_rendimiento": "dignissimos",
-    "id_owner": "quia",
-    "fkUserConductor": "tempore",
-    "subCategoryFk": "quas",
-    "tarjeta_prop": "ad",
-    "soat": "eos",
-    "tecno": "sint"
+    "dimension": "non",
+    "typeFk": "autem",
+    "placa": "enim",
+    "image": "aliquam",
+    "fkCarColor": "itaque",
+    "fkCarBrand": "distinctio",
+    "veh_rendimiento": "natus",
+    "id_owner": "voluptatibus",
+    "fkUserConductor": "nihil",
+    "subCategoryFk": "exercitationem",
+    "tarjeta_prop": "pariatur",
+    "soat": "et",
+    "tecno": "pariatur"
 }
 
 fetch(url, {
@@ -630,133 +630,6 @@ fetch(url, {
 
 <!-- END_cc0b523a837eac3b3d5d77d03624abaf -->
 
-<!-- START_6b642b4c24dc59176b1ee7dd632ab146 -->
-## Tipos vehiculos
-
-> Example request:
-
-```bash
-curl -X GET \
-    -G "https://desarrollocartac.web-html.com/api/tipo_vehiculo" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json"
-```
-
-```javascript
-const url = new URL(
-    "https://desarrollocartac.web-html.com/api/tipo_vehiculo"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers: headers,
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-> Example response (200):
-
-```json
-{
-    "success": true,
-    "data": [
-        {
-            "id": 1,
-            "name": "MOTOCARRO"
-        },
-        {
-            "id": 2,
-            "name": "CAMIONETA PLATON"
-        },
-        {
-            "id": 3,
-            "name": "VANS DE CARGA"
-        },
-        {
-            "id": 4,
-            "name": "REMOLQUE ABIERTO"
-        },
-        {
-            "id": 5,
-            "name": "FURGON"
-        },
-        {
-            "id": 6,
-            "name": "FURGON GRANDE TURBO"
-        },
-        {
-            "id": 7,
-            "name": "TRACTOCAMION 4 EJES"
-        },
-        {
-            "id": 8,
-            "name": "TRACTOCAMION 6 EJES"
-        },
-        {
-            "id": 9,
-            "name": "VOLQUETA"
-        },
-        {
-            "id": 10,
-            "name": "CAMION TRANS CONTAINER (PLANCHON CON UÑAS)"
-        },
-        {
-            "id": 11,
-            "name": "CAMION CISTERNA"
-        },
-        {
-            "id": 12,
-            "name": "CAMION FRIGORIFICO"
-        },
-        {
-            "id": 13,
-            "name": "CAMION PLANCHA"
-        },
-        {
-            "id": 14,
-            "name": "CAMION NINERA"
-        },
-        {
-            "id": 15,
-            "name": "CAMION GRUA"
-        },
-        {
-            "id": 16,
-            "name": "CAMION CAMA BAJA"
-        },
-        {
-            "id": 17,
-            "name": "CAMION CON ESTACAS"
-        },
-        {
-            "id": 18,
-            "name": "CAMION CON CARPA"
-        },
-        {
-            "id": 19,
-            "name": "GRUA PARA VEHICULO"
-        },
-        {
-            "id": 20,
-            "name": "GRUA PARA MOTO"
-        }
-    ]
-}
-```
-
-### HTTP Request
-`GET api/tipo_vehiculo`
-
-
-<!-- END_6b642b4c24dc59176b1ee7dd632ab146 -->
-
 <!-- START_ae738c5eae45bc48c5b1e77daa3f8c5c -->
 ## Categorias vehiculos
 
@@ -914,7 +787,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/resubir" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"parametro_respuesta":"facilis","id_documentos":"nam","documentos":"beatae"}'
+    -d '{"parametro_respuesta":"in","id_documentos":"atque","documentos":"consequatur"}'
 
 ```
 
@@ -929,9 +802,9 @@ let headers = {
 };
 
 let body = {
-    "parametro_respuesta": "facilis",
-    "id_documentos": "nam",
-    "documentos": "beatae"
+    "parametro_respuesta": "in",
+    "id_documentos": "atque",
+    "documentos": "consequatur"
 }
 
 fetch(url, {
@@ -967,7 +840,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cli_nombres":"et","cli_apellidos":"nobis","cli_email":"odit","cli_pass":"sapiente","cli_foto":"ut","cli_red":"qui","cli_id_red":"accusamus"}'
+    -d '{"cli_nombres":"quia","cli_apellidos":"labore","cli_email":"enim","cli_pass":"magnam","cli_foto":"et","cli_red":"non","cli_id_red":"et"}'
 
 ```
 
@@ -982,13 +855,13 @@ let headers = {
 };
 
 let body = {
-    "cli_nombres": "et",
-    "cli_apellidos": "nobis",
-    "cli_email": "odit",
-    "cli_pass": "sapiente",
-    "cli_foto": "ut",
-    "cli_red": "qui",
-    "cli_id_red": "accusamus"
+    "cli_nombres": "quia",
+    "cli_apellidos": "labore",
+    "cli_email": "enim",
+    "cli_pass": "magnam",
+    "cli_foto": "et",
+    "cli_red": "non",
+    "cli_id_red": "et"
 }
 
 fetch(url, {
@@ -1028,7 +901,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"minus","pass":"distinctio"}'
+    -d '{"email":"molestiae","pass":"omnis"}'
 
 ```
 
@@ -1043,8 +916,8 @@ let headers = {
 };
 
 let body = {
-    "email": "minus",
-    "pass": "distinctio"
+    "email": "molestiae",
+    "pass": "omnis"
 }
 
 fetch(url, {
@@ -1123,7 +996,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/conectar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"veh_id":"omnis"}'
+    -d '{"veh_id":"doloribus"}'
 
 ```
 
@@ -1138,7 +1011,7 @@ let headers = {
 };
 
 let body = {
-    "veh_id": "omnis"
+    "veh_id": "doloribus"
 }
 
 fetch(url, {
@@ -1174,7 +1047,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/actualizarUbicacion" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat":"qui","lng":"rem","veh_id":"odio"}'
+    -d '{"lat":"perferendis","lng":"a","veh_id":"cum"}'
 
 ```
 
@@ -1189,9 +1062,9 @@ let headers = {
 };
 
 let body = {
-    "lat": "qui",
-    "lng": "rem",
-    "veh_id": "odio"
+    "lat": "perferendis",
+    "lng": "a",
+    "veh_id": "cum"
 }
 
 fetch(url, {
@@ -1229,7 +1102,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/cotizar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat_ini":"minus","lng_ini":"enim","lat_fin":"officia","lng_fin":"suscipit","tipo_veh":"odit"}'
+    -d '{"lat_ini":"hic","lng_ini":"accusamus","lat_fin":"corporis","lng_fin":"nemo","tipo_veh":"quis"}'
 
 ```
 
@@ -1244,11 +1117,11 @@ let headers = {
 };
 
 let body = {
-    "lat_ini": "minus",
-    "lng_ini": "enim",
-    "lat_fin": "officia",
-    "lng_fin": "suscipit",
-    "tipo_veh": "odit"
+    "lat_ini": "hic",
+    "lng_ini": "accusamus",
+    "lat_fin": "corporis",
+    "lng_fin": "nemo",
+    "tipo_veh": "quis"
 }
 
 fetch(url, {
@@ -1276,73 +1149,6 @@ Parameter | Type | Status | Description
     
 <!-- END_4149f3ef54e6ede4d09a98391e0a96db -->
 
-<!-- START_0c831c48e92f095e552fdb86f2b4cdd1 -->
-## Crear servicio
-Permite crear el servicio
-
-<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
-> Example request:
-
-```bash
-curl -X POST \
-    "https://desarrollocartac.web-html.com/api/servicio/crear" \
-    -H "Content-Type: application/json" \
-    -H "Accept: application/json" \
-    -d '{"lat_ini":"voluptate","lng_ini":"et","lat_fin":"cum","lng_fin":"eligendi","direccion_inicio":"ratione","direccion_fin":"quis","tipo_veh":"minus","dimension":"fuga","categoria":"et"}'
-
-```
-
-```javascript
-const url = new URL(
-    "https://desarrollocartac.web-html.com/api/servicio/crear"
-);
-
-let headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "lat_ini": "voluptate",
-    "lng_ini": "et",
-    "lat_fin": "cum",
-    "lng_fin": "eligendi",
-    "direccion_inicio": "ratione",
-    "direccion_fin": "quis",
-    "tipo_veh": "minus",
-    "dimension": "fuga",
-    "categoria": "et"
-}
-
-fetch(url, {
-    method: "POST",
-    headers: headers,
-    body: body
-})
-    .then(response => response.json())
-    .then(json => console.log(json));
-```
-
-
-
-### HTTP Request
-`POST api/servicio/crear`
-
-#### Body Parameters
-Parameter | Type | Status | Description
---------- | ------- | ------- | ------- | -----------
-    `lat_ini` | Double |  required  | latitud de la ubicacion inicial.
-        `lng_ini` | Double |  required  | longitud de la ubicacion inicial.
-        `lat_fin` | Double |  required  | latitud de la ubicacion final.
-        `lng_fin` | Double |  required  | longitud de la ubicacion final.
-        `direccion_inicio` | String |  required  | Dirección inicial que el cliente escribió.
-        `direccion_fin` | String |  required  | Dirección final que el cliente escribió.
-        `tipo_veh` | Integer |  required  | Id del tipo de vehiculo.
-        `dimension` | Integer |  required  | Id dimension del vehiculo.
-        `categoria` | Integer |  required  | Id de la categoria del vehiculo.
-    
-<!-- END_0c831c48e92f095e552fdb86f2b4cdd1 -->
-
 <!-- START_af13537ec25e8857875b259cbd0455e6 -->
 ## Aceptar servicio
 Permite Aceptar el servicio por parte del conductor, el id del servicio llega por una notificacion push
@@ -1355,7 +1161,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/aceptar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"unde","veh_id":"hic"}'
+    -d '{"ser_id":"ea","veh_id":"reiciendis"}'
 
 ```
 
@@ -1370,8 +1176,8 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "unde",
-    "veh_id": "hic"
+    "ser_id": "ea",
+    "veh_id": "reiciendis"
 }
 
 fetch(url, {
@@ -1410,7 +1216,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/modificar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cli_nombres":"earum","cli_apellidos":"rerum","cli_email":"rerum","cli_pass":"autem","cli_foto":"ut"}'
+    -d '{"cli_nombres":"ut","cli_apellidos":"quia","cli_email":"eos","cli_pass":"quibusdam","cli_foto":"velit"}'
 
 ```
 
@@ -1425,11 +1231,11 @@ let headers = {
 };
 
 let body = {
-    "cli_nombres": "earum",
-    "cli_apellidos": "rerum",
-    "cli_email": "rerum",
-    "cli_pass": "autem",
-    "cli_foto": "ut"
+    "cli_nombres": "ut",
+    "cli_apellidos": "quia",
+    "cli_email": "eos",
+    "cli_pass": "quibusdam",
+    "cli_foto": "velit"
 }
 
 fetch(url, {
@@ -1517,7 +1323,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/direccion/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"direccion":"consequatur","lat":"voluptatem","lng":"repellendus"}'
+    -d '{"direccion":"hic","lat":"molestias","lng":"reprehenderit"}'
 
 ```
 
@@ -1532,9 +1338,9 @@ let headers = {
 };
 
 let body = {
-    "direccion": "consequatur",
-    "lat": "voluptatem",
-    "lng": "repellendus"
+    "direccion": "hic",
+    "lat": "molestias",
+    "lng": "reprehenderit"
 }
 
 fetch(url, {
@@ -1572,7 +1378,7 @@ curl -X PUT \
     "https://desarrollocartac.web-html.com/api/cliente/direccion/modificar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"direccion":"qui","lat":"ut","lng":"fugiat","dir_id":"magni"}'
+    -d '{"direccion":"voluptate","lat":"nemo","lng":"eos","dir_id":"facere"}'
 
 ```
 
@@ -1587,10 +1393,10 @@ let headers = {
 };
 
 let body = {
-    "direccion": "qui",
-    "lat": "ut",
-    "lng": "fugiat",
-    "dir_id": "magni"
+    "direccion": "voluptate",
+    "lat": "nemo",
+    "lng": "eos",
+    "dir_id": "facere"
 }
 
 fetch(url, {
@@ -1629,7 +1435,7 @@ curl -X DELETE \
     "https://desarrollocartac.web-html.com/api/cliente/direccion/eliminar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dir_id":"facilis"}'
+    -d '{"dir_id":"eos"}'
 
 ```
 
@@ -1644,7 +1450,7 @@ let headers = {
 };
 
 let body = {
-    "dir_id": "facilis"
+    "dir_id": "eos"
 }
 
 fetch(url, {
@@ -1680,7 +1486,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/cambiar_estado" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"sit","est_id":"eos"}'
+    -d '{"ser_id":"quia","est_id":"ut"}'
 
 ```
 
@@ -1695,8 +1501,8 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "sit",
-    "est_id": "eos"
+    "ser_id": "quia",
+    "est_id": "ut"
 }
 
 fetch(url, {
@@ -1733,7 +1539,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/ver_datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"aut"}'
+    -d '{"ser_id":"sunt"}'
 
 ```
 
@@ -1748,7 +1554,7 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "aut"
+    "ser_id": "sunt"
 }
 
 fetch(url, {
@@ -1784,7 +1590,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/cancelar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"velit","motivo":"non"}'
+    -d '{"ser_id":"nihil","motivo":"minima"}'
 
 ```
 
@@ -1799,8 +1605,8 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "velit",
-    "motivo": "non"
+    "ser_id": "nihil",
+    "motivo": "minima"
 }
 
 fetch(url, {
@@ -1837,7 +1643,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/calificar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"quasi","calificacion":"ratione","opinion":"ex"}'
+    -d '{"ser_id":"maxime","calificacion":"architecto","opinion":"officiis"}'
 
 ```
 
@@ -1852,9 +1658,9 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "quasi",
-    "calificacion": "ratione",
-    "opinion": "ex"
+    "ser_id": "maxime",
+    "calificacion": "architecto",
+    "opinion": "officiis"
 }
 
 fetch(url, {
@@ -1879,5 +1685,176 @@ Parameter | Type | Status | Description
         `opinion` | String |  optional  | Opinion acerca del servicio.
     
 <!-- END_b1f192c084fadec872b34fe08a50b6f9 -->
+
+#v 1.0.5
+
+
+<!-- START_0c831c48e92f095e552fdb86f2b4cdd1 -->
+## Crear servicio
+Permite crear el servicio
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/crear" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"lat_ini":"laudantium","lng_ini":"quia","lat_fin":"est","lng_fin":"velit","direccion_inicio":"veritatis","direccion_fin":"sit","tipo_veh":"eligendi","dimension":"voluptatem","categoria":"corrupti","aplica_seguro":"voluptas","bono":"rerum"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/crear"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "lat_ini": "laudantium",
+    "lng_ini": "quia",
+    "lat_fin": "est",
+    "lng_fin": "velit",
+    "direccion_inicio": "veritatis",
+    "direccion_fin": "sit",
+    "tipo_veh": "eligendi",
+    "dimension": "voluptatem",
+    "categoria": "corrupti",
+    "aplica_seguro": "voluptas",
+    "bono": "rerum"
+}
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/crear`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `lat_ini` | Double |  required  | latitud de la ubicacion inicial.
+        `lng_ini` | Double |  required  | longitud de la ubicacion inicial.
+        `lat_fin` | Double |  required  | latitud de la ubicacion final.
+        `lng_fin` | Double |  required  | longitud de la ubicacion final.
+        `direccion_inicio` | String |  required  | Dirección inicial que el cliente escribió.
+        `direccion_fin` | String |  required  | Dirección final que el cliente escribió.
+        `tipo_veh` | Integer |  required  | Id del tipo de vehiculo.
+        `dimension` | Integer |  required  | Id dimension del vehiculo.
+        `categoria` | Integer |  required  | Id de la categoria del vehiculo.
+        `aplica_seguro` | Integer |  required  | 0 o 1 si aplica el seguro.
+        `bono` | String |  optional  | optional Bono de descuento.
+    
+<!-- END_0c831c48e92f095e552fdb86f2b4cdd1 -->
+
+<!-- START_8957fed5ca13c0ea70f71591b8296a76 -->
+## Historial de servicios
+Permite ver los servicios que han sido calificados
+
+<br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
+> Example request:
+
+```bash
+curl -X POST \
+    "https://desarrollocartac.web-html.com/api/servicio/historial" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/historial"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "POST",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+
+### HTTP Request
+`POST api/servicio/historial`
+
+
+<!-- END_8957fed5ca13c0ea70f71591b8296a76 -->
+
+<!-- START_6b642b4c24dc59176b1ee7dd632ab146 -->
+## Tipos vehiculos
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://desarrollocartac.web-html.com/api/tipo_vehiculo" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"categoria":"consequatur"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/tipo_vehiculo"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "categoria": "consequatur"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (200):
+
+```json
+{
+    "success": true,
+    "data": []
+}
+```
+
+### HTTP Request
+`GET api/tipo_vehiculo`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `categoria` | Integer |  optional  | Id de la categoria.
+    
+<!-- END_6b642b4c24dc59176b1ee7dd632ab146 -->
 
 

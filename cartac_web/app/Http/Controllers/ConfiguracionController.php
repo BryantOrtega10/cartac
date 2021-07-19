@@ -75,10 +75,12 @@ class ConfiguracionController extends Controller
     }
     public function modificar_gen(ConfiguracionRequest $request){
         $configuracion = ConfiguracionModel::findOrFail(1);
-        $configuracion->cfg_distancia = $request->distancia;
-        $configuracion->cfg_tiempo = $request->tiempo;
-        $configuracion->cfg_peso = $request->peso;
+        $configuracion->cfg_hora_hombre = $request->hora_hombre;
+        $configuracion->cfg_gasolina = $request->gasolina;
+        $configuracion->cfg_gas = $request->gas;
+        $configuracion->cfg_acpm = $request->acpm;
         $configuracion->cfg_porcentaje_seguro = $request->porcentaje_seguro;
+        $configuracion->cfg_porcentaje_ganancia = $request->porcentaje_ganancia;
         $configuracion->save();
         return redirect()->route('configuracion.index')->with('mensaje', 'Configuración modificada correctamente');
     }

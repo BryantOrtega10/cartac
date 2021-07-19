@@ -238,7 +238,8 @@ img.user-image {
 
 a.modificar,
 a.eliminar,
-a.verificar {
+a.verificar,
+a.ver_detalle {
     font-size: 20px;
 }
 
@@ -333,4 +334,7 @@ img.categoria {
 }
 .opcion_porcentaje.activo, .opcion_valor.activo {
     display: flex;
+}
+img.img-tipo-vehiculo {
+    max-width: 50px;
 }
