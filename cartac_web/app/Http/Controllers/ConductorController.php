@@ -137,7 +137,7 @@ class ConductorController extends Controller
             }
             
             $conductor_respuesta->cnr_campos = $campos_validar;
-            $conductor_respuesta->cnr_mensaje = $request->mensaje;
+            $conductor_respuesta->cnr_mensaje = $request->mensaje_adicional;
             $conductor_respuesta->cnr_fk_con = $conductor->con_id;
             $conductor_respuesta->cnr_fk_est = 4;
             $conductor_respuesta->save();
