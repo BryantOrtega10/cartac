@@ -103,39 +103,11 @@ class ConductorController extends Controller
         $usuario = auth()->user();
 
         $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
-        $respuesta = null;
-        $documentos = null;
-        $vehiculo = VehiculoModel::join("vehiculo_conductor", "fk_veh_id", "=", "veh_id")
-        ->join("color_veh", "col_id", "=", "veh_fk_col")
-        ->join("marca_veh", "mar_id", "=", "veh_fk_mar")
-        ->join("dimension_tipo_veh", "dimension_tipo_veh.id", "=", "veh_fk_dim_tip")
-        ->join("tipo_veh", "dimension_tipo_veh.fk_tip", "=", "tip_id")
-        ->join("dimension_veh", "dimension_tipo_veh.fk_dim", "=", "dim_id")
-        ->where("vehiculo_conductor.fk_est_id", "=", "2")
-        ->first();
-        if($conductor->con_fk_est == "3"){
-            $respuesta = ConductorRespuestaModel::where("cnr_fk_con","=",$conductor->con_id)->first();
-            $respuesta->cnr_campos = explode(",",$respuesta->cnr_campos);
-            $arrDoc = array();
-            foreach ($respuesta->cnr_campos as $campo){
-                if(is_numeric($campo)){
-                    array_push($arrDoc, $campo);
-                }
-            }
-            $documentos = DocumentacionModel::join("tipo_documentacion", "tdo_id", "=", "doc_fk_tdo")->whereIn("doc_id",$arrDoc)->get();
-
-        }
         
         return response()->json([
             "success" => true,
-            "data" => [
-                "conductor" => $conductor,
-                "respuesta" => $respuesta,
-                "documentos" => $documentos,
-                "vehiculo" => $vehiculo
-            ]                    
+            "data" => $conductor
         ], 200);
-        
     }
 
 
@@ -489,6 +461,7 @@ class ConductorController extends Controller
         $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
         $respuesta = null;
         $documentos = null;
+
         $vehiculo = VehiculoModel::join("vehiculo_conductor", "fk_veh_id", "=", "veh_id")
         ->join("color_veh", "col_id", "=", "veh_fk_col")
         ->join("marca_veh", "mar_id", "=", "veh_fk_mar")
@@ -496,7 +469,11 @@ class ConductorController extends Controller
         ->join("tipo_veh", "dimension_tipo_veh.fk_tip", "=", "tip_id")
         ->join("dimension_veh", "dimension_tipo_veh.fk_dim", "=", "dim_id")
         ->where("vehiculo_conductor.fk_est_id", "=", "2")
+        ->where("vehiculo_conductor.fk_con_id", "=", $conductor->con_id)
         ->first();
+
+        $propietario = PropietarioModel::where("pro_id", "=", $vehiculo->veh_fk_pro)->first();
+
         if($conductor->con_fk_est == "3"){
             $respuesta = ConductorRespuestaModel::where("cnr_fk_con","=",$conductor->con_id)->first();
             $respuesta->cnr_campos = explode(",",$respuesta->cnr_campos);
@@ -507,7 +484,7 @@ class ConductorController extends Controller
                 }
             }
             $documentos = DocumentacionModel::join("tipo_documentacion", "tdo_id", "=", "doc_fk_tdo")->whereIn("doc_id",$arrDoc)->get();
-
+            
         }        
         return response()->json([
             "success" => true,
@@ -515,6 +492,7 @@ class ConductorController extends Controller
                 "conductor" => $conductor,
                 "respuesta" => $respuesta,
                 "documentos" => $documentos,
+                "propietario" => $propietario,
                 "vehiculo" => $vehiculo
             ]                    
         ], 200);
