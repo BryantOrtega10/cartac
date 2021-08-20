@@ -28,6 +28,7 @@ class ClienteController extends Controller
      * @bodyParam cli_foto String/File required Puede ser un archivo o una imagen en base 64 de la foto del cliente.
      * @bodyParam cli_red String required FACEBOOK, GOOGLE, APPLE, etc.
      * @bodyParam cli_id_red String required id de la red social.
+     * @bodyParam push_token String Token de firebase.
      * 
      * */
     public function registro_cliente(AgregarClienteRequest $request){
@@ -35,6 +36,7 @@ class ClienteController extends Controller
         $usuario = new User();
         $usuario->name = $request->cli_nombres." ".$request->cli_apellidos;
         $usuario->email = $request->cli_email;
+        $usuario->push_token = $request->push_token ?? "";
         if($request->has("cli_pass")){
             $usuario->password = Hash::make($request->cli_pass);
         }else if($request->has("cli_red") && $request->has("cli_id_red")){
@@ -104,6 +106,7 @@ class ClienteController extends Controller
      * 
      * @bodyParam email String Email del cliente.
      * @bodyParam pass String Contraseña del cliente o id de la red social.
+     * @bodyParam push_token String Token de firebase.
      * 
      * */
     public function login(Request $request){
@@ -111,6 +114,7 @@ class ClienteController extends Controller
         $usuario = User::whereEmail($request->email)->first();
         if(!is_null($usuario) && Hash::check($request->pass, $usuario->password)){
             $usuario->api_token = Str::random(100);
+            $usuario->push_token = $request->push_token ?? "";
             $usuario->save();
             if($usuario->fk_rol == "2"){
                 $cliente = ClienteModel::where("cli_fk_usr","=",$usuario->id)->first();

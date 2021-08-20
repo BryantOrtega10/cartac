@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\Funciones;
 use App\Http\Requests\AceptarServicioRequest;
 use App\Http\Requests\CalificarServicioRequest;
 use App\Http\Requests\CambiarEstadoServicioRequest;
@@ -166,8 +167,8 @@ class ServicioController extends Controller
                     "valorPeajes" => $valorPeajes,
                     "valorGanancia" => $ganancia,
                     "subTotal" => $subTotal,
-                    "total" => $total
-    
+                    "total" => $total,
+                    "porcentajeSeguro" => $configuracion_defecto->cfg_porcentaje_seguro    
                 ]
             ],200);
 
@@ -453,6 +454,9 @@ class ServicioController extends Controller
         $servicio->ser_fk_est = 9;
         $servicio->save();       
         //PUSH: Enviar al cliente del servicio el conductor y el vehiculo 
+        $data = array("ser_id" => $servicio->ser_id);
+        Funciones::sendPushTo("Servicio aceptado", "El servicio ha sido aceptado", $servicio->cliente->usuario->push_token, $data, "cliente");
+
         return response()->json([
             "success" => true,
             "mensaje" => "Servicio aceptado correctamente",
@@ -541,15 +545,20 @@ class ServicioController extends Controller
         $servicio->ser_fk_est = $request->est_id;
         $servicio->save();
 
+        $data = array("ser_id" => $servicio->ser_id);
 
         if($request->est_id == 10){
-            //PUSH: Enviar al cliente del servicio la notificacion de que el conductor ya llego
+            //PUSH: Enviar al cliente del servicio la notificacion de que el conductor ya llego            
+            Funciones::sendPushTo("Conductor llegó", "El conductor ha llegado a tu ubicación", $servicio->cliente->usuario->push_token, $data, "cliente");
+            
         }
         else if($request->est_id == 7){
             //PUSH: Enviar al cliente del servicio la notificacion de que el conductor ya empezo el viaje para cambiar la ventana del cliente
+            Funciones::sendPushTo("Conductor inicio el viaje", "El conductor ha iniciado el viaje", $servicio->cliente->usuario->push_token, $data, "cliente");
         }
         else if($request->est_id == 11){
             //PUSH: Enviar al cliente del servicio la notificacion de que el servicio terminó
+            Funciones::sendPushTo("Su viaje terminó", "Su viaje terminó", $servicio->cliente->usuario->push_token, $data, "cliente");
         }
 
 
@@ -582,6 +591,8 @@ class ServicioController extends Controller
         $servicio->ser_fk_est = 12;
         $servicio->save();
         //PUSH: Enviar al conductor del servicio la notificacion de que el servicio se cancelo
+        $data = array("ser_id" => $servicio->ser_id);
+        Funciones::sendPushTo("Servicio cancelado", "El cliente canceló el servicio", $servicio->conductor->usuario->push_token, $data, "conductor");
         return response()->json([
             "success" => true,
             "mensaje" => "Servicio cancelado correctamente"            
@@ -607,7 +618,6 @@ class ServicioController extends Controller
         $servicio->ser_opinion = $request->opinion;
         $servicio->ser_fk_est = 13;
         $servicio->save();
-        //PUSH: Enviar al conductor del servicio la notificacion de que el servicio se cancelo
         return response()->json([
             "success" => true,
             "mensaje" => "Servicio calificado correctamente"            
@@ -642,7 +652,6 @@ class ServicioController extends Controller
         ->whereIn("ser_fk_est",[13,12])->get();
         
         
-        //PUSH: Enviar al conductor del servicio la notificacion de que el servicio se cancelo
         return response()->json([
             "success" => true,
             "data" => [
@@ -653,7 +662,15 @@ class ServicioController extends Controller
     
 
 
-    
+    /**
+     * buscar_conductor
+     * Busca conductores y envia push segun la ubicacion de estos en un radio de 2,5,10 km a la redonda, si no aceptan envia push a cliente informando, se debe usar cada 5 mins para dar tiempo a los conductores de responder
+     * 
+	 * @group  v 1.0.6
+     * 
+     * 
+     * 
+	 */
     public function buscar_conductor(){
         $servicios = ServicioModel::selectRaw('ST_X(ser_ubicacion_ini) as lat_ini, ST_Y(ser_ubicacion_ini) as lng_ini,
         ser_busqueda_distancia_km, ser_fk_est, ser_id')
@@ -670,8 +687,8 @@ class ServicioController extends Controller
 
             
             foreach ($conductores_veh as $conductor_veh){
-                
-                dump($conductor_veh->conductor->usuario->push_token);
+                $data = array("ser_id" => $servicio->ser_id);
+                Funciones::sendPushTo("Nuevo servicio", "¿Deseas aceptar este servicio?", $conductor_veh->conductor->usuario->push_token, $data, "conductor");
                 //PUSH a conductor
             }
             
@@ -684,6 +701,8 @@ class ServicioController extends Controller
             }
             else if($servicioBD->ser_busqueda_distancia_km == 10){
                 //PUSH a cliente informando
+                $data = array("ser_id" => $servicio->ser_id);
+                Funciones::sendPushTo("Ningun Conductor encontrado", "Ningun conductor encontrado", $conductor_veh->cliente->usuario->push_token, $data, "cliente");
                 $servicioBD->ser_fk_est = 15;
             }
             
@@ -692,6 +711,36 @@ class ServicioController extends Controller
         }
 
         
+    }
+
+    /**
+     * testPush
+     * Probar Push de cliente y conductor
+     * 
+	 * @group  v 1.0.6
+     * @bodyParam tipo Integer required 1 para conductor, 2 para cliente.
+     * @bodyParam push_token String required Token de firebase.
+     * 
+     * 
+     * 
+	 */
+    public function testPush(Request $request){
+        //dd("hola");
+        $type = "conductor";
+        if($request->tipo == "2"){
+            $type = "cliente";
+        }
+
+        $res = Funciones::sendPushArr("test", "cuerpo de prueba", array($request->push_token),
+         array("data" => ["infoprueba" => 123, "msj" => "hola"]), $type);
+
+        $res2 = Funciones::sendPushTo("test_to", "cuerpo de prueba to", $request->push_token,
+         array("data" => ["infoprueba" => 123, "msj" => "hola"]), $type);
+
+        return response()->json([
+            "res" => $res,
+            "res2" => $res2
+        ]);
     }
 
     

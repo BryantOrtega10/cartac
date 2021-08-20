@@ -30,12 +30,14 @@ class ConductorController extends Controller
      * 
      * @bodyParam email String required Email del conductor.
      * @bodyParam pass String required Contraseña del conductor.
+     * @bodyParam push_token String required Token de firebase.
      * 
      * */
     public function login(Request $request){
         $usuario = User::whereEmail($request->email)->first();
         if(!is_null($usuario) && Hash::check($request->pass, $usuario->password)){
             $usuario->api_token = Str::random(100);
+            $usuario->push_token = $request->push_token ?? "";
             $usuario->save();
             if($usuario->fk_rol == "1"){
                 $conductor = ConductorModel::where("con_fk_usr",$usuario->id)->first();
@@ -133,6 +135,7 @@ class ConductorController extends Controller
      * @bodyParam licencia_c String required Foto de la licencia de conducción del conductor en base 64.
      * @bodyParam cert_banc String Foto de la certificación bancaria del conductor en base 64.
      * @bodyParam esPropietario Integer Si se envia en 1 el conductor es propietario.
+     * @bodyParam push_token String Token de firebase.
      * 
 	 */
     public function agregar(AgregarConductorRequest $request)
@@ -142,6 +145,7 @@ class ConductorController extends Controller
         $usuario->email = $request->email;
         $usuario->password = Hash::make($request->pass);
         $usuario->fk_rol = 1;
+        $usuario->push_token = $request->push_token ?? "";
         $save_usuario = $usuario->save();
 
         $conductor = new ConductorModel();

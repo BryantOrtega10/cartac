@@ -73,7 +73,7 @@ class Funciones extends Controller
     }
 
 
-    public function sendPush($title, $body, $registration_ids = array(), $data = array(), $type = "cliente") {
+    public static function sendPushArr($title, $body, $registration_ids = array(), $data = array(), $type = "cliente") {
        
         $notification = array('title' =>$title , 'text' => $body, 'sound' => 'default');
 	    $responsePush = Http::withHeaders([
@@ -81,6 +81,20 @@ class Funciones extends Controller
             'Authorization' => 'key='.Config::get('services.fmc_'.$type.'.key')
         ])->post("https://fcm.googleapis.com/fcm/send",[
             "registration_ids" => $registration_ids,
+            "notification" => $notification,
+            'data' => $data
+        ]);
+        return $responsePush;        
+	}
+
+    public static function sendPushTo($title, $body, $registration_id = "", $data = array(), $type = "cliente") {
+       
+        $notification = array('title' =>$title , 'text' => $body, 'sound' => 'default');
+	    $responsePush = Http::withHeaders([
+            'Content-Type' => 'application/json',
+            'Authorization' => 'key='.Config::get('services.fmc_'.$type.'.key')
+        ])->post("https://fcm.googleapis.com/fcm/send",[
+            "to" => $registration_id,
             "notification" => $notification,
             'data' => $data
         ]);

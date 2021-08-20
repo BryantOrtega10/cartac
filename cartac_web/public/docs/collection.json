@@ -2,7 +2,7 @@
     "variables": [],
     "info": {
         "name": "Cartac API",
-        "_postman_id": "5d3e7d8d-fc1b-4cab-8cfb-703ae4a11f71",
+        "_postman_id": "e97e71db-e228-41d6-9a87-9e0b2e92dd81",
         "description": "",
         "schema": "https:\/\/schema.getpostman.com\/json\/collection\/v2.0.0\/collection.json"
     },
@@ -33,7 +33,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"est\",\n    \"pass\": \"voluptas\",\n    \"cedula\": \"quia\",\n    \"name\": \"voluptatem\",\n    \"apellidos\": \"aut\",\n    \"phone\": \"ea\",\n    \"con_hora_trabajo\": \"nemo\",\n    \"address\": \"iure\",\n    \"photo\": \"nemo\",\n    \"wallet_type\": \"et\",\n    \"wallet_number\": \"et\",\n    \"cedula_f\": \"numquam\",\n    \"cedula_r\": \"dolores\",\n    \"licencia_c\": \"cupiditate\",\n    \"cert_banc\": \"velit\",\n    \"esPropietario\": \"quasi\"\n}"
+                            "raw": "{\n    \"email\": \"reprehenderit\",\n    \"pass\": \"aut\",\n    \"cedula\": \"aliquam\",\n    \"name\": \"est\",\n    \"apellidos\": \"nam\",\n    \"phone\": \"itaque\",\n    \"con_hora_trabajo\": \"sed\",\n    \"address\": \"sit\",\n    \"photo\": \"qui\",\n    \"wallet_type\": \"commodi\",\n    \"wallet_number\": \"eius\",\n    \"cedula_f\": \"rem\",\n    \"cedula_r\": \"provident\",\n    \"licencia_c\": \"praesentium\",\n    \"cert_banc\": \"dolorem\",\n    \"esPropietario\": \"dicta\",\n    \"push_token\": \"fuga\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -61,7 +61,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"a\",\n    \"pass\": \"voluptatibus\"\n}"
+                            "raw": "{\n    \"email\": \"deleniti\",\n    \"pass\": \"quia\",\n    \"push_token\": \"suscipit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -117,7 +117,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"aut\",\n    \"cedula\": \"aut\",\n    \"name\": \"aliquid\",\n    \"apellidos\": \"doloribus\",\n    \"fk_user_conductor\": \"tenetur\",\n    \"cedula_f\": \"tempore\",\n    \"cedula_r\": \"et\",\n    \"carta_auto\": \"aperiam\"\n}"
+                            "raw": "{\n    \"email\": \"facilis\",\n    \"cedula\": \"aut\",\n    \"name\": \"autem\",\n    \"apellidos\": \"aut\",\n    \"fk_user_conductor\": \"enim\",\n    \"cedula_f\": \"assumenda\",\n    \"cedula_r\": \"temporibus\",\n    \"carta_auto\": \"dolores\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -145,7 +145,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dimension\": \"non\",\n    \"typeFk\": \"autem\",\n    \"placa\": \"enim\",\n    \"image\": \"aliquam\",\n    \"fkCarColor\": \"itaque\",\n    \"fkCarBrand\": \"distinctio\",\n    \"veh_rendimiento\": \"natus\",\n    \"id_owner\": \"voluptatibus\",\n    \"fkUserConductor\": \"nihil\",\n    \"subCategoryFk\": \"exercitationem\",\n    \"tarjeta_prop\": \"pariatur\",\n    \"soat\": \"et\",\n    \"tecno\": \"pariatur\"\n}"
+                            "raw": "{\n    \"dimension\": \"sit\",\n    \"typeFk\": \"amet\",\n    \"placa\": \"dolor\",\n    \"image\": \"facere\",\n    \"fkCarColor\": \"quidem\",\n    \"fkCarBrand\": \"commodi\",\n    \"veh_rendimiento\": \"sed\",\n    \"id_owner\": \"totam\",\n    \"fkUserConductor\": \"explicabo\",\n    \"subCategoryFk\": \"sint\",\n    \"tarjeta_prop\": \"repudiandae\",\n    \"soat\": \"quas\",\n    \"tecno\": \"autem\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -319,7 +319,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"parametro_respuesta\": \"in\",\n    \"id_documentos\": \"atque\",\n    \"documentos\": \"consequatur\"\n}"
+                            "raw": "{\n    \"parametro_respuesta\": \"qui\",\n    \"id_documentos\": \"fugiat\",\n    \"documentos\": \"eos\"\n}"
                         },
                         "description": "La autorizacion es una variable header -> Authorization : Bearer token",
                         "response": []
@@ -347,7 +347,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cli_nombres\": \"quia\",\n    \"cli_apellidos\": \"labore\",\n    \"cli_email\": \"enim\",\n    \"cli_pass\": \"magnam\",\n    \"cli_foto\": \"et\",\n    \"cli_red\": \"non\",\n    \"cli_id_red\": \"et\"\n}"
+                            "raw": "{\n    \"cli_nombres\": \"qui\",\n    \"cli_apellidos\": \"nesciunt\",\n    \"cli_email\": \"excepturi\",\n    \"cli_pass\": \"qui\",\n    \"cli_foto\": \"eum\",\n    \"cli_red\": \"asperiores\",\n    \"cli_id_red\": \"tempore\",\n    \"push_token\": \"quas\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -375,7 +375,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"email\": \"molestiae\",\n    \"pass\": \"omnis\"\n}"
+                            "raw": "{\n    \"email\": \"magnam\",\n    \"pass\": \"natus\",\n    \"push_token\": \"voluptates\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -437,7 +437,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"veh_id\": \"doloribus\"\n}"
+                            "raw": "{\n    \"veh_id\": \"iure\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -465,7 +465,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat\": \"perferendis\",\n    \"lng\": \"a\",\n    \"veh_id\": \"cum\"\n}"
+                            "raw": "{\n    \"lat\": \"iusto\",\n    \"lng\": \"sit\",\n    \"veh_id\": \"at\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -493,7 +493,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat_ini\": \"hic\",\n    \"lng_ini\": \"accusamus\",\n    \"lat_fin\": \"corporis\",\n    \"lng_fin\": \"nemo\",\n    \"tipo_veh\": \"quis\"\n}"
+                            "raw": "{\n    \"lat_ini\": \"et\",\n    \"lng_ini\": \"delectus\",\n    \"lat_fin\": \"dolorem\",\n    \"lng_fin\": \"eum\",\n    \"tipo_veh\": \"delectus\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -521,7 +521,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"ea\",\n    \"veh_id\": \"reiciendis\"\n}"
+                            "raw": "{\n    \"ser_id\": \"quisquam\",\n    \"veh_id\": \"magni\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -555,7 +555,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"cli_nombres\": \"ut\",\n    \"cli_apellidos\": \"quia\",\n    \"cli_email\": \"eos\",\n    \"cli_pass\": \"quibusdam\",\n    \"cli_foto\": \"velit\"\n}"
+                            "raw": "{\n    \"cli_nombres\": \"est\",\n    \"cli_apellidos\": \"ipsam\",\n    \"cli_email\": \"quae\",\n    \"cli_pass\": \"qui\",\n    \"cli_foto\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -611,7 +611,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"direccion\": \"hic\",\n    \"lat\": \"molestias\",\n    \"lng\": \"reprehenderit\"\n}"
+                            "raw": "{\n    \"direccion\": \"esse\",\n    \"lat\": \"est\",\n    \"lng\": \"et\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -639,7 +639,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"direccion\": \"voluptate\",\n    \"lat\": \"nemo\",\n    \"lng\": \"eos\",\n    \"dir_id\": \"facere\"\n}"
+                            "raw": "{\n    \"direccion\": \"esse\",\n    \"lat\": \"dignissimos\",\n    \"lng\": \"placeat\",\n    \"dir_id\": \"minus\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -667,7 +667,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"dir_id\": \"eos\"\n}"
+                            "raw": "{\n    \"dir_id\": \"ea\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -695,7 +695,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"quia\",\n    \"est_id\": \"ut\"\n}"
+                            "raw": "{\n    \"ser_id\": \"possimus\",\n    \"est_id\": \"odio\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -723,7 +723,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"sunt\"\n}"
+                            "raw": "{\n    \"ser_id\": \"quis\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -751,7 +751,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"nihil\",\n    \"motivo\": \"minima\"\n}"
+                            "raw": "{\n    \"ser_id\": \"illum\",\n    \"motivo\": \"ea\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -779,7 +779,7 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"ser_id\": \"maxime\",\n    \"calificacion\": \"architecto\",\n    \"opinion\": \"officiis\"\n}"
+                            "raw": "{\n    \"ser_id\": \"libero\",\n    \"calificacion\": \"qui\",\n    \"opinion\": \"sit\"\n}"
                         },
                         "description": "",
                         "response": []
@@ -813,14 +813,14 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"lat_ini\": \"laudantium\",\n    \"lng_ini\": \"quia\",\n    \"lat_fin\": \"est\",\n    \"lng_fin\": \"velit\",\n    \"direccion_inicio\": \"veritatis\",\n    \"direccion_fin\": \"sit\",\n    \"tipo_veh\": \"eligendi\",\n    \"dimension\": \"voluptatem\",\n    \"categoria\": \"corrupti\",\n    \"aplica_seguro\": \"voluptas\",\n    \"bono\": \"rerum\"\n}"
+                            "raw": "{\n    \"lat_ini\": \"voluptas\",\n    \"lng_ini\": \"dignissimos\",\n    \"lat_fin\": \"harum\",\n    \"lng_fin\": \"expedita\",\n    \"direccion_inicio\": \"accusantium\",\n    \"direccion_fin\": \"voluptas\",\n    \"tipo_veh\": \"sunt\",\n    \"dimension\": \"ut\",\n    \"categoria\": \"natus\",\n    \"aplica_seguro\": \"et\",\n    \"bono\": \"ea\"\n}"
                         },
                         "description": "",
                         "response": []
                     }
                 },
                 {
-                    "name": "Historial de servicios\nPermite ver los servicios que han sido calificados",
+                    "name": "Historial de servicios\nPermite ver los servicios que han sido calificados por parte del cliente",
                     "request": {
                         "url": {
                             "protocol": "https",
@@ -869,7 +869,69 @@
                         ],
                         "body": {
                             "mode": "raw",
-                            "raw": "{\n    \"categoria\": \"consequatur\"\n}"
+                            "raw": "{\n    \"categoria\": \"ab\"\n}"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                }
+            ]
+        },
+        {
+            "name": "v 1.0.6",
+            "description": "",
+            "item": [
+                {
+                    "name": "buscar_conductor\nBusca conductores y envia push segun la ubicacion de estos en un radio de 2,5,10 km a la redonda, si no aceptan envia push a cliente informando, se debe usar cada 5 mins para dar tiempo a los conductores de responder",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/servicio\/buscar_conductor",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "[]"
+                        },
+                        "description": "",
+                        "response": []
+                    }
+                },
+                {
+                    "name": "testPush\nProbar Push de cliente y conductor",
+                    "request": {
+                        "url": {
+                            "protocol": "https",
+                            "host": "desarrollocartac.web-html.com\/",
+                            "path": "api\/testPush",
+                            "query": []
+                        },
+                        "method": "GET",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "application\/json"
+                            },
+                            {
+                                "key": "Accept",
+                                "value": "application\/json"
+                            }
+                        ],
+                        "body": {
+                            "mode": "raw",
+                            "raw": "{\n    \"tipo\": \"et\",\n    \"push_token\": \"recusandae\"\n}"
                         },
                         "description": "",
                         "response": []

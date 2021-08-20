@@ -33,7 +33,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"est","pass":"voluptas","cedula":"quia","name":"voluptatem","apellidos":"aut","phone":"ea","con_hora_trabajo":"nemo","address":"iure","photo":"nemo","wallet_type":"et","wallet_number":"et","cedula_f":"numquam","cedula_r":"dolores","licencia_c":"cupiditate","cert_banc":"velit","esPropietario":"quasi"}'
+    -d '{"email":"reprehenderit","pass":"aut","cedula":"aliquam","name":"est","apellidos":"nam","phone":"itaque","con_hora_trabajo":"sed","address":"sit","photo":"qui","wallet_type":"commodi","wallet_number":"eius","cedula_f":"rem","cedula_r":"provident","licencia_c":"praesentium","cert_banc":"dolorem","esPropietario":"dicta","push_token":"fuga"}'
 
 ```
 
@@ -48,22 +48,23 @@ let headers = {
 };
 
 let body = {
-    "email": "est",
-    "pass": "voluptas",
-    "cedula": "quia",
-    "name": "voluptatem",
-    "apellidos": "aut",
-    "phone": "ea",
-    "con_hora_trabajo": "nemo",
-    "address": "iure",
-    "photo": "nemo",
-    "wallet_type": "et",
-    "wallet_number": "et",
-    "cedula_f": "numquam",
-    "cedula_r": "dolores",
-    "licencia_c": "cupiditate",
-    "cert_banc": "velit",
-    "esPropietario": "quasi"
+    "email": "reprehenderit",
+    "pass": "aut",
+    "cedula": "aliquam",
+    "name": "est",
+    "apellidos": "nam",
+    "phone": "itaque",
+    "con_hora_trabajo": "sed",
+    "address": "sit",
+    "photo": "qui",
+    "wallet_type": "commodi",
+    "wallet_number": "eius",
+    "cedula_f": "rem",
+    "cedula_r": "provident",
+    "licencia_c": "praesentium",
+    "cert_banc": "dolorem",
+    "esPropietario": "dicta",
+    "push_token": "fuga"
 }
 
 fetch(url, {
@@ -99,6 +100,7 @@ Parameter | Type | Status | Description
         `licencia_c` | String |  required  | Foto de la licencia de conducción del conductor en base 64.
         `cert_banc` | String |  optional  | Foto de la certificación bancaria del conductor en base 64.
         `esPropietario` | Integer |  optional  | Si se envia en 1 el conductor es propietario.
+        `push_token` | String |  optional  | Token de firebase.
     
 <!-- END_e079d75507413011cb8fbacf2bb41ad6 -->
 
@@ -112,7 +114,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"a","pass":"voluptatibus"}'
+    -d '{"email":"deleniti","pass":"quia","push_token":"suscipit"}'
 
 ```
 
@@ -127,8 +129,9 @@ let headers = {
 };
 
 let body = {
-    "email": "a",
-    "pass": "voluptatibus"
+    "email": "deleniti",
+    "pass": "quia",
+    "push_token": "suscipit"
 }
 
 fetch(url, {
@@ -150,6 +153,7 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     `email` | String |  required  | Email del conductor.
         `pass` | String |  required  | Contraseña del conductor.
+        `push_token` | String |  required  | Token de firebase.
     
 <!-- END_dd7d1777a6d3b6a7f46cb04077c733bf -->
 
@@ -211,7 +215,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/propietario/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"aut","cedula":"aut","name":"aliquid","apellidos":"doloribus","fk_user_conductor":"tenetur","cedula_f":"tempore","cedula_r":"et","carta_auto":"aperiam"}'
+    -d '{"email":"facilis","cedula":"aut","name":"autem","apellidos":"aut","fk_user_conductor":"enim","cedula_f":"assumenda","cedula_r":"temporibus","carta_auto":"dolores"}'
 
 ```
 
@@ -226,14 +230,14 @@ let headers = {
 };
 
 let body = {
-    "email": "aut",
+    "email": "facilis",
     "cedula": "aut",
-    "name": "aliquid",
-    "apellidos": "doloribus",
-    "fk_user_conductor": "tenetur",
-    "cedula_f": "tempore",
-    "cedula_r": "et",
-    "carta_auto": "aperiam"
+    "name": "autem",
+    "apellidos": "aut",
+    "fk_user_conductor": "enim",
+    "cedula_f": "assumenda",
+    "cedula_r": "temporibus",
+    "carta_auto": "dolores"
 }
 
 fetch(url, {
@@ -274,7 +278,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/vehiculo/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dimension":"non","typeFk":"autem","placa":"enim","image":"aliquam","fkCarColor":"itaque","fkCarBrand":"distinctio","veh_rendimiento":"natus","id_owner":"voluptatibus","fkUserConductor":"nihil","subCategoryFk":"exercitationem","tarjeta_prop":"pariatur","soat":"et","tecno":"pariatur"}'
+    -d '{"dimension":"sit","typeFk":"amet","placa":"dolor","image":"facere","fkCarColor":"quidem","fkCarBrand":"commodi","veh_rendimiento":"sed","id_owner":"totam","fkUserConductor":"explicabo","subCategoryFk":"sint","tarjeta_prop":"repudiandae","soat":"quas","tecno":"autem"}'
 
 ```
 
@@ -289,19 +293,19 @@ let headers = {
 };
 
 let body = {
-    "dimension": "non",
-    "typeFk": "autem",
-    "placa": "enim",
-    "image": "aliquam",
-    "fkCarColor": "itaque",
-    "fkCarBrand": "distinctio",
-    "veh_rendimiento": "natus",
-    "id_owner": "voluptatibus",
-    "fkUserConductor": "nihil",
-    "subCategoryFk": "exercitationem",
-    "tarjeta_prop": "pariatur",
-    "soat": "et",
-    "tecno": "pariatur"
+    "dimension": "sit",
+    "typeFk": "amet",
+    "placa": "dolor",
+    "image": "facere",
+    "fkCarColor": "quidem",
+    "fkCarBrand": "commodi",
+    "veh_rendimiento": "sed",
+    "id_owner": "totam",
+    "fkUserConductor": "explicabo",
+    "subCategoryFk": "sint",
+    "tarjeta_prop": "repudiandae",
+    "soat": "quas",
+    "tecno": "autem"
 }
 
 fetch(url, {
@@ -368,85 +372,13 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (500):
 
 ```json
 {
-    "success": true,
-    "data": [
-        {
-            "id": 1,
-            "name": "Negro"
-        },
-        {
-            "id": 2,
-            "name": "Rojo"
-        },
-        {
-            "id": 3,
-            "name": "Verde"
-        },
-        {
-            "id": 4,
-            "name": "Morado"
-        },
-        {
-            "id": 5,
-            "name": "Gris"
-        },
-        {
-            "id": 6,
-            "name": "Gris plateado"
-        },
-        {
-            "id": 7,
-            "name": "Plateado"
-        },
-        {
-            "id": 8,
-            "name": "Azul"
-        },
-        {
-            "id": 9,
-            "name": "Azul plateado"
-        },
-        {
-            "id": 10,
-            "name": "Cafe"
-        },
-        {
-            "id": 11,
-            "name": "Marron"
-        },
-        {
-            "id": 12,
-            "name": "Lila"
-        },
-        {
-            "id": 13,
-            "name": "amarillo"
-        },
-        {
-            "id": 14,
-            "name": "Blanco"
-        },
-        {
-            "id": 15,
-            "name": "Blanco abano"
-        },
-        {
-            "id": 16,
-            "name": "Blanco Perla"
-        },
-        {
-            "id": 17,
-            "name": "Dorado"
-        },
-        {
-            "id": 18,
-            "name": "Naranja"
-        }
-    ]
+    "success": false,
+    "message": "Error de consulta BDD ",
+    "0": "SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.\r\n (SQL: select `col_id` as `id`, `col_name` as `name` from `color_veh`)"
 }
 ```
 
@@ -487,81 +419,13 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (500):
 
 ```json
 {
-    "success": true,
-    "data": [
-        {
-            "id": 1,
-            "name": "Renault"
-        },
-        {
-            "id": 2,
-            "name": "Chevrolet"
-        },
-        {
-            "id": 3,
-            "name": "Mazda"
-        },
-        {
-            "id": 4,
-            "name": "Nissan"
-        },
-        {
-            "id": 5,
-            "name": "Kia"
-        },
-        {
-            "id": 6,
-            "name": "Toyota"
-        },
-        {
-            "id": 7,
-            "name": "Volkswagen"
-        },
-        {
-            "id": 8,
-            "name": "Suzuki"
-        },
-        {
-            "id": 9,
-            "name": "Toyota"
-        },
-        {
-            "id": 10,
-            "name": "Mercedes-Benz"
-        },
-        {
-            "id": 11,
-            "name": "Fiat"
-        },
-        {
-            "id": 12,
-            "name": "Dodge"
-        },
-        {
-            "id": 13,
-            "name": "Honda"
-        },
-        {
-            "id": 14,
-            "name": "Jeep"
-        },
-        {
-            "id": 15,
-            "name": "Mini"
-        },
-        {
-            "id": 16,
-            "name": "Peugeot"
-        },
-        {
-            "id": 17,
-            "name": "Skoda"
-        }
-    ]
+    "success": false,
+    "message": "Error de consulta BDD ",
+    "0": "SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.\r\n (SQL: select `mar_id` as `id`, `mar_name` as `name` from `marca_veh`)"
 }
 ```
 
@@ -602,25 +466,13 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (500):
 
 ```json
 {
-    "success": true,
-    "data": [
-        {
-            "dim_id": 1,
-            "dim_name": "Grande"
-        },
-        {
-            "dim_id": 2,
-            "dim_name": "Mediano"
-        },
-        {
-            "dim_id": 3,
-            "dim_name": "Pequeño"
-        }
-    ]
+    "success": false,
+    "message": "Error de consulta BDD ",
+    "0": "SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.\r\n (SQL: select * from `dimension_veh`)"
 }
 ```
 
@@ -661,34 +513,13 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (500):
 
 ```json
 {
-    "success": true,
-    "data": [
-        {
-            "id": 1,
-            "name": "Empresas y Negocios",
-            "imagen": null
-        },
-        {
-            "id": 2,
-            "name": "Hogar",
-            "imagen": null
-        },
-        {
-            "id": 3,
-            "name": "Alimentos",
-            "imagen": null
-        },
-        {
-            "id": 4,
-            "name": "Carga especial",
-            "imagen": null
-        }
-    ],
-    "pathImage": ""
+    "success": false,
+    "message": "Error de consulta BDD ",
+    "0": "SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.\r\n (SQL: select `cat_id` as `id`, `cat_name` as `name`, `cat_icono` as `imagen` from `categoria` where `cat_fk_cat` is null)"
 }
 ```
 
@@ -729,34 +560,13 @@ fetch(url, {
 ```
 
 
-> Example response (200):
+> Example response (500):
 
 ```json
 {
-    "success": true,
-    "data": [
-        {
-            "id": 1,
-            "name": "Empresas y Negocios",
-            "imagen": null
-        },
-        {
-            "id": 2,
-            "name": "Hogar",
-            "imagen": null
-        },
-        {
-            "id": 3,
-            "name": "Alimentos",
-            "imagen": null
-        },
-        {
-            "id": 4,
-            "name": "Carga especial",
-            "imagen": null
-        }
-    ],
-    "pathImage": ""
+    "success": false,
+    "message": "Error de consulta BDD ",
+    "0": "SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.\r\n (SQL: select `cat_id` as `id`, `cat_name` as `name`, `cat_icono` as `imagen` from `categoria` where `cat_fk_cat` is null)"
 }
 ```
 
@@ -787,7 +597,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/resubir" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"parametro_respuesta":"in","id_documentos":"atque","documentos":"consequatur"}'
+    -d '{"parametro_respuesta":"qui","id_documentos":"fugiat","documentos":"eos"}'
 
 ```
 
@@ -802,9 +612,9 @@ let headers = {
 };
 
 let body = {
-    "parametro_respuesta": "in",
-    "id_documentos": "atque",
-    "documentos": "consequatur"
+    "parametro_respuesta": "qui",
+    "id_documentos": "fugiat",
+    "documentos": "eos"
 }
 
 fetch(url, {
@@ -840,7 +650,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cli_nombres":"quia","cli_apellidos":"labore","cli_email":"enim","cli_pass":"magnam","cli_foto":"et","cli_red":"non","cli_id_red":"et"}'
+    -d '{"cli_nombres":"qui","cli_apellidos":"nesciunt","cli_email":"excepturi","cli_pass":"qui","cli_foto":"eum","cli_red":"asperiores","cli_id_red":"tempore","push_token":"quas"}'
 
 ```
 
@@ -855,13 +665,14 @@ let headers = {
 };
 
 let body = {
-    "cli_nombres": "quia",
-    "cli_apellidos": "labore",
-    "cli_email": "enim",
-    "cli_pass": "magnam",
-    "cli_foto": "et",
-    "cli_red": "non",
-    "cli_id_red": "et"
+    "cli_nombres": "qui",
+    "cli_apellidos": "nesciunt",
+    "cli_email": "excepturi",
+    "cli_pass": "qui",
+    "cli_foto": "eum",
+    "cli_red": "asperiores",
+    "cli_id_red": "tempore",
+    "push_token": "quas"
 }
 
 fetch(url, {
@@ -888,6 +699,7 @@ Parameter | Type | Status | Description
         `cli_foto` | String/File |  required  | Puede ser un archivo o una imagen en base 64 de la foto del cliente.
         `cli_red` | String |  required  | FACEBOOK, GOOGLE, APPLE, etc.
         `cli_id_red` | String |  required  | id de la red social.
+        `push_token` | String |  optional  | Token de firebase.
     
 <!-- END_a8214f7698759b766de456fa95811130 -->
 
@@ -901,7 +713,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/login" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"email":"molestiae","pass":"omnis"}'
+    -d '{"email":"magnam","pass":"natus","push_token":"voluptates"}'
 
 ```
 
@@ -916,8 +728,9 @@ let headers = {
 };
 
 let body = {
-    "email": "molestiae",
-    "pass": "omnis"
+    "email": "magnam",
+    "pass": "natus",
+    "push_token": "voluptates"
 }
 
 fetch(url, {
@@ -939,6 +752,7 @@ Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
     `email` | String |  optional  | Email del cliente.
         `pass` | String |  optional  | Contraseña del cliente o id de la red social.
+        `push_token` | String |  optional  | Token de firebase.
     
 <!-- END_ea71a2e0bf12e55039c3666b39ec8975 -->
 
@@ -996,7 +810,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/conectar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"veh_id":"doloribus"}'
+    -d '{"veh_id":"iure"}'
 
 ```
 
@@ -1011,7 +825,7 @@ let headers = {
 };
 
 let body = {
-    "veh_id": "doloribus"
+    "veh_id": "iure"
 }
 
 fetch(url, {
@@ -1047,7 +861,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/conductor/actualizarUbicacion" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat":"perferendis","lng":"a","veh_id":"cum"}'
+    -d '{"lat":"iusto","lng":"sit","veh_id":"at"}'
 
 ```
 
@@ -1062,9 +876,9 @@ let headers = {
 };
 
 let body = {
-    "lat": "perferendis",
-    "lng": "a",
-    "veh_id": "cum"
+    "lat": "iusto",
+    "lng": "sit",
+    "veh_id": "at"
 }
 
 fetch(url, {
@@ -1102,7 +916,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/cotizar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat_ini":"hic","lng_ini":"accusamus","lat_fin":"corporis","lng_fin":"nemo","tipo_veh":"quis"}'
+    -d '{"lat_ini":"et","lng_ini":"delectus","lat_fin":"dolorem","lng_fin":"eum","tipo_veh":"delectus"}'
 
 ```
 
@@ -1117,11 +931,11 @@ let headers = {
 };
 
 let body = {
-    "lat_ini": "hic",
-    "lng_ini": "accusamus",
-    "lat_fin": "corporis",
-    "lng_fin": "nemo",
-    "tipo_veh": "quis"
+    "lat_ini": "et",
+    "lng_ini": "delectus",
+    "lat_fin": "dolorem",
+    "lng_fin": "eum",
+    "tipo_veh": "delectus"
 }
 
 fetch(url, {
@@ -1161,7 +975,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/aceptar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"ea","veh_id":"reiciendis"}'
+    -d '{"ser_id":"quisquam","veh_id":"magni"}'
 
 ```
 
@@ -1176,8 +990,8 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "ea",
-    "veh_id": "reiciendis"
+    "ser_id": "quisquam",
+    "veh_id": "magni"
 }
 
 fetch(url, {
@@ -1216,7 +1030,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/modificar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"cli_nombres":"ut","cli_apellidos":"quia","cli_email":"eos","cli_pass":"quibusdam","cli_foto":"velit"}'
+    -d '{"cli_nombres":"est","cli_apellidos":"ipsam","cli_email":"quae","cli_pass":"qui","cli_foto":"et"}'
 
 ```
 
@@ -1231,11 +1045,11 @@ let headers = {
 };
 
 let body = {
-    "cli_nombres": "ut",
-    "cli_apellidos": "quia",
-    "cli_email": "eos",
-    "cli_pass": "quibusdam",
-    "cli_foto": "velit"
+    "cli_nombres": "est",
+    "cli_apellidos": "ipsam",
+    "cli_email": "quae",
+    "cli_pass": "qui",
+    "cli_foto": "et"
 }
 
 fetch(url, {
@@ -1323,7 +1137,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/cliente/direccion/agregar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"direccion":"hic","lat":"molestias","lng":"reprehenderit"}'
+    -d '{"direccion":"esse","lat":"est","lng":"et"}'
 
 ```
 
@@ -1338,9 +1152,9 @@ let headers = {
 };
 
 let body = {
-    "direccion": "hic",
-    "lat": "molestias",
-    "lng": "reprehenderit"
+    "direccion": "esse",
+    "lat": "est",
+    "lng": "et"
 }
 
 fetch(url, {
@@ -1378,7 +1192,7 @@ curl -X PUT \
     "https://desarrollocartac.web-html.com/api/cliente/direccion/modificar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"direccion":"voluptate","lat":"nemo","lng":"eos","dir_id":"facere"}'
+    -d '{"direccion":"esse","lat":"dignissimos","lng":"placeat","dir_id":"minus"}'
 
 ```
 
@@ -1393,10 +1207,10 @@ let headers = {
 };
 
 let body = {
-    "direccion": "voluptate",
-    "lat": "nemo",
-    "lng": "eos",
-    "dir_id": "facere"
+    "direccion": "esse",
+    "lat": "dignissimos",
+    "lng": "placeat",
+    "dir_id": "minus"
 }
 
 fetch(url, {
@@ -1435,7 +1249,7 @@ curl -X DELETE \
     "https://desarrollocartac.web-html.com/api/cliente/direccion/eliminar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"dir_id":"eos"}'
+    -d '{"dir_id":"ea"}'
 
 ```
 
@@ -1450,7 +1264,7 @@ let headers = {
 };
 
 let body = {
-    "dir_id": "eos"
+    "dir_id": "ea"
 }
 
 fetch(url, {
@@ -1486,7 +1300,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/cambiar_estado" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"quia","est_id":"ut"}'
+    -d '{"ser_id":"possimus","est_id":"odio"}'
 
 ```
 
@@ -1501,8 +1315,8 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "quia",
-    "est_id": "ut"
+    "ser_id": "possimus",
+    "est_id": "odio"
 }
 
 fetch(url, {
@@ -1539,7 +1353,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/ver_datos" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"sunt"}'
+    -d '{"ser_id":"quis"}'
 
 ```
 
@@ -1554,7 +1368,7 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "sunt"
+    "ser_id": "quis"
 }
 
 fetch(url, {
@@ -1590,7 +1404,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/cancelar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"nihil","motivo":"minima"}'
+    -d '{"ser_id":"illum","motivo":"ea"}'
 
 ```
 
@@ -1605,8 +1419,8 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "nihil",
-    "motivo": "minima"
+    "ser_id": "illum",
+    "motivo": "ea"
 }
 
 fetch(url, {
@@ -1643,7 +1457,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/calificar" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"ser_id":"maxime","calificacion":"architecto","opinion":"officiis"}'
+    -d '{"ser_id":"libero","calificacion":"qui","opinion":"sit"}'
 
 ```
 
@@ -1658,9 +1472,9 @@ let headers = {
 };
 
 let body = {
-    "ser_id": "maxime",
-    "calificacion": "architecto",
-    "opinion": "officiis"
+    "ser_id": "libero",
+    "calificacion": "qui",
+    "opinion": "sit"
 }
 
 fetch(url, {
@@ -1701,7 +1515,7 @@ curl -X POST \
     "https://desarrollocartac.web-html.com/api/servicio/crear" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"lat_ini":"laudantium","lng_ini":"quia","lat_fin":"est","lng_fin":"velit","direccion_inicio":"veritatis","direccion_fin":"sit","tipo_veh":"eligendi","dimension":"voluptatem","categoria":"corrupti","aplica_seguro":"voluptas","bono":"rerum"}'
+    -d '{"lat_ini":"voluptas","lng_ini":"dignissimos","lat_fin":"harum","lng_fin":"expedita","direccion_inicio":"accusantium","direccion_fin":"voluptas","tipo_veh":"sunt","dimension":"ut","categoria":"natus","aplica_seguro":"et","bono":"ea"}'
 
 ```
 
@@ -1716,17 +1530,17 @@ let headers = {
 };
 
 let body = {
-    "lat_ini": "laudantium",
-    "lng_ini": "quia",
-    "lat_fin": "est",
-    "lng_fin": "velit",
-    "direccion_inicio": "veritatis",
-    "direccion_fin": "sit",
-    "tipo_veh": "eligendi",
-    "dimension": "voluptatem",
-    "categoria": "corrupti",
-    "aplica_seguro": "voluptas",
-    "bono": "rerum"
+    "lat_ini": "voluptas",
+    "lng_ini": "dignissimos",
+    "lat_fin": "harum",
+    "lng_fin": "expedita",
+    "direccion_inicio": "accusantium",
+    "direccion_fin": "voluptas",
+    "tipo_veh": "sunt",
+    "dimension": "ut",
+    "categoria": "natus",
+    "aplica_seguro": "et",
+    "bono": "ea"
 }
 
 fetch(url, {
@@ -1762,7 +1576,7 @@ Parameter | Type | Status | Description
 
 <!-- START_8957fed5ca13c0ea70f71591b8296a76 -->
 ## Historial de servicios
-Permite ver los servicios que han sido calificados
+Permite ver los servicios que han sido calificados por parte del cliente
 
 <br><small style="padding: 1px 9px 2px;font-weight: bold;white-space: nowrap;color: #ffffff;-webkit-border-radius: 9px;-moz-border-radius: 9px;border-radius: 9px;background-color: #3a87ad;">Requires authentication</small>
 > Example request:
@@ -1810,7 +1624,7 @@ curl -X GET \
     -G "https://desarrollocartac.web-html.com/api/tipo_vehiculo" \
     -H "Content-Type: application/json" \
     -H "Accept: application/json" \
-    -d '{"categoria":"consequatur"}'
+    -d '{"categoria":"ab"}'
 
 ```
 
@@ -1825,7 +1639,118 @@ let headers = {
 };
 
 let body = {
-    "categoria": "consequatur"
+    "categoria": "ab"
+}
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+    body: body
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "success": false,
+    "message": "Error de consulta BDD ",
+    "0": "SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.\r\n (SQL: select `tip_id` as `id`, `tip_name` as `name`, `tip_foto` as `foto`, `tip_foto` as `foto` from `tipo_veh` inner join `dimension_tipo_veh` on `fk_tip` = `tip_id` inner join `vehiculo` on `veh_fk_dim_tip` = `id` inner join `vehiculo_categoria` on `fk_veh_id` = `veh_id` where `fk_cat_id` = ab)"
+}
+```
+
+### HTTP Request
+`GET api/tipo_vehiculo`
+
+#### Body Parameters
+Parameter | Type | Status | Description
+--------- | ------- | ------- | ------- | -----------
+    `categoria` | Integer |  optional  | Id de la categoria.
+    
+<!-- END_6b642b4c24dc59176b1ee7dd632ab146 -->
+
+#v 1.0.6
+
+
+<!-- START_6b4363ff719134bcbfaa0795d6ff4006 -->
+## buscar_conductor
+Busca conductores y envia push segun la ubicacion de estos en un radio de 2,5,10 km a la redonda, si no aceptan envia push a cliente informando, se debe usar cada 5 mins para dar tiempo a los conductores de responder
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://desarrollocartac.web-html.com/api/servicio/buscar_conductor" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json"
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/servicio/buscar_conductor"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers: headers,
+})
+    .then(response => response.json())
+    .then(json => console.log(json));
+```
+
+
+> Example response (500):
+
+```json
+{
+    "success": false,
+    "message": "Error de consulta BDD ",
+    "0": "SQLSTATE[HY000] [2002] No se puede establecer una conexión ya que el equipo de destino denegó expresamente dicha conexión.\r\n (SQL: select ST_X(ser_ubicacion_ini) as lat_ini, ST_Y(ser_ubicacion_ini) as lng_ini,\n        ser_busqueda_distancia_km, ser_fk_est, ser_id from `servicio` where `ser_fk_est` = 8)"
+}
+```
+
+### HTTP Request
+`GET api/servicio/buscar_conductor`
+
+
+<!-- END_6b4363ff719134bcbfaa0795d6ff4006 -->
+
+<!-- START_eac05d2cbb7aa6aa4c194712126dea3d -->
+## testPush
+Probar Push de cliente y conductor
+
+> Example request:
+
+```bash
+curl -X GET \
+    -G "https://desarrollocartac.web-html.com/api/testPush" \
+    -H "Content-Type: application/json" \
+    -H "Accept: application/json" \
+    -d '{"tipo":"et","push_token":"recusandae"}'
+
+```
+
+```javascript
+const url = new URL(
+    "https://desarrollocartac.web-html.com/api/testPush"
+);
+
+let headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "tipo": "et",
+    "push_token": "recusandae"
 }
 
 fetch(url, {
@@ -1842,19 +1767,26 @@ fetch(url, {
 
 ```json
 {
-    "success": true,
-    "data": []
+    "res": {
+        "cookies": {},
+        "transferStats": {}
+    },
+    "res2": {
+        "cookies": {},
+        "transferStats": {}
+    }
 }
 ```
 
 ### HTTP Request
-`GET api/tipo_vehiculo`
+`GET api/testPush`
 
 #### Body Parameters
 Parameter | Type | Status | Description
 --------- | ------- | ------- | ------- | -----------
-    `categoria` | Integer |  optional  | Id de la categoria.
+    `tipo` | Integer |  required  | 1 para conductor, 2 para cliente.
+        `push_token` | String |  required  | Token de firebase.
     
-<!-- END_6b642b4c24dc59176b1ee7dd632ab146 -->
+<!-- END_eac05d2cbb7aa6aa4c194712126dea3d -->
 
 

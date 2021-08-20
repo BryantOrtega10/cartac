@@ -116,7 +116,7 @@ class DireccionClienteController extends Controller
 	 */ 
     public function eliminar(EliminarDireccionesClienteRequest $request){
 
-        $direccion = DireccionClienteModelo::findOrFail($request->dir_id);
+        $direccion = DireccionClienteModel::findOrFail($request->dir_id);
         $direccion->delete();
 
         return response()->json([

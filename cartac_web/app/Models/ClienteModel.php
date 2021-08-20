@@ -22,4 +22,10 @@ class ClienteModel extends Model
     
 
     public $timestamps = false;    
+
+    public function usuario()
+    {
+        return $this->belongsTo(User::class, 'cli_fk_usr', 'id');
+    }
+
 }

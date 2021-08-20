@@ -76,6 +76,9 @@ Route::get("categoria", "App\Http\Controllers\Api\CategoriaController@index");
 Route::get("sub_categoria", "App\Http\Controllers\Api\CategoriaController@indexSubCategoria");
 
 
+Route::get("testPush", "App\Http\Controllers\Api\ServicioController@testPush");
+
+
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
